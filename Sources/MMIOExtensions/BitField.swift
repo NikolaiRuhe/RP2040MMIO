@@ -4,10 +4,14 @@ import MMIO
 /// Provides bitwise access.
 public struct BitField<Config: BitFieldWidth>: RawRepresentable, BitFieldProjectable, ExpressibleByIntegerLiteral, CustomStringConvertible, Equatable, Hashable, Codable {
     public var rawValue: UInt
-    public init?(rawValue: UInt) { self.init(integerLiteral: rawValue) }
+
+    public init?(rawValue: UInt) {
+        guard Self.fits(rawValue) else { return nil }
+        self.rawValue = rawValue
+    }
 
     public init(integerLiteral value: UInt) {
-        if UInt.bitWidth - value.leadingZeroBitCount > Self.bitWidth {
+        guard Self.fits(value) else {
             preconditionFailure("integer literal out of range: \(value)")
         }
         self.rawValue = UInt(value)
@@ -25,17 +29,21 @@ public struct BitField<Config: BitFieldWidth>: RawRepresentable, BitFieldProject
     /// the original registers's field does not start at bit 0.
     public subscript(_ bitNum: Int) -> Bool {
         get {
-            precondition((0 ... Self.bitWidth).contains(bitNum), "BitField index out of range: \(bitNum)")
+            precondition((0 ..< Self.bitWidth).contains(bitNum), "BitField index out of range: \(bitNum)")
             return rawValue & (1 << bitNum) != 0
         }
         set {
-            precondition((0 ... Self.bitWidth).contains(bitNum), "BitField index out of range: \(bitNum)")
+            precondition((0 ..< Self.bitWidth).contains(bitNum), "BitField index out of range: \(bitNum)")
             if newValue {
                 rawValue |= 1 << bitNum
             } else {
                 rawValue &= ~(1 << bitNum)
             }
         }
+    }
+
+    static func fits(_ value: UInt) -> Bool {
+        UInt.bitWidth - value.leadingZeroBitCount <= bitWidth
     }
 }
 
