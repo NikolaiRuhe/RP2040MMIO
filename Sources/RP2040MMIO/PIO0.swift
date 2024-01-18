@@ -112,56 +112,56 @@ public struct PIO0 {
     public var txf0: Register<TXF0>
 
     @Register(bitWidth: 32)
-    public struct TXF0 {    }
+    public struct TXF0 {}
 
     /// Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO.
     @RegisterBank(offset: 0x0014)
     public var txf1: Register<TXF1>
 
     @Register(bitWidth: 32)
-    public struct TXF1 {    }
+    public struct TXF1 {}
 
     /// Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO.
     @RegisterBank(offset: 0x0018)
     public var txf2: Register<TXF2>
 
     @Register(bitWidth: 32)
-    public struct TXF2 {    }
+    public struct TXF2 {}
 
     /// Direct write access to the TX FIFO for this state machine. Each write pushes one word to the FIFO. Attempting to write to a full FIFO has no effect on the FIFO state or contents, and sets the sticky FDEBUG_TXOVER error flag for this FIFO.
     @RegisterBank(offset: 0x001c)
     public var txf3: Register<TXF3>
 
     @Register(bitWidth: 32)
-    public struct TXF3 {    }
+    public struct TXF3 {}
 
     /// Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined.
     @RegisterBank(offset: 0x0020)
     public var rxf0: Register<RXF0>
 
     @Register(bitWidth: 32)
-    public struct RXF0 {    }
+    public struct RXF0 {}
 
     /// Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined.
     @RegisterBank(offset: 0x0024)
     public var rxf1: Register<RXF1>
 
     @Register(bitWidth: 32)
-    public struct RXF1 {    }
+    public struct RXF1 {}
 
     /// Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined.
     @RegisterBank(offset: 0x0028)
     public var rxf2: Register<RXF2>
 
     @Register(bitWidth: 32)
-    public struct RXF2 {    }
+    public struct RXF2 {}
 
     /// Direct read access to the RX FIFO for this state machine. Each read pops one word from the FIFO. Attempting to read from an empty FIFO has no effect on the FIFO state, and sets the sticky FDEBUG_RXUNDER error flag for this FIFO. The data returned to the system on a read from an empty FIFO is undefined.
     @RegisterBank(offset: 0x002c)
     public var rxf3: Register<RXF3>
 
     @Register(bitWidth: 32)
-    public struct RXF3 {    }
+    public struct RXF3 {}
 
     /// State machine IRQ flags register. Write 1 to clear. There are 8 state machine IRQ flags, which can be set, cleared, and waited on by the state machines. There's no fixed association between flags and state machines -- any state machine can use any flag.
     /// Any of the 8 flags can be used for timing synchronisation between state machines, using IRQ and WAIT instructions. The lower four of these flags are also routed out to system-level interrupt requests, alongside FIFO status interrupts -- see e.g. IRQ0_INTE.
@@ -192,21 +192,21 @@ public struct PIO0 {
     public var input_sync_bypass: Register<INPUT_SYNC_BYPASS>
 
     @Register(bitWidth: 32)
-    public struct INPUT_SYNC_BYPASS {    }
+    public struct INPUT_SYNC_BYPASS {}
 
     /// Read to sample the pad output values PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0.
     @RegisterBank(offset: 0x003c)
     public var dbg_padout: Register<DBG_PADOUT>
 
     @Register(bitWidth: 32)
-    public struct DBG_PADOUT {    }
+    public struct DBG_PADOUT {}
 
     /// Read to sample the pad output enables (direction) PIO is currently driving to the GPIOs. On RP2040 there are 30 GPIOs, so the two most significant bits are hardwired to 0.
     @RegisterBank(offset: 0x0040)
     public var dbg_padoe: Register<DBG_PADOE>
 
     @Register(bitWidth: 32)
-    public struct DBG_PADOE {    }
+    public struct DBG_PADOE {}
 
     /// The PIO hardware has some free parameters that may vary between chip products.
     /// These should be provided in the chip datasheet, but are also exposed here.

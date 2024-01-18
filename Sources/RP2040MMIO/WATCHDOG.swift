@@ -67,56 +67,56 @@ public struct WATCHDOG {
     public var scratch0: Register<SCRATCH0>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH0 {    }
+    public struct SCRATCH0 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0010)
     public var scratch1: Register<SCRATCH1>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH1 {    }
+    public struct SCRATCH1 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0014)
     public var scratch2: Register<SCRATCH2>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH2 {    }
+    public struct SCRATCH2 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0018)
     public var scratch3: Register<SCRATCH3>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH3 {    }
+    public struct SCRATCH3 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x001c)
     public var scratch4: Register<SCRATCH4>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH4 {    }
+    public struct SCRATCH4 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0020)
     public var scratch5: Register<SCRATCH5>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH5 {    }
+    public struct SCRATCH5 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0024)
     public var scratch6: Register<SCRATCH6>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH6 {    }
+    public struct SCRATCH6 {}
 
     /// Scratch register. Information persists through soft reset of the chip.
     @RegisterBank(offset: 0x0028)
     public var scratch7: Register<SCRATCH7>
 
     @Register(bitWidth: 32)
-    public struct SCRATCH7 {    }
+    public struct SCRATCH7 {}
 
     /// Controls the tick generator
     @RegisterBank(offset: 0x002c)

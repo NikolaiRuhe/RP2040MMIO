@@ -14,7 +14,7 @@ public struct SIO {
     public var cpuid: Register<CPUID>
 
     @Register(bitWidth: 32)
-    public struct CPUID {    }
+    public struct CPUID {}
 
     /// Input value for GPIO pins
     @RegisterBank(offset: 0x0004)
@@ -262,14 +262,14 @@ public struct SIO {
     public var fifo_wr: Register<FIFO_WR>
 
     @Register(bitWidth: 32)
-    public struct FIFO_WR {    }
+    public struct FIFO_WR {}
 
     /// Read access to this core's RX FIFO
     @RegisterBank(offset: 0x0058)
     public var fifo_rd: Register<FIFO_RD>
 
     @Register(bitWidth: 32)
-    public struct FIFO_RD {    }
+    public struct FIFO_RD {}
 
     /// Spinlock state
     /// A bitmap containing the state of all 32 spinlocks (1=locked).
@@ -278,7 +278,7 @@ public struct SIO {
     public var spinlock_st: Register<SPINLOCK_ST>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK_ST {    }
+    public struct SPINLOCK_ST {}
 
     /// Divider unsigned dividend
     /// Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.
@@ -289,7 +289,7 @@ public struct SIO {
     public var div_udividend: Register<DIV_UDIVIDEND>
 
     @Register(bitWidth: 32)
-    public struct DIV_UDIVIDEND {    }
+    public struct DIV_UDIVIDEND {}
 
     /// Divider unsigned divisor
     /// Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.
@@ -300,7 +300,7 @@ public struct SIO {
     public var div_udivisor: Register<DIV_UDIVISOR>
 
     @Register(bitWidth: 32)
-    public struct DIV_UDIVISOR {    }
+    public struct DIV_UDIVISOR {}
 
     /// Divider signed dividend
     /// The same as UDIVIDEND, but starts a signed calculation, rather than unsigned.
@@ -308,7 +308,7 @@ public struct SIO {
     public var div_sdividend: Register<DIV_SDIVIDEND>
 
     @Register(bitWidth: 32)
-    public struct DIV_SDIVIDEND {    }
+    public struct DIV_SDIVIDEND {}
 
     /// Divider signed divisor
     /// The same as UDIVISOR, but starts a signed calculation, rather than unsigned.
@@ -316,7 +316,7 @@ public struct SIO {
     public var div_sdivisor: Register<DIV_SDIVISOR>
 
     @Register(bitWidth: 32)
-    public struct DIV_SDIVISOR {    }
+    public struct DIV_SDIVISOR {}
 
     /// Divider result quotient
     /// The result of `DIVIDEND / DIVISOR` (division). Contents undefined while CSR_READY is low.
@@ -329,7 +329,7 @@ public struct SIO {
     public var div_quotient: Register<DIV_QUOTIENT>
 
     @Register(bitWidth: 32)
-    public struct DIV_QUOTIENT {    }
+    public struct DIV_QUOTIENT {}
 
     /// Divider result remainder
     /// The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while CSR_READY is low.
@@ -340,7 +340,7 @@ public struct SIO {
     public var div_remainder: Register<DIV_REMAINDER>
 
     @Register(bitWidth: 32)
-    public struct DIV_REMAINDER {    }
+    public struct DIV_REMAINDER {}
 
     /// Control and status register for divider.
     @RegisterBank(offset: 0x0078)
@@ -369,77 +369,77 @@ public struct SIO {
     public var interp0_accum0: Register<INTERP0_ACCUM0>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM0 {    }
+    public struct INTERP0_ACCUM0 {}
 
     /// Read/write access to accumulator 1
     @RegisterBank(offset: 0x0084)
     public var interp0_accum1: Register<INTERP0_ACCUM1>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM1 {    }
+    public struct INTERP0_ACCUM1 {}
 
     /// Read/write access to BASE0 register.
     @RegisterBank(offset: 0x0088)
     public var interp0_base0: Register<INTERP0_BASE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE0 {    }
+    public struct INTERP0_BASE0 {}
 
     /// Read/write access to BASE1 register.
     @RegisterBank(offset: 0x008c)
     public var interp0_base1: Register<INTERP0_BASE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE1 {    }
+    public struct INTERP0_BASE1 {}
 
     /// Read/write access to BASE2 register.
     @RegisterBank(offset: 0x0090)
     public var interp0_base2: Register<INTERP0_BASE2>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE2 {    }
+    public struct INTERP0_BASE2 {}
 
     /// Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x0094)
     public var interp0_pop_lane0: Register<INTERP0_POP_LANE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_LANE0 {    }
+    public struct INTERP0_POP_LANE0 {}
 
     /// Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x0098)
     public var interp0_pop_lane1: Register<INTERP0_POP_LANE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_LANE1 {    }
+    public struct INTERP0_POP_LANE1 {}
 
     /// Read FULL result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x009c)
     public var interp0_pop_full: Register<INTERP0_POP_FULL>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_FULL {    }
+    public struct INTERP0_POP_FULL {}
 
     /// Read LANE0 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a0)
     public var interp0_peek_lane0: Register<INTERP0_PEEK_LANE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_LANE0 {    }
+    public struct INTERP0_PEEK_LANE0 {}
 
     /// Read LANE1 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a4)
     public var interp0_peek_lane1: Register<INTERP0_PEEK_LANE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_LANE1 {    }
+    public struct INTERP0_PEEK_LANE1 {}
 
     /// Read FULL result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a8)
     public var interp0_peek_full: Register<INTERP0_PEEK_FULL>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_FULL {    }
+    public struct INTERP0_PEEK_FULL {}
 
     /// Control register for lane 0
     @RegisterBank(offset: 0x00ac)
@@ -579,84 +579,84 @@ public struct SIO {
     public var interp0_base_1and0: Register<INTERP0_BASE_1AND0>
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE_1AND0 {    }
+    public struct INTERP0_BASE_1AND0 {}
 
     /// Read/write access to accumulator 0
     @RegisterBank(offset: 0x00c0)
     public var interp1_accum0: Register<INTERP1_ACCUM0>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM0 {    }
+    public struct INTERP1_ACCUM0 {}
 
     /// Read/write access to accumulator 1
     @RegisterBank(offset: 0x00c4)
     public var interp1_accum1: Register<INTERP1_ACCUM1>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM1 {    }
+    public struct INTERP1_ACCUM1 {}
 
     /// Read/write access to BASE0 register.
     @RegisterBank(offset: 0x00c8)
     public var interp1_base0: Register<INTERP1_BASE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE0 {    }
+    public struct INTERP1_BASE0 {}
 
     /// Read/write access to BASE1 register.
     @RegisterBank(offset: 0x00cc)
     public var interp1_base1: Register<INTERP1_BASE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE1 {    }
+    public struct INTERP1_BASE1 {}
 
     /// Read/write access to BASE2 register.
     @RegisterBank(offset: 0x00d0)
     public var interp1_base2: Register<INTERP1_BASE2>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE2 {    }
+    public struct INTERP1_BASE2 {}
 
     /// Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00d4)
     public var interp1_pop_lane0: Register<INTERP1_POP_LANE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_LANE0 {    }
+    public struct INTERP1_POP_LANE0 {}
 
     /// Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00d8)
     public var interp1_pop_lane1: Register<INTERP1_POP_LANE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_LANE1 {    }
+    public struct INTERP1_POP_LANE1 {}
 
     /// Read FULL result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00dc)
     public var interp1_pop_full: Register<INTERP1_POP_FULL>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_FULL {    }
+    public struct INTERP1_POP_FULL {}
 
     /// Read LANE0 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e0)
     public var interp1_peek_lane0: Register<INTERP1_PEEK_LANE0>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_LANE0 {    }
+    public struct INTERP1_PEEK_LANE0 {}
 
     /// Read LANE1 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e4)
     public var interp1_peek_lane1: Register<INTERP1_PEEK_LANE1>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_LANE1 {    }
+    public struct INTERP1_PEEK_LANE1 {}
 
     /// Read FULL result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e8)
     public var interp1_peek_full: Register<INTERP1_PEEK_FULL>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_FULL {    }
+    public struct INTERP1_PEEK_FULL {}
 
     /// Control register for lane 0
     @RegisterBank(offset: 0x00ec)
@@ -793,7 +793,7 @@ public struct SIO {
     public var interp1_base_1and0: Register<INTERP1_BASE_1AND0>
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE_1AND0 {    }
+    public struct INTERP1_BASE_1AND0 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -805,7 +805,7 @@ public struct SIO {
     public var spinlock0: Register<SPINLOCK0>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK0 {    }
+    public struct SPINLOCK0 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -817,7 +817,7 @@ public struct SIO {
     public var spinlock1: Register<SPINLOCK1>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK1 {    }
+    public struct SPINLOCK1 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -829,7 +829,7 @@ public struct SIO {
     public var spinlock2: Register<SPINLOCK2>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK2 {    }
+    public struct SPINLOCK2 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -841,7 +841,7 @@ public struct SIO {
     public var spinlock3: Register<SPINLOCK3>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK3 {    }
+    public struct SPINLOCK3 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -853,7 +853,7 @@ public struct SIO {
     public var spinlock4: Register<SPINLOCK4>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK4 {    }
+    public struct SPINLOCK4 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -865,7 +865,7 @@ public struct SIO {
     public var spinlock5: Register<SPINLOCK5>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK5 {    }
+    public struct SPINLOCK5 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -877,7 +877,7 @@ public struct SIO {
     public var spinlock6: Register<SPINLOCK6>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK6 {    }
+    public struct SPINLOCK6 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -889,7 +889,7 @@ public struct SIO {
     public var spinlock7: Register<SPINLOCK7>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK7 {    }
+    public struct SPINLOCK7 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -901,7 +901,7 @@ public struct SIO {
     public var spinlock8: Register<SPINLOCK8>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK8 {    }
+    public struct SPINLOCK8 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -913,7 +913,7 @@ public struct SIO {
     public var spinlock9: Register<SPINLOCK9>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK9 {    }
+    public struct SPINLOCK9 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -925,7 +925,7 @@ public struct SIO {
     public var spinlock10: Register<SPINLOCK10>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK10 {    }
+    public struct SPINLOCK10 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -937,7 +937,7 @@ public struct SIO {
     public var spinlock11: Register<SPINLOCK11>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK11 {    }
+    public struct SPINLOCK11 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -949,7 +949,7 @@ public struct SIO {
     public var spinlock12: Register<SPINLOCK12>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK12 {    }
+    public struct SPINLOCK12 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -961,7 +961,7 @@ public struct SIO {
     public var spinlock13: Register<SPINLOCK13>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK13 {    }
+    public struct SPINLOCK13 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -973,7 +973,7 @@ public struct SIO {
     public var spinlock14: Register<SPINLOCK14>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK14 {    }
+    public struct SPINLOCK14 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -985,7 +985,7 @@ public struct SIO {
     public var spinlock15: Register<SPINLOCK15>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK15 {    }
+    public struct SPINLOCK15 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -997,7 +997,7 @@ public struct SIO {
     public var spinlock16: Register<SPINLOCK16>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK16 {    }
+    public struct SPINLOCK16 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1009,7 +1009,7 @@ public struct SIO {
     public var spinlock17: Register<SPINLOCK17>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK17 {    }
+    public struct SPINLOCK17 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1021,7 +1021,7 @@ public struct SIO {
     public var spinlock18: Register<SPINLOCK18>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK18 {    }
+    public struct SPINLOCK18 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1033,7 +1033,7 @@ public struct SIO {
     public var spinlock19: Register<SPINLOCK19>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK19 {    }
+    public struct SPINLOCK19 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1045,7 +1045,7 @@ public struct SIO {
     public var spinlock20: Register<SPINLOCK20>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK20 {    }
+    public struct SPINLOCK20 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1057,7 +1057,7 @@ public struct SIO {
     public var spinlock21: Register<SPINLOCK21>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK21 {    }
+    public struct SPINLOCK21 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1069,7 +1069,7 @@ public struct SIO {
     public var spinlock22: Register<SPINLOCK22>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK22 {    }
+    public struct SPINLOCK22 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1081,7 +1081,7 @@ public struct SIO {
     public var spinlock23: Register<SPINLOCK23>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK23 {    }
+    public struct SPINLOCK23 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1093,7 +1093,7 @@ public struct SIO {
     public var spinlock24: Register<SPINLOCK24>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK24 {    }
+    public struct SPINLOCK24 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1105,7 +1105,7 @@ public struct SIO {
     public var spinlock25: Register<SPINLOCK25>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK25 {    }
+    public struct SPINLOCK25 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1117,7 +1117,7 @@ public struct SIO {
     public var spinlock26: Register<SPINLOCK26>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK26 {    }
+    public struct SPINLOCK26 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1129,7 +1129,7 @@ public struct SIO {
     public var spinlock27: Register<SPINLOCK27>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK27 {    }
+    public struct SPINLOCK27 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1141,7 +1141,7 @@ public struct SIO {
     public var spinlock28: Register<SPINLOCK28>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK28 {    }
+    public struct SPINLOCK28 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1153,7 +1153,7 @@ public struct SIO {
     public var spinlock29: Register<SPINLOCK29>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK29 {    }
+    public struct SPINLOCK29 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1165,7 +1165,7 @@ public struct SIO {
     public var spinlock30: Register<SPINLOCK30>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK30 {    }
+    public struct SPINLOCK30 {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1177,5 +1177,5 @@ public struct SIO {
     public var spinlock31: Register<SPINLOCK31>
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK31 {    }
+    public struct SPINLOCK31 {}
 }

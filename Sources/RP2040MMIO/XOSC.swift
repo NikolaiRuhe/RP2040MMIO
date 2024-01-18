@@ -82,7 +82,7 @@ public struct XOSC {
     public var dormant: Register<DORMANT>
 
     @Register(bitWidth: 32)
-    public struct DORMANT {    }
+    public struct DORMANT {}
 
     /// Controls the startup delay
     @RegisterBank(offset: 0x000c)

@@ -13,7 +13,7 @@ public struct DMA {
     public var ch0_read_addr: Register<CH0_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_READ_ADDR {    }
+    public struct CH0_READ_ADDR {}
 
     /// DMA Channel 0 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -21,7 +21,7 @@ public struct DMA {
     public var ch0_write_addr: Register<CH0_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_WRITE_ADDR {    }
+    public struct CH0_WRITE_ADDR {}
 
     /// DMA Channel 0 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -32,7 +32,7 @@ public struct DMA {
     public var ch0_trans_count: Register<CH0_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH0_TRANS_COUNT {    }
+    public struct CH0_TRANS_COUNT {}
 
     /// DMA Channel 0 Control and Status
     @RegisterBank(offset: 0x000c)
@@ -153,21 +153,21 @@ public struct DMA {
     public var ch0_al1_ctrl: Register<CH0_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL1_CTRL {    }
+    public struct CH0_AL1_CTRL {}
 
     /// Alias for channel 0 READ_ADDR register
     @RegisterBank(offset: 0x0014)
     public var ch0_al1_read_addr: Register<CH0_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL1_READ_ADDR {    }
+    public struct CH0_AL1_READ_ADDR {}
 
     /// Alias for channel 0 WRITE_ADDR register
     @RegisterBank(offset: 0x0018)
     public var ch0_al1_write_addr: Register<CH0_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL1_WRITE_ADDR {    }
+    public struct CH0_AL1_WRITE_ADDR {}
 
     /// Alias for channel 0 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -176,28 +176,28 @@ public struct DMA {
     public var ch0_al1_trans_count_trig: Register<CH0_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH0_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 0 CTRL register
     @RegisterBank(offset: 0x0020)
     public var ch0_al2_ctrl: Register<CH0_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL2_CTRL {    }
+    public struct CH0_AL2_CTRL {}
 
     /// Alias for channel 0 TRANS_COUNT register
     @RegisterBank(offset: 0x0024)
     public var ch0_al2_trans_count: Register<CH0_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL2_TRANS_COUNT {    }
+    public struct CH0_AL2_TRANS_COUNT {}
 
     /// Alias for channel 0 READ_ADDR register
     @RegisterBank(offset: 0x0028)
     public var ch0_al2_read_addr: Register<CH0_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL2_READ_ADDR {    }
+    public struct CH0_AL2_READ_ADDR {}
 
     /// Alias for channel 0 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -206,28 +206,28 @@ public struct DMA {
     public var ch0_al2_write_addr_trig: Register<CH0_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH0_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 0 CTRL register
     @RegisterBank(offset: 0x0030)
     public var ch0_al3_ctrl: Register<CH0_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL3_CTRL {    }
+    public struct CH0_AL3_CTRL {}
 
     /// Alias for channel 0 WRITE_ADDR register
     @RegisterBank(offset: 0x0034)
     public var ch0_al3_write_addr: Register<CH0_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL3_WRITE_ADDR {    }
+    public struct CH0_AL3_WRITE_ADDR {}
 
     /// Alias for channel 0 TRANS_COUNT register
     @RegisterBank(offset: 0x0038)
     public var ch0_al3_trans_count: Register<CH0_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL3_TRANS_COUNT {    }
+    public struct CH0_AL3_TRANS_COUNT {}
 
     /// Alias for channel 0 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -236,7 +236,7 @@ public struct DMA {
     public var ch0_al3_read_addr_trig: Register<CH0_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH0_AL3_READ_ADDR_TRIG {    }
+    public struct CH0_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 1 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -244,7 +244,7 @@ public struct DMA {
     public var ch1_read_addr: Register<CH1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_READ_ADDR {    }
+    public struct CH1_READ_ADDR {}
 
     /// DMA Channel 1 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -252,7 +252,7 @@ public struct DMA {
     public var ch1_write_addr: Register<CH1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_WRITE_ADDR {    }
+    public struct CH1_WRITE_ADDR {}
 
     /// DMA Channel 1 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -263,7 +263,7 @@ public struct DMA {
     public var ch1_trans_count: Register<CH1_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH1_TRANS_COUNT {    }
+    public struct CH1_TRANS_COUNT {}
 
     /// DMA Channel 1 Control and Status
     @RegisterBank(offset: 0x004c)
@@ -384,21 +384,21 @@ public struct DMA {
     public var ch1_al1_ctrl: Register<CH1_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL1_CTRL {    }
+    public struct CH1_AL1_CTRL {}
 
     /// Alias for channel 1 READ_ADDR register
     @RegisterBank(offset: 0x0054)
     public var ch1_al1_read_addr: Register<CH1_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL1_READ_ADDR {    }
+    public struct CH1_AL1_READ_ADDR {}
 
     /// Alias for channel 1 WRITE_ADDR register
     @RegisterBank(offset: 0x0058)
     public var ch1_al1_write_addr: Register<CH1_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL1_WRITE_ADDR {    }
+    public struct CH1_AL1_WRITE_ADDR {}
 
     /// Alias for channel 1 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -407,28 +407,28 @@ public struct DMA {
     public var ch1_al1_trans_count_trig: Register<CH1_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH1_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 1 CTRL register
     @RegisterBank(offset: 0x0060)
     public var ch1_al2_ctrl: Register<CH1_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL2_CTRL {    }
+    public struct CH1_AL2_CTRL {}
 
     /// Alias for channel 1 TRANS_COUNT register
     @RegisterBank(offset: 0x0064)
     public var ch1_al2_trans_count: Register<CH1_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL2_TRANS_COUNT {    }
+    public struct CH1_AL2_TRANS_COUNT {}
 
     /// Alias for channel 1 READ_ADDR register
     @RegisterBank(offset: 0x0068)
     public var ch1_al2_read_addr: Register<CH1_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL2_READ_ADDR {    }
+    public struct CH1_AL2_READ_ADDR {}
 
     /// Alias for channel 1 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -437,28 +437,28 @@ public struct DMA {
     public var ch1_al2_write_addr_trig: Register<CH1_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH1_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 1 CTRL register
     @RegisterBank(offset: 0x0070)
     public var ch1_al3_ctrl: Register<CH1_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL3_CTRL {    }
+    public struct CH1_AL3_CTRL {}
 
     /// Alias for channel 1 WRITE_ADDR register
     @RegisterBank(offset: 0x0074)
     public var ch1_al3_write_addr: Register<CH1_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL3_WRITE_ADDR {    }
+    public struct CH1_AL3_WRITE_ADDR {}
 
     /// Alias for channel 1 TRANS_COUNT register
     @RegisterBank(offset: 0x0078)
     public var ch1_al3_trans_count: Register<CH1_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL3_TRANS_COUNT {    }
+    public struct CH1_AL3_TRANS_COUNT {}
 
     /// Alias for channel 1 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -467,7 +467,7 @@ public struct DMA {
     public var ch1_al3_read_addr_trig: Register<CH1_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH1_AL3_READ_ADDR_TRIG {    }
+    public struct CH1_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 2 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -475,7 +475,7 @@ public struct DMA {
     public var ch2_read_addr: Register<CH2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_READ_ADDR {    }
+    public struct CH2_READ_ADDR {}
 
     /// DMA Channel 2 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -483,7 +483,7 @@ public struct DMA {
     public var ch2_write_addr: Register<CH2_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_WRITE_ADDR {    }
+    public struct CH2_WRITE_ADDR {}
 
     /// DMA Channel 2 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -494,7 +494,7 @@ public struct DMA {
     public var ch2_trans_count: Register<CH2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH2_TRANS_COUNT {    }
+    public struct CH2_TRANS_COUNT {}
 
     /// DMA Channel 2 Control and Status
     @RegisterBank(offset: 0x008c)
@@ -615,21 +615,21 @@ public struct DMA {
     public var ch2_al1_ctrl: Register<CH2_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL1_CTRL {    }
+    public struct CH2_AL1_CTRL {}
 
     /// Alias for channel 2 READ_ADDR register
     @RegisterBank(offset: 0x0094)
     public var ch2_al1_read_addr: Register<CH2_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL1_READ_ADDR {    }
+    public struct CH2_AL1_READ_ADDR {}
 
     /// Alias for channel 2 WRITE_ADDR register
     @RegisterBank(offset: 0x0098)
     public var ch2_al1_write_addr: Register<CH2_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL1_WRITE_ADDR {    }
+    public struct CH2_AL1_WRITE_ADDR {}
 
     /// Alias for channel 2 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -638,28 +638,28 @@ public struct DMA {
     public var ch2_al1_trans_count_trig: Register<CH2_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH2_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 2 CTRL register
     @RegisterBank(offset: 0x00a0)
     public var ch2_al2_ctrl: Register<CH2_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL2_CTRL {    }
+    public struct CH2_AL2_CTRL {}
 
     /// Alias for channel 2 TRANS_COUNT register
     @RegisterBank(offset: 0x00a4)
     public var ch2_al2_trans_count: Register<CH2_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL2_TRANS_COUNT {    }
+    public struct CH2_AL2_TRANS_COUNT {}
 
     /// Alias for channel 2 READ_ADDR register
     @RegisterBank(offset: 0x00a8)
     public var ch2_al2_read_addr: Register<CH2_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL2_READ_ADDR {    }
+    public struct CH2_AL2_READ_ADDR {}
 
     /// Alias for channel 2 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -668,28 +668,28 @@ public struct DMA {
     public var ch2_al2_write_addr_trig: Register<CH2_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH2_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 2 CTRL register
     @RegisterBank(offset: 0x00b0)
     public var ch2_al3_ctrl: Register<CH2_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL3_CTRL {    }
+    public struct CH2_AL3_CTRL {}
 
     /// Alias for channel 2 WRITE_ADDR register
     @RegisterBank(offset: 0x00b4)
     public var ch2_al3_write_addr: Register<CH2_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL3_WRITE_ADDR {    }
+    public struct CH2_AL3_WRITE_ADDR {}
 
     /// Alias for channel 2 TRANS_COUNT register
     @RegisterBank(offset: 0x00b8)
     public var ch2_al3_trans_count: Register<CH2_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL3_TRANS_COUNT {    }
+    public struct CH2_AL3_TRANS_COUNT {}
 
     /// Alias for channel 2 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -698,7 +698,7 @@ public struct DMA {
     public var ch2_al3_read_addr_trig: Register<CH2_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH2_AL3_READ_ADDR_TRIG {    }
+    public struct CH2_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 3 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -706,7 +706,7 @@ public struct DMA {
     public var ch3_read_addr: Register<CH3_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_READ_ADDR {    }
+    public struct CH3_READ_ADDR {}
 
     /// DMA Channel 3 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -714,7 +714,7 @@ public struct DMA {
     public var ch3_write_addr: Register<CH3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_WRITE_ADDR {    }
+    public struct CH3_WRITE_ADDR {}
 
     /// DMA Channel 3 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -725,7 +725,7 @@ public struct DMA {
     public var ch3_trans_count: Register<CH3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH3_TRANS_COUNT {    }
+    public struct CH3_TRANS_COUNT {}
 
     /// DMA Channel 3 Control and Status
     @RegisterBank(offset: 0x00cc)
@@ -846,21 +846,21 @@ public struct DMA {
     public var ch3_al1_ctrl: Register<CH3_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL1_CTRL {    }
+    public struct CH3_AL1_CTRL {}
 
     /// Alias for channel 3 READ_ADDR register
     @RegisterBank(offset: 0x00d4)
     public var ch3_al1_read_addr: Register<CH3_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL1_READ_ADDR {    }
+    public struct CH3_AL1_READ_ADDR {}
 
     /// Alias for channel 3 WRITE_ADDR register
     @RegisterBank(offset: 0x00d8)
     public var ch3_al1_write_addr: Register<CH3_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL1_WRITE_ADDR {    }
+    public struct CH3_AL1_WRITE_ADDR {}
 
     /// Alias for channel 3 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -869,28 +869,28 @@ public struct DMA {
     public var ch3_al1_trans_count_trig: Register<CH3_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH3_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 3 CTRL register
     @RegisterBank(offset: 0x00e0)
     public var ch3_al2_ctrl: Register<CH3_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL2_CTRL {    }
+    public struct CH3_AL2_CTRL {}
 
     /// Alias for channel 3 TRANS_COUNT register
     @RegisterBank(offset: 0x00e4)
     public var ch3_al2_trans_count: Register<CH3_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL2_TRANS_COUNT {    }
+    public struct CH3_AL2_TRANS_COUNT {}
 
     /// Alias for channel 3 READ_ADDR register
     @RegisterBank(offset: 0x00e8)
     public var ch3_al2_read_addr: Register<CH3_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL2_READ_ADDR {    }
+    public struct CH3_AL2_READ_ADDR {}
 
     /// Alias for channel 3 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -899,28 +899,28 @@ public struct DMA {
     public var ch3_al2_write_addr_trig: Register<CH3_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH3_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 3 CTRL register
     @RegisterBank(offset: 0x00f0)
     public var ch3_al3_ctrl: Register<CH3_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL3_CTRL {    }
+    public struct CH3_AL3_CTRL {}
 
     /// Alias for channel 3 WRITE_ADDR register
     @RegisterBank(offset: 0x00f4)
     public var ch3_al3_write_addr: Register<CH3_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL3_WRITE_ADDR {    }
+    public struct CH3_AL3_WRITE_ADDR {}
 
     /// Alias for channel 3 TRANS_COUNT register
     @RegisterBank(offset: 0x00f8)
     public var ch3_al3_trans_count: Register<CH3_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL3_TRANS_COUNT {    }
+    public struct CH3_AL3_TRANS_COUNT {}
 
     /// Alias for channel 3 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -929,7 +929,7 @@ public struct DMA {
     public var ch3_al3_read_addr_trig: Register<CH3_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH3_AL3_READ_ADDR_TRIG {    }
+    public struct CH3_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 4 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -937,7 +937,7 @@ public struct DMA {
     public var ch4_read_addr: Register<CH4_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_READ_ADDR {    }
+    public struct CH4_READ_ADDR {}
 
     /// DMA Channel 4 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -945,7 +945,7 @@ public struct DMA {
     public var ch4_write_addr: Register<CH4_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_WRITE_ADDR {    }
+    public struct CH4_WRITE_ADDR {}
 
     /// DMA Channel 4 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -956,7 +956,7 @@ public struct DMA {
     public var ch4_trans_count: Register<CH4_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH4_TRANS_COUNT {    }
+    public struct CH4_TRANS_COUNT {}
 
     /// DMA Channel 4 Control and Status
     @RegisterBank(offset: 0x010c)
@@ -1077,21 +1077,21 @@ public struct DMA {
     public var ch4_al1_ctrl: Register<CH4_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL1_CTRL {    }
+    public struct CH4_AL1_CTRL {}
 
     /// Alias for channel 4 READ_ADDR register
     @RegisterBank(offset: 0x0114)
     public var ch4_al1_read_addr: Register<CH4_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL1_READ_ADDR {    }
+    public struct CH4_AL1_READ_ADDR {}
 
     /// Alias for channel 4 WRITE_ADDR register
     @RegisterBank(offset: 0x0118)
     public var ch4_al1_write_addr: Register<CH4_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL1_WRITE_ADDR {    }
+    public struct CH4_AL1_WRITE_ADDR {}
 
     /// Alias for channel 4 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1100,28 +1100,28 @@ public struct DMA {
     public var ch4_al1_trans_count_trig: Register<CH4_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH4_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 4 CTRL register
     @RegisterBank(offset: 0x0120)
     public var ch4_al2_ctrl: Register<CH4_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL2_CTRL {    }
+    public struct CH4_AL2_CTRL {}
 
     /// Alias for channel 4 TRANS_COUNT register
     @RegisterBank(offset: 0x0124)
     public var ch4_al2_trans_count: Register<CH4_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL2_TRANS_COUNT {    }
+    public struct CH4_AL2_TRANS_COUNT {}
 
     /// Alias for channel 4 READ_ADDR register
     @RegisterBank(offset: 0x0128)
     public var ch4_al2_read_addr: Register<CH4_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL2_READ_ADDR {    }
+    public struct CH4_AL2_READ_ADDR {}
 
     /// Alias for channel 4 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1130,28 +1130,28 @@ public struct DMA {
     public var ch4_al2_write_addr_trig: Register<CH4_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH4_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 4 CTRL register
     @RegisterBank(offset: 0x0130)
     public var ch4_al3_ctrl: Register<CH4_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL3_CTRL {    }
+    public struct CH4_AL3_CTRL {}
 
     /// Alias for channel 4 WRITE_ADDR register
     @RegisterBank(offset: 0x0134)
     public var ch4_al3_write_addr: Register<CH4_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL3_WRITE_ADDR {    }
+    public struct CH4_AL3_WRITE_ADDR {}
 
     /// Alias for channel 4 TRANS_COUNT register
     @RegisterBank(offset: 0x0138)
     public var ch4_al3_trans_count: Register<CH4_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL3_TRANS_COUNT {    }
+    public struct CH4_AL3_TRANS_COUNT {}
 
     /// Alias for channel 4 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1160,7 +1160,7 @@ public struct DMA {
     public var ch4_al3_read_addr_trig: Register<CH4_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH4_AL3_READ_ADDR_TRIG {    }
+    public struct CH4_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 5 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -1168,7 +1168,7 @@ public struct DMA {
     public var ch5_read_addr: Register<CH5_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_READ_ADDR {    }
+    public struct CH5_READ_ADDR {}
 
     /// DMA Channel 5 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -1176,7 +1176,7 @@ public struct DMA {
     public var ch5_write_addr: Register<CH5_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_WRITE_ADDR {    }
+    public struct CH5_WRITE_ADDR {}
 
     /// DMA Channel 5 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -1187,7 +1187,7 @@ public struct DMA {
     public var ch5_trans_count: Register<CH5_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH5_TRANS_COUNT {    }
+    public struct CH5_TRANS_COUNT {}
 
     /// DMA Channel 5 Control and Status
     @RegisterBank(offset: 0x014c)
@@ -1308,21 +1308,21 @@ public struct DMA {
     public var ch5_al1_ctrl: Register<CH5_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL1_CTRL {    }
+    public struct CH5_AL1_CTRL {}
 
     /// Alias for channel 5 READ_ADDR register
     @RegisterBank(offset: 0x0154)
     public var ch5_al1_read_addr: Register<CH5_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL1_READ_ADDR {    }
+    public struct CH5_AL1_READ_ADDR {}
 
     /// Alias for channel 5 WRITE_ADDR register
     @RegisterBank(offset: 0x0158)
     public var ch5_al1_write_addr: Register<CH5_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL1_WRITE_ADDR {    }
+    public struct CH5_AL1_WRITE_ADDR {}
 
     /// Alias for channel 5 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1331,28 +1331,28 @@ public struct DMA {
     public var ch5_al1_trans_count_trig: Register<CH5_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH5_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 5 CTRL register
     @RegisterBank(offset: 0x0160)
     public var ch5_al2_ctrl: Register<CH5_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL2_CTRL {    }
+    public struct CH5_AL2_CTRL {}
 
     /// Alias for channel 5 TRANS_COUNT register
     @RegisterBank(offset: 0x0164)
     public var ch5_al2_trans_count: Register<CH5_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL2_TRANS_COUNT {    }
+    public struct CH5_AL2_TRANS_COUNT {}
 
     /// Alias for channel 5 READ_ADDR register
     @RegisterBank(offset: 0x0168)
     public var ch5_al2_read_addr: Register<CH5_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL2_READ_ADDR {    }
+    public struct CH5_AL2_READ_ADDR {}
 
     /// Alias for channel 5 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1361,28 +1361,28 @@ public struct DMA {
     public var ch5_al2_write_addr_trig: Register<CH5_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH5_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 5 CTRL register
     @RegisterBank(offset: 0x0170)
     public var ch5_al3_ctrl: Register<CH5_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL3_CTRL {    }
+    public struct CH5_AL3_CTRL {}
 
     /// Alias for channel 5 WRITE_ADDR register
     @RegisterBank(offset: 0x0174)
     public var ch5_al3_write_addr: Register<CH5_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL3_WRITE_ADDR {    }
+    public struct CH5_AL3_WRITE_ADDR {}
 
     /// Alias for channel 5 TRANS_COUNT register
     @RegisterBank(offset: 0x0178)
     public var ch5_al3_trans_count: Register<CH5_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL3_TRANS_COUNT {    }
+    public struct CH5_AL3_TRANS_COUNT {}
 
     /// Alias for channel 5 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1391,7 +1391,7 @@ public struct DMA {
     public var ch5_al3_read_addr_trig: Register<CH5_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH5_AL3_READ_ADDR_TRIG {    }
+    public struct CH5_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 6 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -1399,7 +1399,7 @@ public struct DMA {
     public var ch6_read_addr: Register<CH6_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_READ_ADDR {    }
+    public struct CH6_READ_ADDR {}
 
     /// DMA Channel 6 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -1407,7 +1407,7 @@ public struct DMA {
     public var ch6_write_addr: Register<CH6_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_WRITE_ADDR {    }
+    public struct CH6_WRITE_ADDR {}
 
     /// DMA Channel 6 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -1418,7 +1418,7 @@ public struct DMA {
     public var ch6_trans_count: Register<CH6_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH6_TRANS_COUNT {    }
+    public struct CH6_TRANS_COUNT {}
 
     /// DMA Channel 6 Control and Status
     @RegisterBank(offset: 0x018c)
@@ -1539,21 +1539,21 @@ public struct DMA {
     public var ch6_al1_ctrl: Register<CH6_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL1_CTRL {    }
+    public struct CH6_AL1_CTRL {}
 
     /// Alias for channel 6 READ_ADDR register
     @RegisterBank(offset: 0x0194)
     public var ch6_al1_read_addr: Register<CH6_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL1_READ_ADDR {    }
+    public struct CH6_AL1_READ_ADDR {}
 
     /// Alias for channel 6 WRITE_ADDR register
     @RegisterBank(offset: 0x0198)
     public var ch6_al1_write_addr: Register<CH6_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL1_WRITE_ADDR {    }
+    public struct CH6_AL1_WRITE_ADDR {}
 
     /// Alias for channel 6 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1562,28 +1562,28 @@ public struct DMA {
     public var ch6_al1_trans_count_trig: Register<CH6_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH6_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 6 CTRL register
     @RegisterBank(offset: 0x01a0)
     public var ch6_al2_ctrl: Register<CH6_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL2_CTRL {    }
+    public struct CH6_AL2_CTRL {}
 
     /// Alias for channel 6 TRANS_COUNT register
     @RegisterBank(offset: 0x01a4)
     public var ch6_al2_trans_count: Register<CH6_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL2_TRANS_COUNT {    }
+    public struct CH6_AL2_TRANS_COUNT {}
 
     /// Alias for channel 6 READ_ADDR register
     @RegisterBank(offset: 0x01a8)
     public var ch6_al2_read_addr: Register<CH6_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL2_READ_ADDR {    }
+    public struct CH6_AL2_READ_ADDR {}
 
     /// Alias for channel 6 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1592,28 +1592,28 @@ public struct DMA {
     public var ch6_al2_write_addr_trig: Register<CH6_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH6_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 6 CTRL register
     @RegisterBank(offset: 0x01b0)
     public var ch6_al3_ctrl: Register<CH6_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL3_CTRL {    }
+    public struct CH6_AL3_CTRL {}
 
     /// Alias for channel 6 WRITE_ADDR register
     @RegisterBank(offset: 0x01b4)
     public var ch6_al3_write_addr: Register<CH6_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL3_WRITE_ADDR {    }
+    public struct CH6_AL3_WRITE_ADDR {}
 
     /// Alias for channel 6 TRANS_COUNT register
     @RegisterBank(offset: 0x01b8)
     public var ch6_al3_trans_count: Register<CH6_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL3_TRANS_COUNT {    }
+    public struct CH6_AL3_TRANS_COUNT {}
 
     /// Alias for channel 6 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1622,7 +1622,7 @@ public struct DMA {
     public var ch6_al3_read_addr_trig: Register<CH6_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH6_AL3_READ_ADDR_TRIG {    }
+    public struct CH6_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 7 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -1630,7 +1630,7 @@ public struct DMA {
     public var ch7_read_addr: Register<CH7_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_READ_ADDR {    }
+    public struct CH7_READ_ADDR {}
 
     /// DMA Channel 7 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -1638,7 +1638,7 @@ public struct DMA {
     public var ch7_write_addr: Register<CH7_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_WRITE_ADDR {    }
+    public struct CH7_WRITE_ADDR {}
 
     /// DMA Channel 7 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -1649,7 +1649,7 @@ public struct DMA {
     public var ch7_trans_count: Register<CH7_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH7_TRANS_COUNT {    }
+    public struct CH7_TRANS_COUNT {}
 
     /// DMA Channel 7 Control and Status
     @RegisterBank(offset: 0x01cc)
@@ -1770,21 +1770,21 @@ public struct DMA {
     public var ch7_al1_ctrl: Register<CH7_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL1_CTRL {    }
+    public struct CH7_AL1_CTRL {}
 
     /// Alias for channel 7 READ_ADDR register
     @RegisterBank(offset: 0x01d4)
     public var ch7_al1_read_addr: Register<CH7_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL1_READ_ADDR {    }
+    public struct CH7_AL1_READ_ADDR {}
 
     /// Alias for channel 7 WRITE_ADDR register
     @RegisterBank(offset: 0x01d8)
     public var ch7_al1_write_addr: Register<CH7_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL1_WRITE_ADDR {    }
+    public struct CH7_AL1_WRITE_ADDR {}
 
     /// Alias for channel 7 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1793,28 +1793,28 @@ public struct DMA {
     public var ch7_al1_trans_count_trig: Register<CH7_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH7_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 7 CTRL register
     @RegisterBank(offset: 0x01e0)
     public var ch7_al2_ctrl: Register<CH7_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL2_CTRL {    }
+    public struct CH7_AL2_CTRL {}
 
     /// Alias for channel 7 TRANS_COUNT register
     @RegisterBank(offset: 0x01e4)
     public var ch7_al2_trans_count: Register<CH7_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL2_TRANS_COUNT {    }
+    public struct CH7_AL2_TRANS_COUNT {}
 
     /// Alias for channel 7 READ_ADDR register
     @RegisterBank(offset: 0x01e8)
     public var ch7_al2_read_addr: Register<CH7_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL2_READ_ADDR {    }
+    public struct CH7_AL2_READ_ADDR {}
 
     /// Alias for channel 7 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1823,28 +1823,28 @@ public struct DMA {
     public var ch7_al2_write_addr_trig: Register<CH7_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH7_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 7 CTRL register
     @RegisterBank(offset: 0x01f0)
     public var ch7_al3_ctrl: Register<CH7_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL3_CTRL {    }
+    public struct CH7_AL3_CTRL {}
 
     /// Alias for channel 7 WRITE_ADDR register
     @RegisterBank(offset: 0x01f4)
     public var ch7_al3_write_addr: Register<CH7_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL3_WRITE_ADDR {    }
+    public struct CH7_AL3_WRITE_ADDR {}
 
     /// Alias for channel 7 TRANS_COUNT register
     @RegisterBank(offset: 0x01f8)
     public var ch7_al3_trans_count: Register<CH7_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL3_TRANS_COUNT {    }
+    public struct CH7_AL3_TRANS_COUNT {}
 
     /// Alias for channel 7 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -1853,7 +1853,7 @@ public struct DMA {
     public var ch7_al3_read_addr_trig: Register<CH7_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH7_AL3_READ_ADDR_TRIG {    }
+    public struct CH7_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 8 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -1861,7 +1861,7 @@ public struct DMA {
     public var ch8_read_addr: Register<CH8_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_READ_ADDR {    }
+    public struct CH8_READ_ADDR {}
 
     /// DMA Channel 8 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -1869,7 +1869,7 @@ public struct DMA {
     public var ch8_write_addr: Register<CH8_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_WRITE_ADDR {    }
+    public struct CH8_WRITE_ADDR {}
 
     /// DMA Channel 8 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -1880,7 +1880,7 @@ public struct DMA {
     public var ch8_trans_count: Register<CH8_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH8_TRANS_COUNT {    }
+    public struct CH8_TRANS_COUNT {}
 
     /// DMA Channel 8 Control and Status
     @RegisterBank(offset: 0x020c)
@@ -2001,21 +2001,21 @@ public struct DMA {
     public var ch8_al1_ctrl: Register<CH8_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL1_CTRL {    }
+    public struct CH8_AL1_CTRL {}
 
     /// Alias for channel 8 READ_ADDR register
     @RegisterBank(offset: 0x0214)
     public var ch8_al1_read_addr: Register<CH8_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL1_READ_ADDR {    }
+    public struct CH8_AL1_READ_ADDR {}
 
     /// Alias for channel 8 WRITE_ADDR register
     @RegisterBank(offset: 0x0218)
     public var ch8_al1_write_addr: Register<CH8_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL1_WRITE_ADDR {    }
+    public struct CH8_AL1_WRITE_ADDR {}
 
     /// Alias for channel 8 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2024,28 +2024,28 @@ public struct DMA {
     public var ch8_al1_trans_count_trig: Register<CH8_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH8_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 8 CTRL register
     @RegisterBank(offset: 0x0220)
     public var ch8_al2_ctrl: Register<CH8_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL2_CTRL {    }
+    public struct CH8_AL2_CTRL {}
 
     /// Alias for channel 8 TRANS_COUNT register
     @RegisterBank(offset: 0x0224)
     public var ch8_al2_trans_count: Register<CH8_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL2_TRANS_COUNT {    }
+    public struct CH8_AL2_TRANS_COUNT {}
 
     /// Alias for channel 8 READ_ADDR register
     @RegisterBank(offset: 0x0228)
     public var ch8_al2_read_addr: Register<CH8_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL2_READ_ADDR {    }
+    public struct CH8_AL2_READ_ADDR {}
 
     /// Alias for channel 8 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2054,28 +2054,28 @@ public struct DMA {
     public var ch8_al2_write_addr_trig: Register<CH8_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH8_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 8 CTRL register
     @RegisterBank(offset: 0x0230)
     public var ch8_al3_ctrl: Register<CH8_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL3_CTRL {    }
+    public struct CH8_AL3_CTRL {}
 
     /// Alias for channel 8 WRITE_ADDR register
     @RegisterBank(offset: 0x0234)
     public var ch8_al3_write_addr: Register<CH8_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL3_WRITE_ADDR {    }
+    public struct CH8_AL3_WRITE_ADDR {}
 
     /// Alias for channel 8 TRANS_COUNT register
     @RegisterBank(offset: 0x0238)
     public var ch8_al3_trans_count: Register<CH8_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL3_TRANS_COUNT {    }
+    public struct CH8_AL3_TRANS_COUNT {}
 
     /// Alias for channel 8 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2084,7 +2084,7 @@ public struct DMA {
     public var ch8_al3_read_addr_trig: Register<CH8_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH8_AL3_READ_ADDR_TRIG {    }
+    public struct CH8_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 9 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -2092,7 +2092,7 @@ public struct DMA {
     public var ch9_read_addr: Register<CH9_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_READ_ADDR {    }
+    public struct CH9_READ_ADDR {}
 
     /// DMA Channel 9 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -2100,7 +2100,7 @@ public struct DMA {
     public var ch9_write_addr: Register<CH9_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_WRITE_ADDR {    }
+    public struct CH9_WRITE_ADDR {}
 
     /// DMA Channel 9 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -2111,7 +2111,7 @@ public struct DMA {
     public var ch9_trans_count: Register<CH9_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH9_TRANS_COUNT {    }
+    public struct CH9_TRANS_COUNT {}
 
     /// DMA Channel 9 Control and Status
     @RegisterBank(offset: 0x024c)
@@ -2232,21 +2232,21 @@ public struct DMA {
     public var ch9_al1_ctrl: Register<CH9_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL1_CTRL {    }
+    public struct CH9_AL1_CTRL {}
 
     /// Alias for channel 9 READ_ADDR register
     @RegisterBank(offset: 0x0254)
     public var ch9_al1_read_addr: Register<CH9_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL1_READ_ADDR {    }
+    public struct CH9_AL1_READ_ADDR {}
 
     /// Alias for channel 9 WRITE_ADDR register
     @RegisterBank(offset: 0x0258)
     public var ch9_al1_write_addr: Register<CH9_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL1_WRITE_ADDR {    }
+    public struct CH9_AL1_WRITE_ADDR {}
 
     /// Alias for channel 9 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2255,28 +2255,28 @@ public struct DMA {
     public var ch9_al1_trans_count_trig: Register<CH9_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH9_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 9 CTRL register
     @RegisterBank(offset: 0x0260)
     public var ch9_al2_ctrl: Register<CH9_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL2_CTRL {    }
+    public struct CH9_AL2_CTRL {}
 
     /// Alias for channel 9 TRANS_COUNT register
     @RegisterBank(offset: 0x0264)
     public var ch9_al2_trans_count: Register<CH9_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL2_TRANS_COUNT {    }
+    public struct CH9_AL2_TRANS_COUNT {}
 
     /// Alias for channel 9 READ_ADDR register
     @RegisterBank(offset: 0x0268)
     public var ch9_al2_read_addr: Register<CH9_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL2_READ_ADDR {    }
+    public struct CH9_AL2_READ_ADDR {}
 
     /// Alias for channel 9 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2285,28 +2285,28 @@ public struct DMA {
     public var ch9_al2_write_addr_trig: Register<CH9_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH9_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 9 CTRL register
     @RegisterBank(offset: 0x0270)
     public var ch9_al3_ctrl: Register<CH9_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL3_CTRL {    }
+    public struct CH9_AL3_CTRL {}
 
     /// Alias for channel 9 WRITE_ADDR register
     @RegisterBank(offset: 0x0274)
     public var ch9_al3_write_addr: Register<CH9_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL3_WRITE_ADDR {    }
+    public struct CH9_AL3_WRITE_ADDR {}
 
     /// Alias for channel 9 TRANS_COUNT register
     @RegisterBank(offset: 0x0278)
     public var ch9_al3_trans_count: Register<CH9_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL3_TRANS_COUNT {    }
+    public struct CH9_AL3_TRANS_COUNT {}
 
     /// Alias for channel 9 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2315,7 +2315,7 @@ public struct DMA {
     public var ch9_al3_read_addr_trig: Register<CH9_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH9_AL3_READ_ADDR_TRIG {    }
+    public struct CH9_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 10 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -2323,7 +2323,7 @@ public struct DMA {
     public var ch10_read_addr: Register<CH10_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_READ_ADDR {    }
+    public struct CH10_READ_ADDR {}
 
     /// DMA Channel 10 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -2331,7 +2331,7 @@ public struct DMA {
     public var ch10_write_addr: Register<CH10_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_WRITE_ADDR {    }
+    public struct CH10_WRITE_ADDR {}
 
     /// DMA Channel 10 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -2342,7 +2342,7 @@ public struct DMA {
     public var ch10_trans_count: Register<CH10_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH10_TRANS_COUNT {    }
+    public struct CH10_TRANS_COUNT {}
 
     /// DMA Channel 10 Control and Status
     @RegisterBank(offset: 0x028c)
@@ -2463,21 +2463,21 @@ public struct DMA {
     public var ch10_al1_ctrl: Register<CH10_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL1_CTRL {    }
+    public struct CH10_AL1_CTRL {}
 
     /// Alias for channel 10 READ_ADDR register
     @RegisterBank(offset: 0x0294)
     public var ch10_al1_read_addr: Register<CH10_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL1_READ_ADDR {    }
+    public struct CH10_AL1_READ_ADDR {}
 
     /// Alias for channel 10 WRITE_ADDR register
     @RegisterBank(offset: 0x0298)
     public var ch10_al1_write_addr: Register<CH10_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL1_WRITE_ADDR {    }
+    public struct CH10_AL1_WRITE_ADDR {}
 
     /// Alias for channel 10 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2486,28 +2486,28 @@ public struct DMA {
     public var ch10_al1_trans_count_trig: Register<CH10_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH10_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 10 CTRL register
     @RegisterBank(offset: 0x02a0)
     public var ch10_al2_ctrl: Register<CH10_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL2_CTRL {    }
+    public struct CH10_AL2_CTRL {}
 
     /// Alias for channel 10 TRANS_COUNT register
     @RegisterBank(offset: 0x02a4)
     public var ch10_al2_trans_count: Register<CH10_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL2_TRANS_COUNT {    }
+    public struct CH10_AL2_TRANS_COUNT {}
 
     /// Alias for channel 10 READ_ADDR register
     @RegisterBank(offset: 0x02a8)
     public var ch10_al2_read_addr: Register<CH10_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL2_READ_ADDR {    }
+    public struct CH10_AL2_READ_ADDR {}
 
     /// Alias for channel 10 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2516,28 +2516,28 @@ public struct DMA {
     public var ch10_al2_write_addr_trig: Register<CH10_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH10_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 10 CTRL register
     @RegisterBank(offset: 0x02b0)
     public var ch10_al3_ctrl: Register<CH10_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL3_CTRL {    }
+    public struct CH10_AL3_CTRL {}
 
     /// Alias for channel 10 WRITE_ADDR register
     @RegisterBank(offset: 0x02b4)
     public var ch10_al3_write_addr: Register<CH10_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL3_WRITE_ADDR {    }
+    public struct CH10_AL3_WRITE_ADDR {}
 
     /// Alias for channel 10 TRANS_COUNT register
     @RegisterBank(offset: 0x02b8)
     public var ch10_al3_trans_count: Register<CH10_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL3_TRANS_COUNT {    }
+    public struct CH10_AL3_TRANS_COUNT {}
 
     /// Alias for channel 10 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2546,7 +2546,7 @@ public struct DMA {
     public var ch10_al3_read_addr_trig: Register<CH10_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH10_AL3_READ_ADDR_TRIG {    }
+    public struct CH10_AL3_READ_ADDR_TRIG {}
 
     /// DMA Channel 11 Read Address pointer
     /// This register updates automatically each time a read completes. The current value is the next address to be read by this channel.
@@ -2554,7 +2554,7 @@ public struct DMA {
     public var ch11_read_addr: Register<CH11_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_READ_ADDR {    }
+    public struct CH11_READ_ADDR {}
 
     /// DMA Channel 11 Write Address pointer
     /// This register updates automatically each time a write completes. The current value is the next address to be written by this channel.
@@ -2562,7 +2562,7 @@ public struct DMA {
     public var ch11_write_addr: Register<CH11_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_WRITE_ADDR {    }
+    public struct CH11_WRITE_ADDR {}
 
     /// DMA Channel 11 Transfer Count
     /// Program the number of bus transfers a channel will perform before halting. Note that, if transfers are larger than one byte in size, this is not equal to the number of bytes transferred (see CTRL_DATA_SIZE).
@@ -2573,7 +2573,7 @@ public struct DMA {
     public var ch11_trans_count: Register<CH11_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH11_TRANS_COUNT {    }
+    public struct CH11_TRANS_COUNT {}
 
     /// DMA Channel 11 Control and Status
     @RegisterBank(offset: 0x02cc)
@@ -2694,21 +2694,21 @@ public struct DMA {
     public var ch11_al1_ctrl: Register<CH11_AL1_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL1_CTRL {    }
+    public struct CH11_AL1_CTRL {}
 
     /// Alias for channel 11 READ_ADDR register
     @RegisterBank(offset: 0x02d4)
     public var ch11_al1_read_addr: Register<CH11_AL1_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL1_READ_ADDR {    }
+    public struct CH11_AL1_READ_ADDR {}
 
     /// Alias for channel 11 WRITE_ADDR register
     @RegisterBank(offset: 0x02d8)
     public var ch11_al1_write_addr: Register<CH11_AL1_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL1_WRITE_ADDR {    }
+    public struct CH11_AL1_WRITE_ADDR {}
 
     /// Alias for channel 11 TRANS_COUNT register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2717,28 +2717,28 @@ public struct DMA {
     public var ch11_al1_trans_count_trig: Register<CH11_AL1_TRANS_COUNT_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL1_TRANS_COUNT_TRIG {    }
+    public struct CH11_AL1_TRANS_COUNT_TRIG {}
 
     /// Alias for channel 11 CTRL register
     @RegisterBank(offset: 0x02e0)
     public var ch11_al2_ctrl: Register<CH11_AL2_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL2_CTRL {    }
+    public struct CH11_AL2_CTRL {}
 
     /// Alias for channel 11 TRANS_COUNT register
     @RegisterBank(offset: 0x02e4)
     public var ch11_al2_trans_count: Register<CH11_AL2_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL2_TRANS_COUNT {    }
+    public struct CH11_AL2_TRANS_COUNT {}
 
     /// Alias for channel 11 READ_ADDR register
     @RegisterBank(offset: 0x02e8)
     public var ch11_al2_read_addr: Register<CH11_AL2_READ_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL2_READ_ADDR {    }
+    public struct CH11_AL2_READ_ADDR {}
 
     /// Alias for channel 11 WRITE_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2747,28 +2747,28 @@ public struct DMA {
     public var ch11_al2_write_addr_trig: Register<CH11_AL2_WRITE_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL2_WRITE_ADDR_TRIG {    }
+    public struct CH11_AL2_WRITE_ADDR_TRIG {}
 
     /// Alias for channel 11 CTRL register
     @RegisterBank(offset: 0x02f0)
     public var ch11_al3_ctrl: Register<CH11_AL3_CTRL>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL3_CTRL {    }
+    public struct CH11_AL3_CTRL {}
 
     /// Alias for channel 11 WRITE_ADDR register
     @RegisterBank(offset: 0x02f4)
     public var ch11_al3_write_addr: Register<CH11_AL3_WRITE_ADDR>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL3_WRITE_ADDR {    }
+    public struct CH11_AL3_WRITE_ADDR {}
 
     /// Alias for channel 11 TRANS_COUNT register
     @RegisterBank(offset: 0x02f8)
     public var ch11_al3_trans_count: Register<CH11_AL3_TRANS_COUNT>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL3_TRANS_COUNT {    }
+    public struct CH11_AL3_TRANS_COUNT {}
 
     /// Alias for channel 11 READ_ADDR register
     /// This is a trigger register (0xc). Writing a nonzero value will
@@ -2777,7 +2777,7 @@ public struct DMA {
     public var ch11_al3_read_addr_trig: Register<CH11_AL3_READ_ADDR_TRIG>
 
     @Register(bitWidth: 32)
-    public struct CH11_AL3_READ_ADDR_TRIG {    }
+    public struct CH11_AL3_READ_ADDR_TRIG {}
 
     /// Interrupt Status (raw)
     @RegisterBank(offset: 0x0400)
@@ -2990,7 +2990,7 @@ public struct DMA {
     public var sniff_data: Register<SNIFF_DATA>
 
     @Register(bitWidth: 32)
-    public struct SNIFF_DATA {    }
+    public struct SNIFF_DATA {}
 
     /// Debug RAF, WAF, TDF levels
     @RegisterBank(offset: 0x0440)
@@ -3048,7 +3048,7 @@ public struct DMA {
     public var ch0_dbg_tcr: Register<CH0_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH0_DBG_TCR {    }
+    public struct CH0_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0840)
@@ -3065,7 +3065,7 @@ public struct DMA {
     public var ch1_dbg_tcr: Register<CH1_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH1_DBG_TCR {    }
+    public struct CH1_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0880)
@@ -3082,7 +3082,7 @@ public struct DMA {
     public var ch2_dbg_tcr: Register<CH2_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH2_DBG_TCR {    }
+    public struct CH2_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x08c0)
@@ -3099,7 +3099,7 @@ public struct DMA {
     public var ch3_dbg_tcr: Register<CH3_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH3_DBG_TCR {    }
+    public struct CH3_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0900)
@@ -3116,7 +3116,7 @@ public struct DMA {
     public var ch4_dbg_tcr: Register<CH4_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH4_DBG_TCR {    }
+    public struct CH4_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0940)
@@ -3133,7 +3133,7 @@ public struct DMA {
     public var ch5_dbg_tcr: Register<CH5_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH5_DBG_TCR {    }
+    public struct CH5_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0980)
@@ -3150,7 +3150,7 @@ public struct DMA {
     public var ch6_dbg_tcr: Register<CH6_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH6_DBG_TCR {    }
+    public struct CH6_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x09c0)
@@ -3167,7 +3167,7 @@ public struct DMA {
     public var ch7_dbg_tcr: Register<CH7_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH7_DBG_TCR {    }
+    public struct CH7_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0a00)
@@ -3184,7 +3184,7 @@ public struct DMA {
     public var ch8_dbg_tcr: Register<CH8_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH8_DBG_TCR {    }
+    public struct CH8_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0a40)
@@ -3201,7 +3201,7 @@ public struct DMA {
     public var ch9_dbg_tcr: Register<CH9_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH9_DBG_TCR {    }
+    public struct CH9_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0a80)
@@ -3218,7 +3218,7 @@ public struct DMA {
     public var ch10_dbg_tcr: Register<CH10_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH10_DBG_TCR {    }
+    public struct CH10_DBG_TCR {}
 
     /// Read: get channel DREQ counter (i.e. how many accesses the DMA expects it can perform on the peripheral without overflow/underflow. Write any value: clears the counter, and cause channel to re-initiate DREQ handshake.
     @RegisterBank(offset: 0x0ac0)
@@ -3235,5 +3235,5 @@ public struct DMA {
     public var ch11_dbg_tcr: Register<CH11_DBG_TCR>
 
     @Register(bitWidth: 32)
-    public struct CH11_DBG_TCR {    }
+    public struct CH11_DBG_TCR {}
 }

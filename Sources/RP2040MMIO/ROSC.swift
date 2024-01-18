@@ -129,7 +129,7 @@ public struct ROSC {
     public var dormant: Register<DORMANT>
 
     @Register(bitWidth: 32)
-    public struct DORMANT {    }
+    public struct DORMANT {}
 
     /// Controls the output divider
     @RegisterBank(offset: 0x0010)

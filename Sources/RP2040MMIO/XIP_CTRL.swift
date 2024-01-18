@@ -85,7 +85,7 @@ public struct XIP_CTRL {
     public var ctr_hit: Register<CTR_HIT>
 
     @Register(bitWidth: 32)
-    public struct CTR_HIT {    }
+    public struct CTR_HIT {}
 
     /// Cache Access counter
     /// A 32 bit saturating counter that increments upon each XIP access,
@@ -95,7 +95,7 @@ public struct XIP_CTRL {
     public var ctr_acc: Register<CTR_ACC>
 
     @Register(bitWidth: 32)
-    public struct CTR_ACC {    }
+    public struct CTR_ACC {}
 
     /// FIFO stream address
     @RegisterBank(offset: 0x0014)
@@ -136,5 +136,5 @@ public struct XIP_CTRL {
     public var stream_fifo: Register<STREAM_FIFO>
 
     @Register(bitWidth: 32)
-    public struct STREAM_FIFO {    }
+    public struct STREAM_FIFO {}
 }

@@ -13,7 +13,7 @@ public struct SYSCFG {
     public var proc0_nmi_mask: Register<PROC0_NMI_MASK>
 
     @Register(bitWidth: 32)
-    public struct PROC0_NMI_MASK {    }
+    public struct PROC0_NMI_MASK {}
 
     /// Processor core 1 NMI source mask
     /// Set a bit high to enable NMI from that IRQ
@@ -21,7 +21,7 @@ public struct SYSCFG {
     public var proc1_nmi_mask: Register<PROC1_NMI_MASK>
 
     @Register(bitWidth: 32)
-    public struct PROC1_NMI_MASK {    }
+    public struct PROC1_NMI_MASK {}
 
     /// Configuration for processors
     @RegisterBank(offset: 0x0008)

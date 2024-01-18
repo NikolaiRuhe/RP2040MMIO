@@ -40,5 +40,5 @@ public struct SYSINFO {
     public var gitref_rp2040: Register<GITREF_RP2040>
 
     @Register(bitWidth: 32)
-    public struct GITREF_RP2040 {    }
+    public struct GITREF_RP2040 {}
 }

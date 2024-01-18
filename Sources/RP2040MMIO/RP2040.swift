@@ -2,7 +2,6 @@
 
 import MMIO
 import MMIOExtensions
-
 /// Dual-core Arm Cortex-M0+ processor, flexible clock running up to 133 MHz
 /// 264KB on-chip SRAM
 /// 2 x UART, 2 x SPI controllers, 2 x I2C controllers, 16 x PWM channels
@@ -15,5 +14,4 @@ import MMIOExtensions
 /// Accurate on-chip clock
 /// Temperature sensor
 /// Accelerated integer and floating-point libraries on-chip
-
 public enum RP2040 {}

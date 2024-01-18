@@ -76,7 +76,7 @@ public struct CLOCKS {
     public var clk_gpout0_selected: Register<CLK_GPOUT0_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT0_SELECTED {    }
+    public struct CLK_GPOUT0_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x000c)
@@ -148,7 +148,7 @@ public struct CLOCKS {
     public var clk_gpout1_selected: Register<CLK_GPOUT1_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT1_SELECTED {    }
+    public struct CLK_GPOUT1_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0018)
@@ -220,7 +220,7 @@ public struct CLOCKS {
     public var clk_gpout2_selected: Register<CLK_GPOUT2_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT2_SELECTED {    }
+    public struct CLK_GPOUT2_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0024)
@@ -292,7 +292,7 @@ public struct CLOCKS {
     public var clk_gpout3_selected: Register<CLK_GPOUT3_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT3_SELECTED {    }
+    public struct CLK_GPOUT3_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0030)
@@ -342,7 +342,7 @@ public struct CLOCKS {
     public var clk_ref_selected: Register<CLK_REF_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_REF_SELECTED {    }
+    public struct CLK_REF_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x003c)
@@ -398,7 +398,7 @@ public struct CLOCKS {
     public var clk_sys_selected: Register<CLK_SYS_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_SELECTED {    }
+    public struct CLK_SYS_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0048)
@@ -437,7 +437,7 @@ public struct CLOCKS {
     public var clk_peri_selected: Register<CLK_PERI_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_PERI_SELECTED {    }
+    public struct CLK_PERI_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0054)
@@ -496,7 +496,7 @@ public struct CLOCKS {
     public var clk_usb_selected: Register<CLK_USB_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_USB_SELECTED {    }
+    public struct CLK_USB_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0060)
@@ -555,7 +555,7 @@ public struct CLOCKS {
     public var clk_adc_selected: Register<CLK_ADC_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_ADC_SELECTED {    }
+    public struct CLK_ADC_SELECTED {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x006c)
@@ -618,7 +618,7 @@ public struct CLOCKS {
     public var clk_rtc_selected: Register<CLK_RTC_SELECTED>
 
     @Register(bitWidth: 32)
-    public struct CLK_RTC_SELECTED {    }
+    public struct CLK_RTC_SELECTED {}
 
     @RegisterBank(offset: 0x0078)
     public var clk_sys_resus_ctrl: Register<CLK_SYS_RESUS_CTRL>

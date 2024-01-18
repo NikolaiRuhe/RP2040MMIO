@@ -22,7 +22,7 @@ public struct TIMER {
     public var timehw: Register<TIMEHW>
 
     @Register(bitWidth: 32)
-    public struct TIMEHW {    }
+    public struct TIMEHW {}
 
     /// Write to bits 31:0 of time
     /// writes do not get copied to time until timehw is written
@@ -30,7 +30,7 @@ public struct TIMER {
     public var timelw: Register<TIMELW>
 
     @Register(bitWidth: 32)
-    public struct TIMELW {    }
+    public struct TIMELW {}
 
     /// Read from bits 63:32 of time
     /// always read timelr before timehr
@@ -38,14 +38,14 @@ public struct TIMER {
     public var timehr: Register<TIMEHR>
 
     @Register(bitWidth: 32)
-    public struct TIMEHR {    }
+    public struct TIMEHR {}
 
     /// Read from bits 31:0 of time
     @RegisterBank(offset: 0x000c)
     public var timelr: Register<TIMELR>
 
     @Register(bitWidth: 32)
-    public struct TIMELR {    }
+    public struct TIMELR {}
 
     /// Arm alarm 0, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.
@@ -55,7 +55,7 @@ public struct TIMER {
     public var alarm0: Register<ALARM0>
 
     @Register(bitWidth: 32)
-    public struct ALARM0 {    }
+    public struct ALARM0 {}
 
     /// Arm alarm 1, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.
@@ -65,7 +65,7 @@ public struct TIMER {
     public var alarm1: Register<ALARM1>
 
     @Register(bitWidth: 32)
-    public struct ALARM1 {    }
+    public struct ALARM1 {}
 
     /// Arm alarm 2, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.
@@ -75,7 +75,7 @@ public struct TIMER {
     public var alarm2: Register<ALARM2>
 
     @Register(bitWidth: 32)
-    public struct ALARM2 {    }
+    public struct ALARM2 {}
 
     /// Arm alarm 3, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.
@@ -85,7 +85,7 @@ public struct TIMER {
     public var alarm3: Register<ALARM3>
 
     @Register(bitWidth: 32)
-    public struct ALARM3 {    }
+    public struct ALARM3 {}
 
     /// Indicates the armed/disarmed status of each alarm.
     /// A write to the corresponding ALARMx register arms the alarm.
@@ -105,14 +105,14 @@ public struct TIMER {
     public var timerawh: Register<TIMERAWH>
 
     @Register(bitWidth: 32)
-    public struct TIMERAWH {    }
+    public struct TIMERAWH {}
 
     /// Raw read from bits 31:0 of time (no side effects)
     @RegisterBank(offset: 0x0028)
     public var timerawl: Register<TIMERAWL>
 
     @Register(bitWidth: 32)
-    public struct TIMERAWL {    }
+    public struct TIMERAWL {}
 
     /// Set bits high to enable pause when the corresponding debug ports are active
     @RegisterBank(offset: 0x002c)
