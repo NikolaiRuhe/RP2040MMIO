@@ -19,199 +19,216 @@ public struct TIMER {
     /// Write to bits 63:32 of time
     /// always write timelw before timehw
     @RegisterBank(offset: 0x0000)
-    public var timehw: Register<TIMEHW>
+    public var TIMEHW: Register<TIMEHW_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMEHW {}
+    public struct TIMEHW_Descriptor {}
 
     /// Write to bits 31:0 of time
     /// writes do not get copied to time until timehw is written
     @RegisterBank(offset: 0x0004)
-    public var timelw: Register<TIMELW>
+    public var TIMELW: Register<TIMELW_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMELW {}
+    public struct TIMELW_Descriptor {}
 
     /// Read from bits 63:32 of time
     /// always read timelr before timehr
     @RegisterBank(offset: 0x0008)
-    public var timehr: Register<TIMEHR>
+    public var TIMEHR: Register<TIMEHR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMEHR {}
+    public struct TIMEHR_Descriptor {}
 
     /// Read from bits 31:0 of time
     @RegisterBank(offset: 0x000c)
-    public var timelr: Register<TIMELR>
+    public var TIMELR: Register<TIMELR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMELR {}
+    public struct TIMELR_Descriptor {}
 
     /// Arm alarm 0, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM0 == TIMELR.
     /// The alarm will disarm itself once it fires, and can
     /// be disarmed early using the ARMED status register.
     @RegisterBank(offset: 0x0010)
-    public var alarm0: Register<ALARM0>
+    public var ALARM0: Register<ALARM0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ALARM0 {}
+    public struct ALARM0_Descriptor {}
 
     /// Arm alarm 1, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM1 == TIMELR.
     /// The alarm will disarm itself once it fires, and can
     /// be disarmed early using the ARMED status register.
     @RegisterBank(offset: 0x0014)
-    public var alarm1: Register<ALARM1>
+    public var ALARM1: Register<ALARM1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ALARM1 {}
+    public struct ALARM1_Descriptor {}
 
     /// Arm alarm 2, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM2 == TIMELR.
     /// The alarm will disarm itself once it fires, and can
     /// be disarmed early using the ARMED status register.
     @RegisterBank(offset: 0x0018)
-    public var alarm2: Register<ALARM2>
+    public var ALARM2: Register<ALARM2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ALARM2 {}
+    public struct ALARM2_Descriptor {}
 
     /// Arm alarm 3, and configure the time it will fire.
     /// Once armed, the alarm fires when TIMER_ALARM3 == TIMELR.
     /// The alarm will disarm itself once it fires, and can
     /// be disarmed early using the ARMED status register.
     @RegisterBank(offset: 0x001c)
-    public var alarm3: Register<ALARM3>
+    public var ALARM3: Register<ALARM3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ALARM3 {}
+    public struct ALARM3_Descriptor {}
 
     /// Indicates the armed/disarmed status of each alarm.
     /// A write to the corresponding ALARMx register arms the alarm.
     /// Alarms automatically disarm upon firing, but writing ones here
     /// will disarm immediately without waiting to fire.
     @RegisterBank(offset: 0x0020)
-    public var armed: Register<ARMED>
+    public var ARMED: Register<ARMED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ARMED {
+    public struct ARMED_Descriptor {
         @ReadWrite(bits: 0..<4, as: BitField4.self)
-        public var armed: ARMED_Field
+        public var ARMED: ARMED_Field
     }
 
     /// Raw read from bits 63:32 of time (no side effects)
     @RegisterBank(offset: 0x0024)
-    public var timerawh: Register<TIMERAWH>
+    public var TIMERAWH: Register<TIMERAWH_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMERAWH {}
+    public struct TIMERAWH_Descriptor {}
 
     /// Raw read from bits 31:0 of time (no side effects)
     @RegisterBank(offset: 0x0028)
-    public var timerawl: Register<TIMERAWL>
+    public var TIMERAWL: Register<TIMERAWL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TIMERAWL {}
+    public struct TIMERAWL_Descriptor {}
 
     /// Set bits high to enable pause when the corresponding debug ports are active
     @RegisterBank(offset: 0x002c)
-    public var dbgpause: Register<DBGPAUSE>
+    public var DBGPAUSE: Register<DBGPAUSE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DBGPAUSE {
+    public struct DBGPAUSE_Descriptor {
         /// Pause when processor 1 is in debug mode
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var dbg1: DBG1_Field
+        public var DBG1: DBG1_Field
 
         /// Pause when processor 0 is in debug mode
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var dbg0: DBG0_Field
+        public var DBG0: DBG0_Field
     }
 
     /// Set high to pause the timer
     @RegisterBank(offset: 0x0030)
-    public var pause: Register<PAUSE>
+    public var PAUSE: Register<PAUSE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PAUSE {
+    public struct PAUSE_Descriptor {
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var pause: PAUSE_Field
+        public var PAUSE: PAUSE_Field
     }
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x0034)
-    public var intr: Register<INTR>
+    public var INTR: Register<INTR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR {
+    public struct INTR_Descriptor {
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var alarm_3: ALARM_3_Field
+        public var ALARM_3: ALARM_3_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var alarm_2: ALARM_2_Field
+        public var ALARM_2: ALARM_2_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var alarm_1: ALARM_1_Field
+        public var ALARM_1: ALARM_1_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var alarm_0: ALARM_0_Field
+        public var ALARM_0: ALARM_0_Field
     }
 
     /// Interrupt Enable
     @RegisterBank(offset: 0x0038)
-    public var inte: Register<INTE>
+    public var INTE: Register<INTE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTE {
+    public struct INTE_Descriptor {
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var alarm_3: ALARM_3_Field
+        public var ALARM_3: ALARM_3_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var alarm_2: ALARM_2_Field
+        public var ALARM_2: ALARM_2_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var alarm_1: ALARM_1_Field
+        public var ALARM_1: ALARM_1_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var alarm_0: ALARM_0_Field
+        public var ALARM_0: ALARM_0_Field
     }
 
     /// Interrupt Force
     @RegisterBank(offset: 0x003c)
-    public var intf: Register<INTF>
+    public var INTF: Register<INTF_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTF {
+    public struct INTF_Descriptor {
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var alarm_3: ALARM_3_Field
+        public var ALARM_3: ALARM_3_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var alarm_2: ALARM_2_Field
+        public var ALARM_2: ALARM_2_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var alarm_1: ALARM_1_Field
+        public var ALARM_1: ALARM_1_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var alarm_0: ALARM_0_Field
+        public var ALARM_0: ALARM_0_Field
     }
 
     /// Interrupt status after masking & forcing
     @RegisterBank(offset: 0x0040)
-    public var ints: Register<INTS>
+    public var INTS: Register<INTS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTS {
+    public struct INTS_Descriptor {
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var alarm_3: ALARM_3_Field
+        public var ALARM_3: ALARM_3_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var alarm_2: ALARM_2_Field
+        public var ALARM_2: ALARM_2_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var alarm_1: ALARM_1_Field
+        public var ALARM_1: ALARM_1_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var alarm_0: ALARM_0_Field
+        public var ALARM_0: ALARM_0_Field
     }
 }

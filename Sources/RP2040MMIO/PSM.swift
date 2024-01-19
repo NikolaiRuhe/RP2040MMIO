@@ -8,10 +8,11 @@ public struct PSM {
 
     /// Force block out of reset (i.e. power it on)
     @RegisterBank(offset: 0x0000)
-    public var frce_on: Register<FRCE_ON>
+    public var FRCE_ON: Register<FRCE_ON_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FRCE_ON {
+    public struct FRCE_ON_Descriptor {
         @ReadWrite(bits: 16..<17, as: Bool.self)
         public var proc1: proc1_Field
 
@@ -66,10 +67,11 @@ public struct PSM {
 
     /// Force into reset (i.e. power it off)
     @RegisterBank(offset: 0x0004)
-    public var frce_off: Register<FRCE_OFF>
+    public var FRCE_OFF: Register<FRCE_OFF_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FRCE_OFF {
+    public struct FRCE_OFF_Descriptor {
         @ReadWrite(bits: 16..<17, as: Bool.self)
         public var proc1: proc1_Field
 
@@ -124,10 +126,11 @@ public struct PSM {
 
     /// Set to 1 if this peripheral should be reset when the watchdog fires.
     @RegisterBank(offset: 0x0008)
-    public var wdsel: Register<WDSEL>
+    public var WDSEL: Register<WDSEL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct WDSEL {
+    public struct WDSEL_Descriptor {
         @ReadWrite(bits: 16..<17, as: Bool.self)
         public var proc1: proc1_Field
 
@@ -182,10 +185,11 @@ public struct PSM {
 
     /// Indicates the peripheral's registers are ready to access.
     @RegisterBank(offset: 0x000c)
-    public var done: Register<DONE>
+    public var DONE: Register<DONE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DONE {
+    public struct DONE_Descriptor {
         @ReadOnly(bits: 16..<17, as: Bool.self)
         public var proc1: proc1_Field
 

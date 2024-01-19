@@ -34,17 +34,18 @@ public struct XIP_SSI {
 
     /// Control register 0
     @RegisterBank(offset: 0x0000)
-    public var ctrlr0: Register<CTRLR0>
+    public var CTRLR0: Register<CTRLR0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CTRLR0 {
+    public struct CTRLR0_Descriptor {
         /// Slave select toggle enable
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var sste: SSTE_Field
+        public var SSTE: SSTE_Field
 
         /// SPI frame format
         @ReadWrite(bits: 21..<23, as: SPI_FRF_Values.self)
-        public var spi_frf: SPI_FRF_Field
+        public var SPI_FRF: SPI_FRF_Field
 
         public enum SPI_FRF_Values: UInt, BitFieldProjectable {
             /// Standard 1-bit SPI frame format; 1 bit per SCK, full-duplex
@@ -60,24 +61,24 @@ public struct XIP_SSI {
         /// Data frame size in 32b transfer mode
         /// Value of n -> n+1 clocks per frame.
         @ReadWrite(bits: 16..<21, as: BitField5.self)
-        public var dfs_32: DFS_32_Field
+        public var DFS_32: DFS_32_Field
 
         /// Control frame size
         /// Value of n -> n+1 clocks per frame.
         @ReadWrite(bits: 12..<16, as: BitField4.self)
-        public var cfs: CFS_Field
+        public var CFS: CFS_Field
 
         /// Shift register loop (test mode)
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var srl: SRL_Field
+        public var SRL: SRL_Field
 
         /// Slave output enable
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var slv_oe: SLV_OE_Field
+        public var SLV_OE: SLV_OE_Field
 
         /// Transfer mode
         @ReadWrite(bits: 8..<10, as: TMOD_Values.self)
-        public var tmod: TMOD_Field
+        public var TMOD: TMOD_Field
 
         public enum TMOD_Values: UInt, BitFieldProjectable {
             /// Both transmit and receive
@@ -94,423 +95,449 @@ public struct XIP_SSI {
 
         /// Serial clock polarity
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var scpol: SCPOL_Field
+        public var SCPOL: SCPOL_Field
 
         /// Serial clock phase
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var scph: SCPH_Field
+        public var SCPH: SCPH_Field
 
         /// Frame format
         @ReadWrite(bits: 4..<6, as: BitField2.self)
-        public var frf: FRF_Field
+        public var FRF: FRF_Field
 
         /// Data frame size
         @ReadWrite(bits: 0..<4, as: BitField4.self)
-        public var dfs: DFS_Field
+        public var DFS: DFS_Field
     }
 
     /// Master Control register 1
     @RegisterBank(offset: 0x0004)
-    public var ctrlr1: Register<CTRLR1>
+    public var CTRLR1: Register<CTRLR1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CTRLR1 {
+    public struct CTRLR1_Descriptor {
         /// Number of data frames
         @ReadWrite(bits: 0..<16, as: BitField16.self)
-        public var ndf: NDF_Field
+        public var NDF: NDF_Field
     }
 
     /// SSI Enable
     @RegisterBank(offset: 0x0008)
-    public var ssienr: Register<SSIENR>
+    public var SSIENR: Register<SSIENR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SSIENR {
+    public struct SSIENR_Descriptor {
         /// SSI enable
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var ssi_en: SSI_EN_Field
+        public var SSI_EN: SSI_EN_Field
     }
 
     /// Microwire Control
     @RegisterBank(offset: 0x000c)
-    public var mwcr: Register<MWCR>
+    public var MWCR: Register<MWCR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct MWCR {
+    public struct MWCR_Descriptor {
         /// Microwire handshaking
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var mhs: MHS_Field
+        public var MHS: MHS_Field
 
         /// Microwire control
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var mdd: MDD_Field
+        public var MDD: MDD_Field
 
         /// Microwire transfer mode
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var mwmod: MWMOD_Field
+        public var MWMOD: MWMOD_Field
     }
 
     /// Slave enable
     @RegisterBank(offset: 0x0010)
-    public var ser: Register<SER>
+    public var SER: Register<SER_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SER {
+    public struct SER_Descriptor {
         /// For each bit:
         /// 0 -> slave not selected
         /// 1 -> slave selected
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var ser: SER_Field
+        public var SER: SER_Field
     }
 
     /// Baud rate
     @RegisterBank(offset: 0x0014)
-    public var baudr: Register<BAUDR>
+    public var BAUDR: Register<BAUDR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct BAUDR {
+    public struct BAUDR_Descriptor {
         /// SSI clock divider
         @ReadWrite(bits: 0..<16, as: BitField16.self)
-        public var sckdv: SCKDV_Field
+        public var SCKDV: SCKDV_Field
     }
 
     /// TX FIFO threshold level
     @RegisterBank(offset: 0x0018)
-    public var txftlr: Register<TXFTLR>
+    public var TXFTLR: Register<TXFTLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TXFTLR {
+    public struct TXFTLR_Descriptor {
         /// Transmit FIFO threshold
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var tft: TFT_Field
+        public var TFT: TFT_Field
     }
 
     /// RX FIFO threshold level
     @RegisterBank(offset: 0x001c)
-    public var rxftlr: Register<RXFTLR>
+    public var RXFTLR: Register<RXFTLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RXFTLR {
+    public struct RXFTLR_Descriptor {
         /// Receive FIFO threshold
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var rft: RFT_Field
+        public var RFT: RFT_Field
     }
 
     /// TX FIFO level
     @RegisterBank(offset: 0x0020)
-    public var txflr: Register<TXFLR>
+    public var TXFLR: Register<TXFLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TXFLR {
+    public struct TXFLR_Descriptor {
         /// Transmit FIFO level
         @ReadOnly(bits: 0..<8, as: BitField8.self)
-        public var tftfl: TFTFL_Field
+        public var TFTFL: TFTFL_Field
     }
 
     /// RX FIFO level
     @RegisterBank(offset: 0x0024)
-    public var rxflr: Register<RXFLR>
+    public var RXFLR: Register<RXFLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RXFLR {
+    public struct RXFLR_Descriptor {
         /// Receive FIFO level
         @ReadOnly(bits: 0..<8, as: BitField8.self)
-        public var rxtfl: RXTFL_Field
+        public var RXTFL: RXTFL_Field
     }
 
     /// Status register
     @RegisterBank(offset: 0x0028)
-    public var sr: Register<SR>
+    public var SR: Register<SR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SR {
+    public struct SR_Descriptor {
         /// Data collision error
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var dcol: DCOL_Field
+        public var DCOL: DCOL_Field
 
         /// Transmission error
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var txe: TXE_Field
+        public var TXE: TXE_Field
 
         /// Receive FIFO full
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var rff: RFF_Field
+        public var RFF: RFF_Field
 
         /// Receive FIFO not empty
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var rfne: RFNE_Field
+        public var RFNE: RFNE_Field
 
         /// Transmit FIFO empty
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var tfe: TFE_Field
+        public var TFE: TFE_Field
 
         /// Transmit FIFO not full
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var tfnf: TFNF_Field
+        public var TFNF: TFNF_Field
 
         /// SSI busy flag
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var busy: BUSY_Field
+        public var BUSY: BUSY_Field
     }
 
     /// Interrupt mask
     @RegisterBank(offset: 0x002c)
-    public var imr: Register<IMR>
+    public var IMR: Register<IMR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct IMR {
+    public struct IMR_Descriptor {
         /// Multi-master contention interrupt mask
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var mstim: MSTIM_Field
+        public var MSTIM: MSTIM_Field
 
         /// Receive FIFO full interrupt mask
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var rxfim: RXFIM_Field
+        public var RXFIM: RXFIM_Field
 
         /// Receive FIFO overflow interrupt mask
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var rxoim: RXOIM_Field
+        public var RXOIM: RXOIM_Field
 
         /// Receive FIFO underflow interrupt mask
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var rxuim: RXUIM_Field
+        public var RXUIM: RXUIM_Field
 
         /// Transmit FIFO overflow interrupt mask
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var txoim: TXOIM_Field
+        public var TXOIM: TXOIM_Field
 
         /// Transmit FIFO empty interrupt mask
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var txeim: TXEIM_Field
+        public var TXEIM: TXEIM_Field
     }
 
     /// Interrupt status
     @RegisterBank(offset: 0x0030)
-    public var isr: Register<ISR>
+    public var ISR: Register<ISR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ISR {
+    public struct ISR_Descriptor {
         /// Multi-master contention interrupt status
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var mstis: MSTIS_Field
+        public var MSTIS: MSTIS_Field
 
         /// Receive FIFO full interrupt status
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var rxfis: RXFIS_Field
+        public var RXFIS: RXFIS_Field
 
         /// Receive FIFO overflow interrupt status
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var rxois: RXOIS_Field
+        public var RXOIS: RXOIS_Field
 
         /// Receive FIFO underflow interrupt status
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var rxuis: RXUIS_Field
+        public var RXUIS: RXUIS_Field
 
         /// Transmit FIFO overflow interrupt status
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var txois: TXOIS_Field
+        public var TXOIS: TXOIS_Field
 
         /// Transmit FIFO empty interrupt status
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var txeis: TXEIS_Field
+        public var TXEIS: TXEIS_Field
     }
 
     /// Raw interrupt status
     @RegisterBank(offset: 0x0034)
-    public var risr: Register<RISR>
+    public var RISR: Register<RISR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RISR {
+    public struct RISR_Descriptor {
         /// Multi-master contention raw interrupt status
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var mstir: MSTIR_Field
+        public var MSTIR: MSTIR_Field
 
         /// Receive FIFO full raw interrupt status
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var rxfir: RXFIR_Field
+        public var RXFIR: RXFIR_Field
 
         /// Receive FIFO overflow raw interrupt status
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var rxoir: RXOIR_Field
+        public var RXOIR: RXOIR_Field
 
         /// Receive FIFO underflow raw interrupt status
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var rxuir: RXUIR_Field
+        public var RXUIR: RXUIR_Field
 
         /// Transmit FIFO overflow raw interrupt status
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var txoir: TXOIR_Field
+        public var TXOIR: TXOIR_Field
 
         /// Transmit FIFO empty raw interrupt status
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var txeir: TXEIR_Field
+        public var TXEIR: TXEIR_Field
     }
 
     /// TX FIFO overflow interrupt clear
     @RegisterBank(offset: 0x0038)
-    public var txoicr: Register<TXOICR>
+    public var TXOICR: Register<TXOICR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TXOICR {
+    public struct TXOICR_Descriptor {
         /// Clear-on-read transmit FIFO overflow interrupt
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var txoicr: TXOICR_Field
+        public var TXOICR: TXOICR_Field
     }
 
     /// RX FIFO overflow interrupt clear
     @RegisterBank(offset: 0x003c)
-    public var rxoicr: Register<RXOICR>
+    public var RXOICR: Register<RXOICR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RXOICR {
+    public struct RXOICR_Descriptor {
         /// Clear-on-read receive FIFO overflow interrupt
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var rxoicr: RXOICR_Field
+        public var RXOICR: RXOICR_Field
     }
 
     /// RX FIFO underflow interrupt clear
     @RegisterBank(offset: 0x0040)
-    public var rxuicr: Register<RXUICR>
+    public var RXUICR: Register<RXUICR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RXUICR {
+    public struct RXUICR_Descriptor {
         /// Clear-on-read receive FIFO underflow interrupt
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var rxuicr: RXUICR_Field
+        public var RXUICR: RXUICR_Field
     }
 
     /// Multi-master interrupt clear
     @RegisterBank(offset: 0x0044)
-    public var msticr: Register<MSTICR>
+    public var MSTICR: Register<MSTICR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct MSTICR {
+    public struct MSTICR_Descriptor {
         /// Clear-on-read multi-master contention interrupt
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var msticr: MSTICR_Field
+        public var MSTICR: MSTICR_Field
     }
 
     /// Interrupt clear
     @RegisterBank(offset: 0x0048)
-    public var icr: Register<ICR>
+    public var ICR: Register<ICR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ICR {
+    public struct ICR_Descriptor {
         /// Clear-on-read all active interrupts
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var icr: ICR_Field
+        public var ICR: ICR_Field
     }
 
     /// DMA control
     @RegisterBank(offset: 0x004c)
-    public var dmacr: Register<DMACR>
+    public var DMACR: Register<DMACR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DMACR {
+    public struct DMACR_Descriptor {
         /// Transmit DMA enable
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var tdmae: TDMAE_Field
+        public var TDMAE: TDMAE_Field
 
         /// Receive DMA enable
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var rdmae: RDMAE_Field
+        public var RDMAE: RDMAE_Field
     }
 
     /// DMA TX data level
     @RegisterBank(offset: 0x0050)
-    public var dmatdlr: Register<DMATDLR>
+    public var DMATDLR: Register<DMATDLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DMATDLR {
+    public struct DMATDLR_Descriptor {
         /// Transmit data watermark level
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var dmatdl: DMATDL_Field
+        public var DMATDL: DMATDL_Field
     }
 
     /// DMA RX data level
     @RegisterBank(offset: 0x0054)
-    public var dmardlr: Register<DMARDLR>
+    public var DMARDLR: Register<DMARDLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DMARDLR {
+    public struct DMARDLR_Descriptor {
         /// Receive data watermark level (DMARDLR+1)
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var dmardl: DMARDL_Field
+        public var DMARDL: DMARDL_Field
     }
 
     /// Identification register
     @RegisterBank(offset: 0x0058)
-    public var idr: Register<IDR>
+    public var IDR: Register<IDR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct IDR {
+    public struct IDR_Descriptor {
         /// Peripheral dentification code
         @ReadOnly(bits: 0..<32, as: BitField32.self)
-        public var idcode: IDCODE_Field
+        public var IDCODE: IDCODE_Field
     }
 
     /// Version ID
     @RegisterBank(offset: 0x005c)
-    public var ssi_version_id: Register<SSI_VERSION_ID>
+    public var SSI_VERSION_ID: Register<SSI_VERSION_ID_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SSI_VERSION_ID {
+    public struct SSI_VERSION_ID_Descriptor {
         /// SNPS component version (format X.YY)
         @ReadOnly(bits: 0..<32, as: BitField32.self)
-        public var ssi_comp_version: SSI_COMP_VERSION_Field
+        public var SSI_COMP_VERSION: SSI_COMP_VERSION_Field
     }
 
     /// Data Register 0 (of 36)
     @RegisterBank(offset: 0x0060)
-    public var dr0: Register<DR0>
+    public var DR0: Register<DR0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DR0 {
+    public struct DR0_Descriptor {
         /// First data register of 36
         @ReadWrite(bits: 0..<32, as: BitField32.self)
-        public var dr: DR_Field
+        public var DR: DR_Field
     }
 
     /// RX sample delay
     @RegisterBank(offset: 0x00f0)
-    public var rx_sample_dly: Register<RX_SAMPLE_DLY>
+    public var RX_SAMPLE_DLY: Register<RX_SAMPLE_DLY_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RX_SAMPLE_DLY {
+    public struct RX_SAMPLE_DLY_Descriptor {
         /// RXD sample delay (in SCLK cycles)
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var rsd: RSD_Field
+        public var RSD: RSD_Field
     }
 
     /// SPI control
     @RegisterBank(offset: 0x00f4)
-    public var spi_ctrlr0: Register<SPI_CTRLR0>
+    public var SPI_CTRLR0: Register<SPI_CTRLR0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPI_CTRLR0 {
+    public struct SPI_CTRLR0_Descriptor {
         /// SPI Command to send in XIP mode (INST_L = 8-bit) or to append to Address (INST_L = 0-bit)
         @ReadWrite(bits: 24..<32, as: BitField8.self)
-        public var xip_cmd: XIP_CMD_Field
+        public var XIP_CMD: XIP_CMD_Field
 
         /// Read data strobe enable
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var spi_rxds_en: SPI_RXDS_EN_Field
+        public var SPI_RXDS_EN: SPI_RXDS_EN_Field
 
         /// Instruction DDR transfer enable
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var inst_ddr_en: INST_DDR_EN_Field
+        public var INST_DDR_EN: INST_DDR_EN_Field
 
         /// SPI DDR transfer enable
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var spi_ddr_en: SPI_DDR_EN_Field
+        public var SPI_DDR_EN: SPI_DDR_EN_Field
 
         /// Wait cycles between control frame transmit and data reception (in SCLK cycles)
         @ReadWrite(bits: 11..<16, as: BitField5.self)
-        public var wait_cycles: WAIT_CYCLES_Field
+        public var WAIT_CYCLES: WAIT_CYCLES_Field
 
         /// Instruction length (0/4/8/16b)
         @ReadWrite(bits: 8..<10, as: INST_L_Values.self)
-        public var inst_l: INST_L_Field
+        public var INST_L: INST_L_Field
 
         public enum INST_L_Values: UInt, BitFieldProjectable {
             /// No instruction
@@ -527,11 +554,11 @@ public struct XIP_SSI {
 
         /// Address length (0b-60b in 4b increments)
         @ReadWrite(bits: 2..<6, as: BitField4.self)
-        public var addr_l: ADDR_L_Field
+        public var ADDR_L: ADDR_L_Field
 
         /// Address and instruction transfer format
         @ReadWrite(bits: 0..<2, as: TRANS_TYPE_Values.self)
-        public var trans_type: TRANS_TYPE_Field
+        public var TRANS_TYPE: TRANS_TYPE_Field
 
         public enum TRANS_TYPE_Values: UInt, BitFieldProjectable {
             /// Command and address both in standard SPI frame format
@@ -547,12 +574,13 @@ public struct XIP_SSI {
 
     /// TX drive edge
     @RegisterBank(offset: 0x00f8)
-    public var txd_drive_edge: Register<TXD_DRIVE_EDGE>
+    public var TXD_DRIVE_EDGE: Register<TXD_DRIVE_EDGE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct TXD_DRIVE_EDGE {
+    public struct TXD_DRIVE_EDGE_Descriptor {
         /// TXD drive edge
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var tde: TDE_Field
+        public var TDE: TDE_Field
     }
 }

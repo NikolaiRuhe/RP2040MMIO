@@ -8,51 +8,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0000)
-    public var gpio0_status: Register<GPIO0_STATUS>
+    public var GPIO0_STATUS: Register<GPIO0_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO0_STATUS {
+    public struct GPIO0_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0004)
-    public var gpio0_ctrl: Register<GPIO0_CTRL>
+    public var GPIO0_CTRL: Register<GPIO0_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO0_CTRL {
+    public struct GPIO0_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -68,7 +70,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -84,7 +86,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -100,7 +102,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -118,7 +120,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_jtag_tck = 0
@@ -138,51 +140,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0008)
-    public var gpio1_status: Register<GPIO1_STATUS>
+    public var GPIO1_STATUS: Register<GPIO1_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO1_STATUS {
+    public struct GPIO1_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x000c)
-    public var gpio1_ctrl: Register<GPIO1_CTRL>
+    public var GPIO1_CTRL: Register<GPIO1_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO1_CTRL {
+    public struct GPIO1_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -198,7 +202,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -214,7 +218,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -230,7 +234,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -248,7 +252,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_jtag_tms = 0
@@ -268,51 +272,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0010)
-    public var gpio2_status: Register<GPIO2_STATUS>
+    public var GPIO2_STATUS: Register<GPIO2_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO2_STATUS {
+    public struct GPIO2_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0014)
-    public var gpio2_ctrl: Register<GPIO2_CTRL>
+    public var GPIO2_CTRL: Register<GPIO2_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO2_CTRL {
+    public struct GPIO2_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -328,7 +334,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -344,7 +350,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -360,7 +366,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -378,7 +384,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_jtag_tdi = 0
@@ -398,51 +404,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0018)
-    public var gpio3_status: Register<GPIO3_STATUS>
+    public var GPIO3_STATUS: Register<GPIO3_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO3_STATUS {
+    public struct GPIO3_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x001c)
-    public var gpio3_ctrl: Register<GPIO3_CTRL>
+    public var GPIO3_CTRL: Register<GPIO3_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO3_CTRL {
+    public struct GPIO3_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -458,7 +466,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -474,7 +482,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -490,7 +498,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -508,7 +516,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_jtag_tdo = 0
@@ -528,51 +536,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0020)
-    public var gpio4_status: Register<GPIO4_STATUS>
+    public var GPIO4_STATUS: Register<GPIO4_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO4_STATUS {
+    public struct GPIO4_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0024)
-    public var gpio4_ctrl: Register<GPIO4_CTRL>
+    public var GPIO4_CTRL: Register<GPIO4_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO4_CTRL {
+    public struct GPIO4_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -588,7 +598,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -604,7 +614,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -620,7 +630,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -638,7 +648,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_rx = 1
@@ -657,51 +667,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0028)
-    public var gpio5_status: Register<GPIO5_STATUS>
+    public var GPIO5_STATUS: Register<GPIO5_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO5_STATUS {
+    public struct GPIO5_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x002c)
-    public var gpio5_ctrl: Register<GPIO5_CTRL>
+    public var GPIO5_CTRL: Register<GPIO5_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO5_CTRL {
+    public struct GPIO5_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -717,7 +729,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -733,7 +745,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -749,7 +761,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -767,7 +779,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_ss_n = 1
@@ -786,51 +798,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0030)
-    public var gpio6_status: Register<GPIO6_STATUS>
+    public var GPIO6_STATUS: Register<GPIO6_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO6_STATUS {
+    public struct GPIO6_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0034)
-    public var gpio6_ctrl: Register<GPIO6_CTRL>
+    public var GPIO6_CTRL: Register<GPIO6_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO6_CTRL {
+    public struct GPIO6_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -846,7 +860,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -862,7 +876,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -878,7 +892,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -896,7 +910,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_sclk = 1
@@ -916,51 +930,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0038)
-    public var gpio7_status: Register<GPIO7_STATUS>
+    public var GPIO7_STATUS: Register<GPIO7_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO7_STATUS {
+    public struct GPIO7_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x003c)
-    public var gpio7_ctrl: Register<GPIO7_CTRL>
+    public var GPIO7_CTRL: Register<GPIO7_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO7_CTRL {
+    public struct GPIO7_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -976,7 +992,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -992,7 +1008,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1008,7 +1024,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1026,7 +1042,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_tx = 1
@@ -1046,51 +1062,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0040)
-    public var gpio8_status: Register<GPIO8_STATUS>
+    public var GPIO8_STATUS: Register<GPIO8_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO8_STATUS {
+    public struct GPIO8_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0044)
-    public var gpio8_ctrl: Register<GPIO8_CTRL>
+    public var GPIO8_CTRL: Register<GPIO8_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO8_CTRL {
+    public struct GPIO8_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1106,7 +1124,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1122,7 +1140,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1138,7 +1156,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1156,7 +1174,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_rx = 1
@@ -1176,51 +1194,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0048)
-    public var gpio9_status: Register<GPIO9_STATUS>
+    public var GPIO9_STATUS: Register<GPIO9_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO9_STATUS {
+    public struct GPIO9_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x004c)
-    public var gpio9_ctrl: Register<GPIO9_CTRL>
+    public var GPIO9_CTRL: Register<GPIO9_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO9_CTRL {
+    public struct GPIO9_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1236,7 +1256,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1252,7 +1272,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1268,7 +1288,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1286,7 +1306,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_ss_n = 1
@@ -1306,51 +1326,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0050)
-    public var gpio10_status: Register<GPIO10_STATUS>
+    public var GPIO10_STATUS: Register<GPIO10_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO10_STATUS {
+    public struct GPIO10_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0054)
-    public var gpio10_ctrl: Register<GPIO10_CTRL>
+    public var GPIO10_CTRL: Register<GPIO10_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO10_CTRL {
+    public struct GPIO10_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1366,7 +1388,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1382,7 +1404,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1398,7 +1420,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1416,7 +1438,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_sclk = 1
@@ -1436,51 +1458,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0058)
-    public var gpio11_status: Register<GPIO11_STATUS>
+    public var GPIO11_STATUS: Register<GPIO11_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO11_STATUS {
+    public struct GPIO11_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x005c)
-    public var gpio11_ctrl: Register<GPIO11_CTRL>
+    public var GPIO11_CTRL: Register<GPIO11_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO11_CTRL {
+    public struct GPIO11_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1496,7 +1520,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1512,7 +1536,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1528,7 +1552,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1546,7 +1570,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_tx = 1
@@ -1566,51 +1590,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0060)
-    public var gpio12_status: Register<GPIO12_STATUS>
+    public var GPIO12_STATUS: Register<GPIO12_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO12_STATUS {
+    public struct GPIO12_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0064)
-    public var gpio12_ctrl: Register<GPIO12_CTRL>
+    public var GPIO12_CTRL: Register<GPIO12_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO12_CTRL {
+    public struct GPIO12_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1626,7 +1652,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1642,7 +1668,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1658,7 +1684,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1676,7 +1702,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_rx = 1
@@ -1696,51 +1722,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0068)
-    public var gpio13_status: Register<GPIO13_STATUS>
+    public var GPIO13_STATUS: Register<GPIO13_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO13_STATUS {
+    public struct GPIO13_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x006c)
-    public var gpio13_ctrl: Register<GPIO13_CTRL>
+    public var GPIO13_CTRL: Register<GPIO13_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO13_CTRL {
+    public struct GPIO13_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1756,7 +1784,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1772,7 +1800,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1788,7 +1816,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1806,7 +1834,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_ss_n = 1
@@ -1826,51 +1854,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0070)
-    public var gpio14_status: Register<GPIO14_STATUS>
+    public var GPIO14_STATUS: Register<GPIO14_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO14_STATUS {
+    public struct GPIO14_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0074)
-    public var gpio14_ctrl: Register<GPIO14_CTRL>
+    public var GPIO14_CTRL: Register<GPIO14_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO14_CTRL {
+    public struct GPIO14_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -1886,7 +1916,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -1902,7 +1932,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -1918,7 +1948,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -1936,7 +1966,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_sclk = 1
@@ -1956,51 +1986,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0078)
-    public var gpio15_status: Register<GPIO15_STATUS>
+    public var GPIO15_STATUS: Register<GPIO15_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO15_STATUS {
+    public struct GPIO15_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x007c)
-    public var gpio15_ctrl: Register<GPIO15_CTRL>
+    public var GPIO15_CTRL: Register<GPIO15_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO15_CTRL {
+    public struct GPIO15_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2016,7 +2048,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2032,7 +2064,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2048,7 +2080,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2066,7 +2098,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_tx = 1
@@ -2086,51 +2118,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0080)
-    public var gpio16_status: Register<GPIO16_STATUS>
+    public var GPIO16_STATUS: Register<GPIO16_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO16_STATUS {
+    public struct GPIO16_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0084)
-    public var gpio16_ctrl: Register<GPIO16_CTRL>
+    public var GPIO16_CTRL: Register<GPIO16_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO16_CTRL {
+    public struct GPIO16_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2146,7 +2180,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2162,7 +2196,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2178,7 +2212,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2196,7 +2230,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_rx = 1
@@ -2216,51 +2250,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0088)
-    public var gpio17_status: Register<GPIO17_STATUS>
+    public var GPIO17_STATUS: Register<GPIO17_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO17_STATUS {
+    public struct GPIO17_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x008c)
-    public var gpio17_ctrl: Register<GPIO17_CTRL>
+    public var GPIO17_CTRL: Register<GPIO17_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO17_CTRL {
+    public struct GPIO17_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2276,7 +2312,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2292,7 +2328,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2308,7 +2344,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2326,7 +2362,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_ss_n = 1
@@ -2345,51 +2381,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0090)
-    public var gpio18_status: Register<GPIO18_STATUS>
+    public var GPIO18_STATUS: Register<GPIO18_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO18_STATUS {
+    public struct GPIO18_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x0094)
-    public var gpio18_ctrl: Register<GPIO18_CTRL>
+    public var GPIO18_CTRL: Register<GPIO18_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO18_CTRL {
+    public struct GPIO18_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2405,7 +2443,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2421,7 +2459,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2437,7 +2475,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2455,7 +2493,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_sclk = 1
@@ -2474,51 +2512,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x0098)
-    public var gpio19_status: Register<GPIO19_STATUS>
+    public var GPIO19_STATUS: Register<GPIO19_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO19_STATUS {
+    public struct GPIO19_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x009c)
-    public var gpio19_ctrl: Register<GPIO19_CTRL>
+    public var GPIO19_CTRL: Register<GPIO19_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO19_CTRL {
+    public struct GPIO19_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2534,7 +2574,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2550,7 +2590,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2566,7 +2606,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2584,7 +2624,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_tx = 1
@@ -2603,51 +2643,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00a0)
-    public var gpio20_status: Register<GPIO20_STATUS>
+    public var GPIO20_STATUS: Register<GPIO20_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO20_STATUS {
+    public struct GPIO20_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00a4)
-    public var gpio20_ctrl: Register<GPIO20_CTRL>
+    public var GPIO20_CTRL: Register<GPIO20_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO20_CTRL {
+    public struct GPIO20_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2663,7 +2705,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2679,7 +2721,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2695,7 +2737,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2713,7 +2755,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_rx = 1
@@ -2733,51 +2775,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00a8)
-    public var gpio21_status: Register<GPIO21_STATUS>
+    public var GPIO21_STATUS: Register<GPIO21_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO21_STATUS {
+    public struct GPIO21_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00ac)
-    public var gpio21_ctrl: Register<GPIO21_CTRL>
+    public var GPIO21_CTRL: Register<GPIO21_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO21_CTRL {
+    public struct GPIO21_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2793,7 +2837,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2809,7 +2853,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2825,7 +2869,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2843,7 +2887,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_ss_n = 1
@@ -2863,51 +2907,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00b0)
-    public var gpio22_status: Register<GPIO22_STATUS>
+    public var GPIO22_STATUS: Register<GPIO22_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO22_STATUS {
+    public struct GPIO22_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00b4)
-    public var gpio22_ctrl: Register<GPIO22_CTRL>
+    public var GPIO22_CTRL: Register<GPIO22_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO22_CTRL {
+    public struct GPIO22_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -2923,7 +2969,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -2939,7 +2985,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -2955,7 +3001,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -2973,7 +3019,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_sclk = 1
@@ -2993,51 +3039,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00b8)
-    public var gpio23_status: Register<GPIO23_STATUS>
+    public var GPIO23_STATUS: Register<GPIO23_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO23_STATUS {
+    public struct GPIO23_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00bc)
-    public var gpio23_ctrl: Register<GPIO23_CTRL>
+    public var GPIO23_CTRL: Register<GPIO23_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO23_CTRL {
+    public struct GPIO23_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3053,7 +3101,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3069,7 +3117,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3085,7 +3133,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3103,7 +3151,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi0_tx = 1
@@ -3123,51 +3171,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00c0)
-    public var gpio24_status: Register<GPIO24_STATUS>
+    public var GPIO24_STATUS: Register<GPIO24_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO24_STATUS {
+    public struct GPIO24_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00c4)
-    public var gpio24_ctrl: Register<GPIO24_CTRL>
+    public var GPIO24_CTRL: Register<GPIO24_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO24_CTRL {
+    public struct GPIO24_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3183,7 +3233,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3199,7 +3249,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3215,7 +3265,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3233,7 +3283,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_rx = 1
@@ -3253,51 +3303,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00c8)
-    public var gpio25_status: Register<GPIO25_STATUS>
+    public var GPIO25_STATUS: Register<GPIO25_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO25_STATUS {
+    public struct GPIO25_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00cc)
-    public var gpio25_ctrl: Register<GPIO25_CTRL>
+    public var GPIO25_CTRL: Register<GPIO25_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO25_CTRL {
+    public struct GPIO25_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3313,7 +3365,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3329,7 +3381,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3345,7 +3397,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3363,7 +3415,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_ss_n = 1
@@ -3383,51 +3435,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00d0)
-    public var gpio26_status: Register<GPIO26_STATUS>
+    public var GPIO26_STATUS: Register<GPIO26_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO26_STATUS {
+    public struct GPIO26_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00d4)
-    public var gpio26_ctrl: Register<GPIO26_CTRL>
+    public var GPIO26_CTRL: Register<GPIO26_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO26_CTRL {
+    public struct GPIO26_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3443,7 +3497,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3459,7 +3513,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3475,7 +3529,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3493,7 +3547,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_sclk = 1
@@ -3512,51 +3566,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00d8)
-    public var gpio27_status: Register<GPIO27_STATUS>
+    public var GPIO27_STATUS: Register<GPIO27_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO27_STATUS {
+    public struct GPIO27_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00dc)
-    public var gpio27_ctrl: Register<GPIO27_CTRL>
+    public var GPIO27_CTRL: Register<GPIO27_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO27_CTRL {
+    public struct GPIO27_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3572,7 +3628,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3588,7 +3644,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3604,7 +3660,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3622,7 +3678,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_tx = 1
@@ -3641,51 +3697,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00e0)
-    public var gpio28_status: Register<GPIO28_STATUS>
+    public var GPIO28_STATUS: Register<GPIO28_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO28_STATUS {
+    public struct GPIO28_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00e4)
-    public var gpio28_ctrl: Register<GPIO28_CTRL>
+    public var GPIO28_CTRL: Register<GPIO28_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO28_CTRL {
+    public struct GPIO28_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3701,7 +3759,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3717,7 +3775,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3733,7 +3791,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3751,7 +3809,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_rx = 1
@@ -3770,51 +3828,53 @@ public struct IO_BANK0 {
 
     /// GPIO status
     @RegisterBank(offset: 0x00e8)
-    public var gpio29_status: Register<GPIO29_STATUS>
+    public var GPIO29_STATUS: Register<GPIO29_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO29_STATUS {
+    public struct GPIO29_STATUS_Descriptor {
         /// interrupt to processors, after override is applied
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var irqtoproc: IRQTOPROC_Field
+        public var IRQTOPROC: IRQTOPROC_Field
 
         /// interrupt from pad before override is applied
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var irqfrompad: IRQFROMPAD_Field
+        public var IRQFROMPAD: IRQFROMPAD_Field
 
         /// input signal to peripheral, after override is applied
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var intoperi: INTOPERI_Field
+        public var INTOPERI: INTOPERI_Field
 
         /// input signal from pad, before override is applied
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var infrompad: INFROMPAD_Field
+        public var INFROMPAD: INFROMPAD_Field
 
         /// output enable to pad after register override is applied
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var oetopad: OETOPAD_Field
+        public var OETOPAD: OETOPAD_Field
 
         /// output enable from selected peripheral, before register override is applied
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var oefromperi: OEFROMPERI_Field
+        public var OEFROMPERI: OEFROMPERI_Field
 
         /// output signal to pad after register override is applied
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var outtopad: OUTTOPAD_Field
+        public var OUTTOPAD: OUTTOPAD_Field
 
         /// output signal from selected peripheral, before register override is applied
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var outfromperi: OUTFROMPERI_Field
+        public var OUTFROMPERI: OUTFROMPERI_Field
     }
 
     /// GPIO control including function select and overrides.
     @RegisterBank(offset: 0x00ec)
-    public var gpio29_ctrl: Register<GPIO29_CTRL>
+    public var GPIO29_CTRL: Register<GPIO29_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO29_CTRL {
+    public struct GPIO29_CTRL_Descriptor {
         @ReadWrite(bits: 28..<30, as: IRQOVER_Values.self)
-        public var irqover: IRQOVER_Field
+        public var IRQOVER: IRQOVER_Field
 
         public enum IRQOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the interrupt
@@ -3830,7 +3890,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 16..<18, as: INOVER_Values.self)
-        public var inover: INOVER_Field
+        public var INOVER: INOVER_Field
 
         public enum INOVER_Values: UInt, BitFieldProjectable {
             /// don't invert the peri input
@@ -3846,7 +3906,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 12..<14, as: OEOVER_Values.self)
-        public var oeover: OEOVER_Field
+        public var OEOVER: OEOVER_Field
 
         public enum OEOVER_Values: UInt, BitFieldProjectable {
             /// drive output enable from peripheral signal selected by funcsel
@@ -3862,7 +3922,7 @@ public struct IO_BANK0 {
         }
 
         @ReadWrite(bits: 8..<10, as: OUTOVER_Values.self)
-        public var outover: OUTOVER_Field
+        public var OUTOVER: OUTOVER_Field
 
         public enum OUTOVER_Values: UInt, BitFieldProjectable {
             /// drive output from peripheral signal selected by funcsel
@@ -3880,7 +3940,7 @@ public struct IO_BANK0 {
         /// 0-31 -> selects pin function according to the gpio table
         /// 31 == NULL
         @ReadWrite(bits: 0..<5, as: FUNCSEL_Values.self)
-        public var funcsel: FUNCSEL_Field
+        public var FUNCSEL: FUNCSEL_Field
 
         public enum FUNCSEL_Values: UInt, BitFieldProjectable {
             case FUNCSEL_spi1_ss_n = 1
@@ -3899,3881 +3959,3921 @@ public struct IO_BANK0 {
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x00f0)
-    public var intr0: Register<INTR0>
+    public var INTR0: Register<INTR0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR0 {
+    public struct INTR0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x00f4)
-    public var intr1: Register<INTR1>
+    public var INTR1: Register<INTR1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR1 {
+    public struct INTR1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x00f8)
-    public var intr2: Register<INTR2>
+    public var INTR2: Register<INTR2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR2 {
+    public struct INTR2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x00fc)
-    public var intr3: Register<INTR3>
+    public var INTR3: Register<INTR3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR3 {
+    public struct INTR3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc0
     @RegisterBank(offset: 0x0100)
-    public var proc0_inte0: Register<PROC0_INTE0>
+    public var PROC0_INTE0: Register<PROC0_INTE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTE0 {
+    public struct PROC0_INTE0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc0
     @RegisterBank(offset: 0x0104)
-    public var proc0_inte1: Register<PROC0_INTE1>
+    public var PROC0_INTE1: Register<PROC0_INTE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTE1 {
+    public struct PROC0_INTE1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc0
     @RegisterBank(offset: 0x0108)
-    public var proc0_inte2: Register<PROC0_INTE2>
+    public var PROC0_INTE2: Register<PROC0_INTE2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTE2 {
+    public struct PROC0_INTE2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc0
     @RegisterBank(offset: 0x010c)
-    public var proc0_inte3: Register<PROC0_INTE3>
+    public var PROC0_INTE3: Register<PROC0_INTE3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTE3 {
+    public struct PROC0_INTE3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc0
     @RegisterBank(offset: 0x0110)
-    public var proc0_intf0: Register<PROC0_INTF0>
+    public var PROC0_INTF0: Register<PROC0_INTF0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTF0 {
+    public struct PROC0_INTF0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc0
     @RegisterBank(offset: 0x0114)
-    public var proc0_intf1: Register<PROC0_INTF1>
+    public var PROC0_INTF1: Register<PROC0_INTF1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTF1 {
+    public struct PROC0_INTF1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc0
     @RegisterBank(offset: 0x0118)
-    public var proc0_intf2: Register<PROC0_INTF2>
+    public var PROC0_INTF2: Register<PROC0_INTF2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTF2 {
+    public struct PROC0_INTF2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc0
     @RegisterBank(offset: 0x011c)
-    public var proc0_intf3: Register<PROC0_INTF3>
+    public var PROC0_INTF3: Register<PROC0_INTF3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTF3 {
+    public struct PROC0_INTF3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc0
     @RegisterBank(offset: 0x0120)
-    public var proc0_ints0: Register<PROC0_INTS0>
+    public var PROC0_INTS0: Register<PROC0_INTS0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTS0 {
+    public struct PROC0_INTS0_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc0
     @RegisterBank(offset: 0x0124)
-    public var proc0_ints1: Register<PROC0_INTS1>
+    public var PROC0_INTS1: Register<PROC0_INTS1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTS1 {
+    public struct PROC0_INTS1_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc0
     @RegisterBank(offset: 0x0128)
-    public var proc0_ints2: Register<PROC0_INTS2>
+    public var PROC0_INTS2: Register<PROC0_INTS2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTS2 {
+    public struct PROC0_INTS2_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc0
     @RegisterBank(offset: 0x012c)
-    public var proc0_ints3: Register<PROC0_INTS3>
+    public var PROC0_INTS3: Register<PROC0_INTS3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC0_INTS3 {
+    public struct PROC0_INTS3_Descriptor {
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc1
     @RegisterBank(offset: 0x0130)
-    public var proc1_inte0: Register<PROC1_INTE0>
+    public var PROC1_INTE0: Register<PROC1_INTE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTE0 {
+    public struct PROC1_INTE0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc1
     @RegisterBank(offset: 0x0134)
-    public var proc1_inte1: Register<PROC1_INTE1>
+    public var PROC1_INTE1: Register<PROC1_INTE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTE1 {
+    public struct PROC1_INTE1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc1
     @RegisterBank(offset: 0x0138)
-    public var proc1_inte2: Register<PROC1_INTE2>
+    public var PROC1_INTE2: Register<PROC1_INTE2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTE2 {
+    public struct PROC1_INTE2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for proc1
     @RegisterBank(offset: 0x013c)
-    public var proc1_inte3: Register<PROC1_INTE3>
+    public var PROC1_INTE3: Register<PROC1_INTE3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTE3 {
+    public struct PROC1_INTE3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc1
     @RegisterBank(offset: 0x0140)
-    public var proc1_intf0: Register<PROC1_INTF0>
+    public var PROC1_INTF0: Register<PROC1_INTF0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTF0 {
+    public struct PROC1_INTF0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc1
     @RegisterBank(offset: 0x0144)
-    public var proc1_intf1: Register<PROC1_INTF1>
+    public var PROC1_INTF1: Register<PROC1_INTF1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTF1 {
+    public struct PROC1_INTF1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc1
     @RegisterBank(offset: 0x0148)
-    public var proc1_intf2: Register<PROC1_INTF2>
+    public var PROC1_INTF2: Register<PROC1_INTF2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTF2 {
+    public struct PROC1_INTF2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for proc1
     @RegisterBank(offset: 0x014c)
-    public var proc1_intf3: Register<PROC1_INTF3>
+    public var PROC1_INTF3: Register<PROC1_INTF3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTF3 {
+    public struct PROC1_INTF3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc1
     @RegisterBank(offset: 0x0150)
-    public var proc1_ints0: Register<PROC1_INTS0>
+    public var PROC1_INTS0: Register<PROC1_INTS0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTS0 {
+    public struct PROC1_INTS0_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc1
     @RegisterBank(offset: 0x0154)
-    public var proc1_ints1: Register<PROC1_INTS1>
+    public var PROC1_INTS1: Register<PROC1_INTS1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTS1 {
+    public struct PROC1_INTS1_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc1
     @RegisterBank(offset: 0x0158)
-    public var proc1_ints2: Register<PROC1_INTS2>
+    public var PROC1_INTS2: Register<PROC1_INTS2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTS2 {
+    public struct PROC1_INTS2_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for proc1
     @RegisterBank(offset: 0x015c)
-    public var proc1_ints3: Register<PROC1_INTS3>
+    public var PROC1_INTS3: Register<PROC1_INTS3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PROC1_INTS3 {
+    public struct PROC1_INTS3_Descriptor {
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for dormant_wake
     @RegisterBank(offset: 0x0160)
-    public var dormant_wake_inte0: Register<DORMANT_WAKE_INTE0>
+    public var DORMANT_WAKE_INTE0: Register<DORMANT_WAKE_INTE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTE0 {
+    public struct DORMANT_WAKE_INTE0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for dormant_wake
     @RegisterBank(offset: 0x0164)
-    public var dormant_wake_inte1: Register<DORMANT_WAKE_INTE1>
+    public var DORMANT_WAKE_INTE1: Register<DORMANT_WAKE_INTE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTE1 {
+    public struct DORMANT_WAKE_INTE1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for dormant_wake
     @RegisterBank(offset: 0x0168)
-    public var dormant_wake_inte2: Register<DORMANT_WAKE_INTE2>
+    public var DORMANT_WAKE_INTE2: Register<DORMANT_WAKE_INTE2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTE2 {
+    public struct DORMANT_WAKE_INTE2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Enable for dormant_wake
     @RegisterBank(offset: 0x016c)
-    public var dormant_wake_inte3: Register<DORMANT_WAKE_INTE3>
+    public var DORMANT_WAKE_INTE3: Register<DORMANT_WAKE_INTE3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTE3 {
+    public struct DORMANT_WAKE_INTE3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for dormant_wake
     @RegisterBank(offset: 0x0170)
-    public var dormant_wake_intf0: Register<DORMANT_WAKE_INTF0>
+    public var DORMANT_WAKE_INTF0: Register<DORMANT_WAKE_INTF0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTF0 {
+    public struct DORMANT_WAKE_INTF0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for dormant_wake
     @RegisterBank(offset: 0x0174)
-    public var dormant_wake_intf1: Register<DORMANT_WAKE_INTF1>
+    public var DORMANT_WAKE_INTF1: Register<DORMANT_WAKE_INTF1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTF1 {
+    public struct DORMANT_WAKE_INTF1_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for dormant_wake
     @RegisterBank(offset: 0x0178)
-    public var dormant_wake_intf2: Register<DORMANT_WAKE_INTF2>
+    public var DORMANT_WAKE_INTF2: Register<DORMANT_WAKE_INTF2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTF2 {
+    public struct DORMANT_WAKE_INTF2_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadWrite(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadWrite(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadWrite(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadWrite(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadWrite(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt Force for dormant_wake
     @RegisterBank(offset: 0x017c)
-    public var dormant_wake_intf3: Register<DORMANT_WAKE_INTF3>
+    public var DORMANT_WAKE_INTF3: Register<DORMANT_WAKE_INTF3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTF3 {
+    public struct DORMANT_WAKE_INTF3_Descriptor {
         @ReadWrite(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadWrite(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadWrite(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadWrite(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadWrite(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadWrite(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for dormant_wake
     @RegisterBank(offset: 0x0180)
-    public var dormant_wake_ints0: Register<DORMANT_WAKE_INTS0>
+    public var DORMANT_WAKE_INTS0: Register<DORMANT_WAKE_INTS0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTS0 {
+    public struct DORMANT_WAKE_INTS0_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio7_edge_high: GPIO7_EDGE_HIGH_Field
+        public var GPIO7_EDGE_HIGH: GPIO7_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio7_edge_low: GPIO7_EDGE_LOW_Field
+        public var GPIO7_EDGE_LOW: GPIO7_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio7_level_high: GPIO7_LEVEL_HIGH_Field
+        public var GPIO7_LEVEL_HIGH: GPIO7_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio7_level_low: GPIO7_LEVEL_LOW_Field
+        public var GPIO7_LEVEL_LOW: GPIO7_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio6_edge_high: GPIO6_EDGE_HIGH_Field
+        public var GPIO6_EDGE_HIGH: GPIO6_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio6_edge_low: GPIO6_EDGE_LOW_Field
+        public var GPIO6_EDGE_LOW: GPIO6_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio6_level_high: GPIO6_LEVEL_HIGH_Field
+        public var GPIO6_LEVEL_HIGH: GPIO6_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio6_level_low: GPIO6_LEVEL_LOW_Field
+        public var GPIO6_LEVEL_LOW: GPIO6_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio5_edge_high: GPIO5_EDGE_HIGH_Field
+        public var GPIO5_EDGE_HIGH: GPIO5_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio5_edge_low: GPIO5_EDGE_LOW_Field
+        public var GPIO5_EDGE_LOW: GPIO5_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio5_level_high: GPIO5_LEVEL_HIGH_Field
+        public var GPIO5_LEVEL_HIGH: GPIO5_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio5_level_low: GPIO5_LEVEL_LOW_Field
+        public var GPIO5_LEVEL_LOW: GPIO5_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio4_edge_high: GPIO4_EDGE_HIGH_Field
+        public var GPIO4_EDGE_HIGH: GPIO4_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio4_edge_low: GPIO4_EDGE_LOW_Field
+        public var GPIO4_EDGE_LOW: GPIO4_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio4_level_high: GPIO4_LEVEL_HIGH_Field
+        public var GPIO4_LEVEL_HIGH: GPIO4_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio4_level_low: GPIO4_LEVEL_LOW_Field
+        public var GPIO4_LEVEL_LOW: GPIO4_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio3_edge_high: GPIO3_EDGE_HIGH_Field
+        public var GPIO3_EDGE_HIGH: GPIO3_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio3_edge_low: GPIO3_EDGE_LOW_Field
+        public var GPIO3_EDGE_LOW: GPIO3_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio3_level_high: GPIO3_LEVEL_HIGH_Field
+        public var GPIO3_LEVEL_HIGH: GPIO3_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio3_level_low: GPIO3_LEVEL_LOW_Field
+        public var GPIO3_LEVEL_LOW: GPIO3_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio2_edge_high: GPIO2_EDGE_HIGH_Field
+        public var GPIO2_EDGE_HIGH: GPIO2_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio2_edge_low: GPIO2_EDGE_LOW_Field
+        public var GPIO2_EDGE_LOW: GPIO2_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio2_level_high: GPIO2_LEVEL_HIGH_Field
+        public var GPIO2_LEVEL_HIGH: GPIO2_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio2_level_low: GPIO2_LEVEL_LOW_Field
+        public var GPIO2_LEVEL_LOW: GPIO2_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio1_edge_high: GPIO1_EDGE_HIGH_Field
+        public var GPIO1_EDGE_HIGH: GPIO1_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio1_edge_low: GPIO1_EDGE_LOW_Field
+        public var GPIO1_EDGE_LOW: GPIO1_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio1_level_high: GPIO1_LEVEL_HIGH_Field
+        public var GPIO1_LEVEL_HIGH: GPIO1_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio1_level_low: GPIO1_LEVEL_LOW_Field
+        public var GPIO1_LEVEL_LOW: GPIO1_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio0_edge_high: GPIO0_EDGE_HIGH_Field
+        public var GPIO0_EDGE_HIGH: GPIO0_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio0_edge_low: GPIO0_EDGE_LOW_Field
+        public var GPIO0_EDGE_LOW: GPIO0_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio0_level_high: GPIO0_LEVEL_HIGH_Field
+        public var GPIO0_LEVEL_HIGH: GPIO0_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio0_level_low: GPIO0_LEVEL_LOW_Field
+        public var GPIO0_LEVEL_LOW: GPIO0_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for dormant_wake
     @RegisterBank(offset: 0x0184)
-    public var dormant_wake_ints1: Register<DORMANT_WAKE_INTS1>
+    public var DORMANT_WAKE_INTS1: Register<DORMANT_WAKE_INTS1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTS1 {
+    public struct DORMANT_WAKE_INTS1_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio15_edge_high: GPIO15_EDGE_HIGH_Field
+        public var GPIO15_EDGE_HIGH: GPIO15_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio15_edge_low: GPIO15_EDGE_LOW_Field
+        public var GPIO15_EDGE_LOW: GPIO15_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio15_level_high: GPIO15_LEVEL_HIGH_Field
+        public var GPIO15_LEVEL_HIGH: GPIO15_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio15_level_low: GPIO15_LEVEL_LOW_Field
+        public var GPIO15_LEVEL_LOW: GPIO15_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio14_edge_high: GPIO14_EDGE_HIGH_Field
+        public var GPIO14_EDGE_HIGH: GPIO14_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio14_edge_low: GPIO14_EDGE_LOW_Field
+        public var GPIO14_EDGE_LOW: GPIO14_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio14_level_high: GPIO14_LEVEL_HIGH_Field
+        public var GPIO14_LEVEL_HIGH: GPIO14_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio14_level_low: GPIO14_LEVEL_LOW_Field
+        public var GPIO14_LEVEL_LOW: GPIO14_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio13_edge_high: GPIO13_EDGE_HIGH_Field
+        public var GPIO13_EDGE_HIGH: GPIO13_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio13_edge_low: GPIO13_EDGE_LOW_Field
+        public var GPIO13_EDGE_LOW: GPIO13_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio13_level_high: GPIO13_LEVEL_HIGH_Field
+        public var GPIO13_LEVEL_HIGH: GPIO13_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio13_level_low: GPIO13_LEVEL_LOW_Field
+        public var GPIO13_LEVEL_LOW: GPIO13_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio12_edge_high: GPIO12_EDGE_HIGH_Field
+        public var GPIO12_EDGE_HIGH: GPIO12_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio12_edge_low: GPIO12_EDGE_LOW_Field
+        public var GPIO12_EDGE_LOW: GPIO12_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio12_level_high: GPIO12_LEVEL_HIGH_Field
+        public var GPIO12_LEVEL_HIGH: GPIO12_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio12_level_low: GPIO12_LEVEL_LOW_Field
+        public var GPIO12_LEVEL_LOW: GPIO12_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio11_edge_high: GPIO11_EDGE_HIGH_Field
+        public var GPIO11_EDGE_HIGH: GPIO11_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio11_edge_low: GPIO11_EDGE_LOW_Field
+        public var GPIO11_EDGE_LOW: GPIO11_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio11_level_high: GPIO11_LEVEL_HIGH_Field
+        public var GPIO11_LEVEL_HIGH: GPIO11_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio11_level_low: GPIO11_LEVEL_LOW_Field
+        public var GPIO11_LEVEL_LOW: GPIO11_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio10_edge_high: GPIO10_EDGE_HIGH_Field
+        public var GPIO10_EDGE_HIGH: GPIO10_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio10_edge_low: GPIO10_EDGE_LOW_Field
+        public var GPIO10_EDGE_LOW: GPIO10_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio10_level_high: GPIO10_LEVEL_HIGH_Field
+        public var GPIO10_LEVEL_HIGH: GPIO10_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio10_level_low: GPIO10_LEVEL_LOW_Field
+        public var GPIO10_LEVEL_LOW: GPIO10_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio9_edge_high: GPIO9_EDGE_HIGH_Field
+        public var GPIO9_EDGE_HIGH: GPIO9_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio9_edge_low: GPIO9_EDGE_LOW_Field
+        public var GPIO9_EDGE_LOW: GPIO9_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio9_level_high: GPIO9_LEVEL_HIGH_Field
+        public var GPIO9_LEVEL_HIGH: GPIO9_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio9_level_low: GPIO9_LEVEL_LOW_Field
+        public var GPIO9_LEVEL_LOW: GPIO9_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio8_edge_high: GPIO8_EDGE_HIGH_Field
+        public var GPIO8_EDGE_HIGH: GPIO8_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio8_edge_low: GPIO8_EDGE_LOW_Field
+        public var GPIO8_EDGE_LOW: GPIO8_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio8_level_high: GPIO8_LEVEL_HIGH_Field
+        public var GPIO8_LEVEL_HIGH: GPIO8_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio8_level_low: GPIO8_LEVEL_LOW_Field
+        public var GPIO8_LEVEL_LOW: GPIO8_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for dormant_wake
     @RegisterBank(offset: 0x0188)
-    public var dormant_wake_ints2: Register<DORMANT_WAKE_INTS2>
+    public var DORMANT_WAKE_INTS2: Register<DORMANT_WAKE_INTS2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTS2 {
+    public struct DORMANT_WAKE_INTS2_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var gpio23_edge_high: GPIO23_EDGE_HIGH_Field
+        public var GPIO23_EDGE_HIGH: GPIO23_EDGE_HIGH_Field
 
         @ReadOnly(bits: 30..<31, as: Bool.self)
-        public var gpio23_edge_low: GPIO23_EDGE_LOW_Field
+        public var GPIO23_EDGE_LOW: GPIO23_EDGE_LOW_Field
 
         @ReadOnly(bits: 29..<30, as: Bool.self)
-        public var gpio23_level_high: GPIO23_LEVEL_HIGH_Field
+        public var GPIO23_LEVEL_HIGH: GPIO23_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var gpio23_level_low: GPIO23_LEVEL_LOW_Field
+        public var GPIO23_LEVEL_LOW: GPIO23_LEVEL_LOW_Field
 
         @ReadOnly(bits: 27..<28, as: Bool.self)
-        public var gpio22_edge_high: GPIO22_EDGE_HIGH_Field
+        public var GPIO22_EDGE_HIGH: GPIO22_EDGE_HIGH_Field
 
         @ReadOnly(bits: 26..<27, as: Bool.self)
-        public var gpio22_edge_low: GPIO22_EDGE_LOW_Field
+        public var GPIO22_EDGE_LOW: GPIO22_EDGE_LOW_Field
 
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var gpio22_level_high: GPIO22_LEVEL_HIGH_Field
+        public var GPIO22_LEVEL_HIGH: GPIO22_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var gpio22_level_low: GPIO22_LEVEL_LOW_Field
+        public var GPIO22_LEVEL_LOW: GPIO22_LEVEL_LOW_Field
 
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio21_edge_high: GPIO21_EDGE_HIGH_Field
+        public var GPIO21_EDGE_HIGH: GPIO21_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio21_edge_low: GPIO21_EDGE_LOW_Field
+        public var GPIO21_EDGE_LOW: GPIO21_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio21_level_high: GPIO21_LEVEL_HIGH_Field
+        public var GPIO21_LEVEL_HIGH: GPIO21_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio21_level_low: GPIO21_LEVEL_LOW_Field
+        public var GPIO21_LEVEL_LOW: GPIO21_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio20_edge_high: GPIO20_EDGE_HIGH_Field
+        public var GPIO20_EDGE_HIGH: GPIO20_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio20_edge_low: GPIO20_EDGE_LOW_Field
+        public var GPIO20_EDGE_LOW: GPIO20_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio20_level_high: GPIO20_LEVEL_HIGH_Field
+        public var GPIO20_LEVEL_HIGH: GPIO20_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio20_level_low: GPIO20_LEVEL_LOW_Field
+        public var GPIO20_LEVEL_LOW: GPIO20_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio19_edge_high: GPIO19_EDGE_HIGH_Field
+        public var GPIO19_EDGE_HIGH: GPIO19_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio19_edge_low: GPIO19_EDGE_LOW_Field
+        public var GPIO19_EDGE_LOW: GPIO19_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio19_level_high: GPIO19_LEVEL_HIGH_Field
+        public var GPIO19_LEVEL_HIGH: GPIO19_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio19_level_low: GPIO19_LEVEL_LOW_Field
+        public var GPIO19_LEVEL_LOW: GPIO19_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio18_edge_high: GPIO18_EDGE_HIGH_Field
+        public var GPIO18_EDGE_HIGH: GPIO18_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio18_edge_low: GPIO18_EDGE_LOW_Field
+        public var GPIO18_EDGE_LOW: GPIO18_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio18_level_high: GPIO18_LEVEL_HIGH_Field
+        public var GPIO18_LEVEL_HIGH: GPIO18_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio18_level_low: GPIO18_LEVEL_LOW_Field
+        public var GPIO18_LEVEL_LOW: GPIO18_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio17_edge_high: GPIO17_EDGE_HIGH_Field
+        public var GPIO17_EDGE_HIGH: GPIO17_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio17_edge_low: GPIO17_EDGE_LOW_Field
+        public var GPIO17_EDGE_LOW: GPIO17_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio17_level_high: GPIO17_LEVEL_HIGH_Field
+        public var GPIO17_LEVEL_HIGH: GPIO17_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio17_level_low: GPIO17_LEVEL_LOW_Field
+        public var GPIO17_LEVEL_LOW: GPIO17_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio16_edge_high: GPIO16_EDGE_HIGH_Field
+        public var GPIO16_EDGE_HIGH: GPIO16_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio16_edge_low: GPIO16_EDGE_LOW_Field
+        public var GPIO16_EDGE_LOW: GPIO16_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio16_level_high: GPIO16_LEVEL_HIGH_Field
+        public var GPIO16_LEVEL_HIGH: GPIO16_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio16_level_low: GPIO16_LEVEL_LOW_Field
+        public var GPIO16_LEVEL_LOW: GPIO16_LEVEL_LOW_Field
     }
 
     /// Interrupt status after masking & forcing for dormant_wake
     @RegisterBank(offset: 0x018c)
-    public var dormant_wake_ints3: Register<DORMANT_WAKE_INTS3>
+    public var DORMANT_WAKE_INTS3: Register<DORMANT_WAKE_INTS3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT_WAKE_INTS3 {
+    public struct DORMANT_WAKE_INTS3_Descriptor {
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var gpio29_edge_high: GPIO29_EDGE_HIGH_Field
+        public var GPIO29_EDGE_HIGH: GPIO29_EDGE_HIGH_Field
 
         @ReadOnly(bits: 22..<23, as: Bool.self)
-        public var gpio29_edge_low: GPIO29_EDGE_LOW_Field
+        public var GPIO29_EDGE_LOW: GPIO29_EDGE_LOW_Field
 
         @ReadOnly(bits: 21..<22, as: Bool.self)
-        public var gpio29_level_high: GPIO29_LEVEL_HIGH_Field
+        public var GPIO29_LEVEL_HIGH: GPIO29_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var gpio29_level_low: GPIO29_LEVEL_LOW_Field
+        public var GPIO29_LEVEL_LOW: GPIO29_LEVEL_LOW_Field
 
         @ReadOnly(bits: 19..<20, as: Bool.self)
-        public var gpio28_edge_high: GPIO28_EDGE_HIGH_Field
+        public var GPIO28_EDGE_HIGH: GPIO28_EDGE_HIGH_Field
 
         @ReadOnly(bits: 18..<19, as: Bool.self)
-        public var gpio28_edge_low: GPIO28_EDGE_LOW_Field
+        public var GPIO28_EDGE_LOW: GPIO28_EDGE_LOW_Field
 
         @ReadOnly(bits: 17..<18, as: Bool.self)
-        public var gpio28_level_high: GPIO28_LEVEL_HIGH_Field
+        public var GPIO28_LEVEL_HIGH: GPIO28_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var gpio28_level_low: GPIO28_LEVEL_LOW_Field
+        public var GPIO28_LEVEL_LOW: GPIO28_LEVEL_LOW_Field
 
         @ReadOnly(bits: 15..<16, as: Bool.self)
-        public var gpio27_edge_high: GPIO27_EDGE_HIGH_Field
+        public var GPIO27_EDGE_HIGH: GPIO27_EDGE_HIGH_Field
 
         @ReadOnly(bits: 14..<15, as: Bool.self)
-        public var gpio27_edge_low: GPIO27_EDGE_LOW_Field
+        public var GPIO27_EDGE_LOW: GPIO27_EDGE_LOW_Field
 
         @ReadOnly(bits: 13..<14, as: Bool.self)
-        public var gpio27_level_high: GPIO27_LEVEL_HIGH_Field
+        public var GPIO27_LEVEL_HIGH: GPIO27_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var gpio27_level_low: GPIO27_LEVEL_LOW_Field
+        public var GPIO27_LEVEL_LOW: GPIO27_LEVEL_LOW_Field
 
         @ReadOnly(bits: 11..<12, as: Bool.self)
-        public var gpio26_edge_high: GPIO26_EDGE_HIGH_Field
+        public var GPIO26_EDGE_HIGH: GPIO26_EDGE_HIGH_Field
 
         @ReadOnly(bits: 10..<11, as: Bool.self)
-        public var gpio26_edge_low: GPIO26_EDGE_LOW_Field
+        public var GPIO26_EDGE_LOW: GPIO26_EDGE_LOW_Field
 
         @ReadOnly(bits: 9..<10, as: Bool.self)
-        public var gpio26_level_high: GPIO26_LEVEL_HIGH_Field
+        public var GPIO26_LEVEL_HIGH: GPIO26_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var gpio26_level_low: GPIO26_LEVEL_LOW_Field
+        public var GPIO26_LEVEL_LOW: GPIO26_LEVEL_LOW_Field
 
         @ReadOnly(bits: 7..<8, as: Bool.self)
-        public var gpio25_edge_high: GPIO25_EDGE_HIGH_Field
+        public var GPIO25_EDGE_HIGH: GPIO25_EDGE_HIGH_Field
 
         @ReadOnly(bits: 6..<7, as: Bool.self)
-        public var gpio25_edge_low: GPIO25_EDGE_LOW_Field
+        public var GPIO25_EDGE_LOW: GPIO25_EDGE_LOW_Field
 
         @ReadOnly(bits: 5..<6, as: Bool.self)
-        public var gpio25_level_high: GPIO25_LEVEL_HIGH_Field
+        public var GPIO25_LEVEL_HIGH: GPIO25_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var gpio25_level_low: GPIO25_LEVEL_LOW_Field
+        public var GPIO25_LEVEL_LOW: GPIO25_LEVEL_LOW_Field
 
         @ReadOnly(bits: 3..<4, as: Bool.self)
-        public var gpio24_edge_high: GPIO24_EDGE_HIGH_Field
+        public var GPIO24_EDGE_HIGH: GPIO24_EDGE_HIGH_Field
 
         @ReadOnly(bits: 2..<3, as: Bool.self)
-        public var gpio24_edge_low: GPIO24_EDGE_LOW_Field
+        public var GPIO24_EDGE_LOW: GPIO24_EDGE_LOW_Field
 
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var gpio24_level_high: GPIO24_LEVEL_HIGH_Field
+        public var GPIO24_LEVEL_HIGH: GPIO24_LEVEL_HIGH_Field
 
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var gpio24_level_low: GPIO24_LEVEL_LOW_Field
+        public var GPIO24_LEVEL_LOW: GPIO24_LEVEL_LOW_Field
     }
 }

@@ -8,12 +8,13 @@ public struct PADS_BANK0 {
 
     /// Voltage select. Per bank control
     @RegisterBank(offset: 0x0000)
-    public var voltage_select: Register<VOLTAGE_SELECT>
+    public var VOLTAGE_SELECT: Register<VOLTAGE_SELECT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct VOLTAGE_SELECT {
+    public struct VOLTAGE_SELECT_Descriptor {
         @ReadWrite(bits: 0..<1, as: VOLTAGE_SELECT_Values.self)
-        public var voltage_select: VOLTAGE_SELECT_Field
+        public var VOLTAGE_SELECT: VOLTAGE_SELECT_Field
 
         public enum VOLTAGE_SELECT_Values: UInt, BitFieldProjectable {
             /// Set voltage to 3.3V (DVDD >= 2V5)
@@ -27,21 +28,22 @@ public struct PADS_BANK0 {
 
     /// Pad control register
     @RegisterBank(offset: 0x0004)
-    public var gpio0: Register<GPIO0>
+    public var GPIO0: Register<GPIO0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO0 {
+    public struct GPIO0_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -54,38 +56,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0008)
-    public var gpio1: Register<GPIO1>
+    public var GPIO1: Register<GPIO1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO1 {
+    public struct GPIO1_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -98,38 +101,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x000c)
-    public var gpio2: Register<GPIO2>
+    public var GPIO2: Register<GPIO2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO2 {
+    public struct GPIO2_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -142,38 +146,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0010)
-    public var gpio3: Register<GPIO3>
+    public var GPIO3: Register<GPIO3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO3 {
+    public struct GPIO3_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -186,38 +191,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0014)
-    public var gpio4: Register<GPIO4>
+    public var GPIO4: Register<GPIO4_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO4 {
+    public struct GPIO4_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -230,38 +236,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0018)
-    public var gpio5: Register<GPIO5>
+    public var GPIO5: Register<GPIO5_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO5 {
+    public struct GPIO5_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -274,38 +281,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x001c)
-    public var gpio6: Register<GPIO6>
+    public var GPIO6: Register<GPIO6_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO6 {
+    public struct GPIO6_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -318,38 +326,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0020)
-    public var gpio7: Register<GPIO7>
+    public var GPIO7: Register<GPIO7_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO7 {
+    public struct GPIO7_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -362,38 +371,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0024)
-    public var gpio8: Register<GPIO8>
+    public var GPIO8: Register<GPIO8_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO8 {
+    public struct GPIO8_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -406,38 +416,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0028)
-    public var gpio9: Register<GPIO9>
+    public var GPIO9: Register<GPIO9_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO9 {
+    public struct GPIO9_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -450,38 +461,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x002c)
-    public var gpio10: Register<GPIO10>
+    public var GPIO10: Register<GPIO10_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO10 {
+    public struct GPIO10_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -494,38 +506,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0030)
-    public var gpio11: Register<GPIO11>
+    public var GPIO11: Register<GPIO11_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO11 {
+    public struct GPIO11_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -538,38 +551,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0034)
-    public var gpio12: Register<GPIO12>
+    public var GPIO12: Register<GPIO12_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO12 {
+    public struct GPIO12_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -582,38 +596,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0038)
-    public var gpio13: Register<GPIO13>
+    public var GPIO13: Register<GPIO13_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO13 {
+    public struct GPIO13_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -626,38 +641,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x003c)
-    public var gpio14: Register<GPIO14>
+    public var GPIO14: Register<GPIO14_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO14 {
+    public struct GPIO14_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -670,38 +686,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0040)
-    public var gpio15: Register<GPIO15>
+    public var GPIO15: Register<GPIO15_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO15 {
+    public struct GPIO15_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -714,38 +731,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0044)
-    public var gpio16: Register<GPIO16>
+    public var GPIO16: Register<GPIO16_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO16 {
+    public struct GPIO16_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -758,38 +776,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0048)
-    public var gpio17: Register<GPIO17>
+    public var GPIO17: Register<GPIO17_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO17 {
+    public struct GPIO17_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -802,38 +821,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x004c)
-    public var gpio18: Register<GPIO18>
+    public var GPIO18: Register<GPIO18_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO18 {
+    public struct GPIO18_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -846,38 +866,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0050)
-    public var gpio19: Register<GPIO19>
+    public var GPIO19: Register<GPIO19_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO19 {
+    public struct GPIO19_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -890,38 +911,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0054)
-    public var gpio20: Register<GPIO20>
+    public var GPIO20: Register<GPIO20_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO20 {
+    public struct GPIO20_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -934,38 +956,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0058)
-    public var gpio21: Register<GPIO21>
+    public var GPIO21: Register<GPIO21_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO21 {
+    public struct GPIO21_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -978,38 +1001,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x005c)
-    public var gpio22: Register<GPIO22>
+    public var GPIO22: Register<GPIO22_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO22 {
+    public struct GPIO22_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1022,38 +1046,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0060)
-    public var gpio23: Register<GPIO23>
+    public var GPIO23: Register<GPIO23_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO23 {
+    public struct GPIO23_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1066,38 +1091,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0064)
-    public var gpio24: Register<GPIO24>
+    public var GPIO24: Register<GPIO24_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO24 {
+    public struct GPIO24_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1110,38 +1136,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0068)
-    public var gpio25: Register<GPIO25>
+    public var GPIO25: Register<GPIO25_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO25 {
+    public struct GPIO25_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1154,38 +1181,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x006c)
-    public var gpio26: Register<GPIO26>
+    public var GPIO26: Register<GPIO26_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO26 {
+    public struct GPIO26_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1198,38 +1226,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0070)
-    public var gpio27: Register<GPIO27>
+    public var GPIO27: Register<GPIO27_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO27 {
+    public struct GPIO27_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1242,38 +1271,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0074)
-    public var gpio28: Register<GPIO28>
+    public var GPIO28: Register<GPIO28_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO28 {
+    public struct GPIO28_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1286,38 +1316,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0078)
-    public var gpio29: Register<GPIO29>
+    public var GPIO29: Register<GPIO29_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO29 {
+    public struct GPIO29_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1330,38 +1361,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x007c)
-    public var swclk: Register<SWCLK>
+    public var SWCLK: Register<SWCLK_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SWCLK {
+    public struct SWCLK_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1374,38 +1406,39 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 
     /// Pad control register
     @RegisterBank(offset: 0x0080)
-    public var swd: Register<SWD>
+    public var SWD: Register<SWD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SWD {
+    public struct SWD_Descriptor {
         /// Output disable. Has priority over output enable from peripherals
         @ReadWrite(bits: 7..<8, as: Bool.self)
-        public var od: OD_Field
+        public var OD: OD_Field
 
         /// Input enable
         @ReadWrite(bits: 6..<7, as: Bool.self)
-        public var ie: IE_Field
+        public var IE: IE_Field
 
         /// Drive strength.
         @ReadWrite(bits: 4..<6, as: DRIVE_Values.self)
-        public var drive: DRIVE_Field
+        public var DRIVE: DRIVE_Field
 
         public enum DRIVE_Values: UInt, BitFieldProjectable {
             case DRIVE_2mA = 0
@@ -1418,18 +1451,18 @@ public struct PADS_BANK0 {
 
         /// Pull up enable
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var pue: PUE_Field
+        public var PUE: PUE_Field
 
         /// Pull down enable
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var pde: PDE_Field
+        public var PDE: PDE_Field
 
         /// Enable schmitt trigger
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var schmitt: SCHMITT_Field
+        public var SCHMITT: SCHMITT_Field
 
         /// Slew rate control. 1 = Fast, 0 = Slow
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var slewfast: SLEWFAST_Field
+        public var SLEWFAST: SLEWFAST_Field
     }
 }

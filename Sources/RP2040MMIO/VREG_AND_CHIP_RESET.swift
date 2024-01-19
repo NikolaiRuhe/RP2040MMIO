@@ -9,14 +9,15 @@ public struct VREG_AND_CHIP_RESET {
 
     /// Voltage regulator control and status
     @RegisterBank(offset: 0x0000)
-    public var vreg: Register<VREG>
+    public var VREG: Register<VREG_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct VREG {
+    public struct VREG_Descriptor {
         /// regulation status
         /// 0=not in regulation, 1=in regulation
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var rok: ROK_Field
+        public var ROK: ROK_Field
 
         /// output voltage select
         /// 0000 to 0101 - 0.80V
@@ -31,25 +32,26 @@ public struct VREG_AND_CHIP_RESET {
         /// 1110         - 1.25V
         /// 1111         - 1.30V
         @ReadWrite(bits: 4..<8, as: BitField4.self)
-        public var vsel: VSEL_Field
+        public var VSEL: VSEL_Field
 
         /// high impedance mode select
         /// 0=not in high impedance mode, 1=in high impedance mode
         @ReadWrite(bits: 1..<2, as: Bool.self)
-        public var hiz: HIZ_Field
+        public var HIZ: HIZ_Field
 
         /// enable
         /// 0=not enabled, 1=enabled
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var en: EN_Field
+        public var EN: EN_Field
     }
 
     /// brown-out detection control
     @RegisterBank(offset: 0x0004)
-    public var bod: Register<BOD>
+    public var BOD: Register<BOD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct BOD {
+    public struct BOD_Descriptor {
         /// threshold select
         /// 0000 - 0.473V
         /// 0001 - 0.516V
@@ -68,36 +70,37 @@ public struct VREG_AND_CHIP_RESET {
         /// 1110 - 1.075V
         /// 1111 - 1.118V
         @ReadWrite(bits: 4..<8, as: BitField4.self)
-        public var vsel: VSEL_Field
+        public var VSEL: VSEL_Field
 
         /// enable
         /// 0=not enabled, 1=enabled
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var en: EN_Field
+        public var EN: EN_Field
     }
 
     /// Chip reset control and status
     @RegisterBank(offset: 0x0008)
-    public var chip_reset: Register<CHIP_RESET>
+    public var CHIP_RESET: Register<CHIP_RESET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CHIP_RESET {
+    public struct CHIP_RESET_Descriptor {
         /// This is set by psm_restart from the debugger.
         /// Its purpose is to branch bootcode to a safe mode when the debugger has issued a psm_restart in order to recover from a boot lock-up.
         /// In the safe mode the debugger can repair the boot code, clear this flag then reboot the processor.
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var psm_restart_flag: PSM_RESTART_FLAG_Field
+        public var PSM_RESTART_FLAG: PSM_RESTART_FLAG_Field
 
         /// Last reset was from the debug port
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var had_psm_restart: HAD_PSM_RESTART_Field
+        public var HAD_PSM_RESTART: HAD_PSM_RESTART_Field
 
         /// Last reset was from the RUN pin
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var had_run: HAD_RUN_Field
+        public var HAD_RUN: HAD_RUN_Field
 
         /// Last reset was from the power-on reset or brown-out detection blocks
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var had_por: HAD_POR_Field
+        public var HAD_POR: HAD_POR_Field
     }
 }

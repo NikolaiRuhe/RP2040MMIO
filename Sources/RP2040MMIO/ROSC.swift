@@ -8,15 +8,16 @@ public struct ROSC {
 
     /// Ring Oscillator control
     @RegisterBank(offset: 0x0000)
-    public var ctrl: Register<CTRL>
+    public var CTRL: Register<CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CTRL {
+    public struct CTRL_Descriptor {
         /// On power-up this field is initialised to ENABLE
         /// The system clock must be switched to another source before setting this field to DISABLE otherwise the chip will lock up
         /// The 12-bit code is intended to give some protection against accidental writes. An invalid setting will enable the oscillator.
         @ReadWrite(bits: 12..<24, as: ENABLE_Values.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         public enum ENABLE_Values: UInt, BitFieldProjectable {
             case ENABLE_DISABLE = 3358
@@ -34,7 +35,7 @@ public struct ROSC {
         /// The clock output will glitch when changing the range down
         /// Note: the values here are gray coded which is why HIGH comes before TOOHIGH
         @ReadWrite(bits: 0..<12, as: FREQ_RANGE_Values.self)
-        public var freq_range: FREQ_RANGE_Field
+        public var FREQ_RANGE: FREQ_RANGE_Field
 
         public enum FREQ_RANGE_Values: UInt, BitFieldProjectable {
             case FREQ_RANGE_LOW = 4004
@@ -54,14 +55,15 @@ public struct ROSC {
     /// 2 bits set triples drive strength
     /// 3 bits set quadruples drive strength
     @RegisterBank(offset: 0x0004)
-    public var freqa: Register<FREQA>
+    public var FREQA: Register<FREQA_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FREQA {
+    public struct FREQA_Descriptor {
         /// Set to 0x9696 to apply the settings
         /// Any other value in this field will set all drive strengths to 0
         @ReadWrite(bits: 16..<32, as: PASSWD_Values.self)
-        public var passwd: PASSWD_Field
+        public var PASSWD: PASSWD_Field
 
         public enum PASSWD_Values: UInt, BitFieldProjectable {
             case PASSWD_PASS = 38550
@@ -71,31 +73,32 @@ public struct ROSC {
 
         /// Stage 3 drive strength
         @ReadWrite(bits: 12..<15, as: BitField3.self)
-        public var ds3: DS3_Field
+        public var DS3: DS3_Field
 
         /// Stage 2 drive strength
         @ReadWrite(bits: 8..<11, as: BitField3.self)
-        public var ds2: DS2_Field
+        public var DS2: DS2_Field
 
         /// Stage 1 drive strength
         @ReadWrite(bits: 4..<7, as: BitField3.self)
-        public var ds1: DS1_Field
+        public var DS1: DS1_Field
 
         /// Stage 0 drive strength
         @ReadWrite(bits: 0..<3, as: BitField3.self)
-        public var ds0: DS0_Field
+        public var DS0: DS0_Field
     }
 
     /// For a detailed description see freqa register
     @RegisterBank(offset: 0x0008)
-    public var freqb: Register<FREQB>
+    public var FREQB: Register<FREQB_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FREQB {
+    public struct FREQB_Descriptor {
         /// Set to 0x9696 to apply the settings
         /// Any other value in this field will set all drive strengths to 0
         @ReadWrite(bits: 16..<32, as: PASSWD_Values.self)
-        public var passwd: PASSWD_Field
+        public var PASSWD: PASSWD_Field
 
         public enum PASSWD_Values: UInt, BitFieldProjectable {
             case PASSWD_PASS = 38550
@@ -105,19 +108,19 @@ public struct ROSC {
 
         /// Stage 7 drive strength
         @ReadWrite(bits: 12..<15, as: BitField3.self)
-        public var ds7: DS7_Field
+        public var DS7: DS7_Field
 
         /// Stage 6 drive strength
         @ReadWrite(bits: 8..<11, as: BitField3.self)
-        public var ds6: DS6_Field
+        public var DS6: DS6_Field
 
         /// Stage 5 drive strength
         @ReadWrite(bits: 4..<7, as: BitField3.self)
-        public var ds5: DS5_Field
+        public var DS5: DS5_Field
 
         /// Stage 4 drive strength
         @ReadWrite(bits: 0..<3, as: BitField3.self)
-        public var ds4: DS4_Field
+        public var DS4: DS4_Field
     }
 
     /// Ring Oscillator pause control
@@ -126,24 +129,26 @@ public struct ROSC {
     /// An invalid write will also select WAKE
     /// Warning: setup the irq before selecting dormant mode
     @RegisterBank(offset: 0x000c)
-    public var dormant: Register<DORMANT>
+    public var DORMANT: Register<DORMANT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DORMANT {}
+    public struct DORMANT_Descriptor {}
 
     /// Controls the output divider
     @RegisterBank(offset: 0x0010)
-    public var div: Register<DIV>
+    public var DIV: Register<DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV {
+    public struct DIV_Descriptor {
         /// set to 0xaa0 + div where
         /// div = 0 divides by 32
         /// div = 1-31 divides by div
         /// any other value sets div=31
         /// this register resets to div=16
         @ReadWrite(bits: 0..<12, as: DIV_Values.self)
-        public var div: DIV_Field
+        public var DIV: DIV_Field
 
         public enum DIV_Values: UInt, BitFieldProjectable {
             case DIV_PASS = 2720
@@ -154,76 +159,80 @@ public struct ROSC {
 
     /// Controls the phase shifted output
     @RegisterBank(offset: 0x0014)
-    public var phase: Register<PHASE>
+    public var PHASE: Register<PHASE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PHASE {
+    public struct PHASE_Descriptor {
         /// set to 0xaa
         /// any other value enables the output with shift=0
         @ReadWrite(bits: 4..<12, as: BitField8.self)
-        public var passwd: PASSWD_Field
+        public var PASSWD: PASSWD_Field
 
         /// enable the phase-shifted output
         /// this can be changed on-the-fly
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// invert the phase-shifted output
         /// this is ignored when div=1
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var flip: FLIP_Field
+        public var FLIP: FLIP_Field
 
         /// phase shift the phase-shifted output by SHIFT input clocks
         /// this can be changed on-the-fly
         /// must be set to 0 before setting div=1
         @ReadWrite(bits: 0..<2, as: BitField2.self)
-        public var shift: SHIFT_Field
+        public var SHIFT: SHIFT_Field
     }
 
     /// Ring Oscillator Status
     @RegisterBank(offset: 0x0018)
-    public var status: Register<STATUS>
+    public var STATUS: Register<STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct STATUS {
+    public struct STATUS_Descriptor {
         /// Oscillator is running and stable
         @ReadOnly(bits: 31..<32, as: Bool.self)
-        public var stable: STABLE_Field
+        public var STABLE: STABLE_Field
 
         /// An invalid value has been written to CTRL_ENABLE or CTRL_FREQ_RANGE or FREQA or FREQB or DIV or PHASE or DORMANT
         @ReadWrite(bits: 24..<25, as: Bool.self)
-        public var badwrite: BADWRITE_Field
+        public var BADWRITE: BADWRITE_Field
 
         /// post-divider is running
         /// this resets to 0 but transitions to 1 during chip startup
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var div_running: DIV_RUNNING_Field
+        public var DIV_RUNNING: DIV_RUNNING_Field
 
         /// Oscillator is enabled but not necessarily running and stable
         /// this resets to 0 but transitions to 1 during chip startup
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var enabled: ENABLED_Field
+        public var ENABLED: ENABLED_Field
     }
 
     /// This just reads the state of the oscillator output so randomness is compromised if the ring oscillator is stopped or run at a harmonic of the bus frequency
     @RegisterBank(offset: 0x001c)
-    public var randombit: Register<RANDOMBIT>
+    public var RANDOMBIT: Register<RANDOMBIT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RANDOMBIT {
+    public struct RANDOMBIT_Descriptor {
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var randombit: RANDOMBIT_Field
+        public var RANDOMBIT: RANDOMBIT_Field
     }
 
     /// A down counter running at the ROSC frequency which counts to zero and stops.
     /// To start the counter write a non-zero value.
     /// Can be used for short software pauses when setting up time sensitive hardware.
     @RegisterBank(offset: 0x0020)
-    public var count: Register<COUNT>
+    public var COUNT: Register<COUNT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct COUNT {
+    public struct COUNT_Descriptor {
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var count: COUNT_Field
+        public var COUNT: COUNT_Field
     }
 }

@@ -11,223 +11,242 @@ public struct SIO {
     /// Processor core identifier
     /// Value is 0 when read from processor core 0, and 1 when read from processor core 1.
     @RegisterBank(offset: 0x0000)
-    public var cpuid: Register<CPUID>
+    public var CPUID: Register<CPUID_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CPUID {}
+    public struct CPUID_Descriptor {}
 
     /// Input value for GPIO pins
     @RegisterBank(offset: 0x0004)
-    public var gpio_in: Register<GPIO_IN>
+    public var GPIO_IN: Register<GPIO_IN_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_IN {
+    public struct GPIO_IN_Descriptor {
         /// Input value for GPIO0...29
         @ReadOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_in: GPIO_IN_Field
+        public var GPIO_IN: GPIO_IN_Field
     }
 
     /// Input value for QSPI pins
     @RegisterBank(offset: 0x0008)
-    public var gpio_hi_in: Register<GPIO_HI_IN>
+    public var GPIO_HI_IN: Register<GPIO_HI_IN_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_IN {
+    public struct GPIO_HI_IN_Descriptor {
         /// Input value on QSPI IO in order 0..5: SCLK, SSn, SD0, SD1, SD2, SD3
         @ReadOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_in: GPIO_HI_IN_Field
+        public var GPIO_HI_IN: GPIO_HI_IN_Field
     }
 
     /// GPIO output value
     @RegisterBank(offset: 0x0010)
-    public var gpio_out: Register<GPIO_OUT>
+    public var GPIO_OUT: Register<GPIO_OUT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OUT {
+    public struct GPIO_OUT_Descriptor {
         /// Set output level (1/0 -> high/low) for GPIO0...29.
         /// Reading back gives the last value written, NOT the input value from the pins.
         /// If core 0 and core 1 both write to GPIO_OUT simultaneously (or to a SET/CLR/XOR alias),
         /// the result is as though the write from core 0 took place first,
         /// and the write from core 1 was then applied to that intermediate result.
         @ReadWrite(bits: 0..<30, as: BitField30.self)
-        public var gpio_out: GPIO_OUT_Field
+        public var GPIO_OUT: GPIO_OUT_Field
     }
 
     /// GPIO output value set
     @RegisterBank(offset: 0x0014)
-    public var gpio_out_set: Register<GPIO_OUT_SET>
+    public var GPIO_OUT_SET: Register<GPIO_OUT_SET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OUT_SET {
+    public struct GPIO_OUT_SET_Descriptor {
         /// Perform an atomic bit-set on GPIO_OUT, i.e. `GPIO_OUT |= wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_out_set: GPIO_OUT_SET_Field
+        public var GPIO_OUT_SET: GPIO_OUT_SET_Field
     }
 
     /// GPIO output value clear
     @RegisterBank(offset: 0x0018)
-    public var gpio_out_clr: Register<GPIO_OUT_CLR>
+    public var GPIO_OUT_CLR: Register<GPIO_OUT_CLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OUT_CLR {
+    public struct GPIO_OUT_CLR_Descriptor {
         /// Perform an atomic bit-clear on GPIO_OUT, i.e. `GPIO_OUT &= ~wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_out_clr: GPIO_OUT_CLR_Field
+        public var GPIO_OUT_CLR: GPIO_OUT_CLR_Field
     }
 
     /// GPIO output value XOR
     @RegisterBank(offset: 0x001c)
-    public var gpio_out_xor: Register<GPIO_OUT_XOR>
+    public var GPIO_OUT_XOR: Register<GPIO_OUT_XOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OUT_XOR {
+    public struct GPIO_OUT_XOR_Descriptor {
         /// Perform an atomic bitwise XOR on GPIO_OUT, i.e. `GPIO_OUT ^= wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_out_xor: GPIO_OUT_XOR_Field
+        public var GPIO_OUT_XOR: GPIO_OUT_XOR_Field
     }
 
     /// GPIO output enable
     @RegisterBank(offset: 0x0020)
-    public var gpio_oe: Register<GPIO_OE>
+    public var GPIO_OE: Register<GPIO_OE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OE {
+    public struct GPIO_OE_Descriptor {
         /// Set output enable (1/0 -> output/input) for GPIO0...29.
         /// Reading back gives the last value written.
         /// If core 0 and core 1 both write to GPIO_OE simultaneously (or to a SET/CLR/XOR alias),
         /// the result is as though the write from core 0 took place first,
         /// and the write from core 1 was then applied to that intermediate result.
         @ReadWrite(bits: 0..<30, as: BitField30.self)
-        public var gpio_oe: GPIO_OE_Field
+        public var GPIO_OE: GPIO_OE_Field
     }
 
     /// GPIO output enable set
     @RegisterBank(offset: 0x0024)
-    public var gpio_oe_set: Register<GPIO_OE_SET>
+    public var GPIO_OE_SET: Register<GPIO_OE_SET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OE_SET {
+    public struct GPIO_OE_SET_Descriptor {
         /// Perform an atomic bit-set on GPIO_OE, i.e. `GPIO_OE |= wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_oe_set: GPIO_OE_SET_Field
+        public var GPIO_OE_SET: GPIO_OE_SET_Field
     }
 
     /// GPIO output enable clear
     @RegisterBank(offset: 0x0028)
-    public var gpio_oe_clr: Register<GPIO_OE_CLR>
+    public var GPIO_OE_CLR: Register<GPIO_OE_CLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OE_CLR {
+    public struct GPIO_OE_CLR_Descriptor {
         /// Perform an atomic bit-clear on GPIO_OE, i.e. `GPIO_OE &= ~wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_oe_clr: GPIO_OE_CLR_Field
+        public var GPIO_OE_CLR: GPIO_OE_CLR_Field
     }
 
     /// GPIO output enable XOR
     @RegisterBank(offset: 0x002c)
-    public var gpio_oe_xor: Register<GPIO_OE_XOR>
+    public var GPIO_OE_XOR: Register<GPIO_OE_XOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_OE_XOR {
+    public struct GPIO_OE_XOR_Descriptor {
         /// Perform an atomic bitwise XOR on GPIO_OE, i.e. `GPIO_OE ^= wdata`
         @WriteOnly(bits: 0..<30, as: BitField30.self)
-        public var gpio_oe_xor: GPIO_OE_XOR_Field
+        public var GPIO_OE_XOR: GPIO_OE_XOR_Field
     }
 
     /// QSPI output value
     @RegisterBank(offset: 0x0030)
-    public var gpio_hi_out: Register<GPIO_HI_OUT>
+    public var GPIO_HI_OUT: Register<GPIO_HI_OUT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OUT {
+    public struct GPIO_HI_OUT_Descriptor {
         /// Set output level (1/0 -> high/low) for QSPI IO0...5.
         /// Reading back gives the last value written, NOT the input value from the pins.
         /// If core 0 and core 1 both write to GPIO_HI_OUT simultaneously (or to a SET/CLR/XOR alias),
         /// the result is as though the write from core 0 took place first,
         /// and the write from core 1 was then applied to that intermediate result.
         @ReadWrite(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_out: GPIO_HI_OUT_Field
+        public var GPIO_HI_OUT: GPIO_HI_OUT_Field
     }
 
     /// QSPI output value set
     @RegisterBank(offset: 0x0034)
-    public var gpio_hi_out_set: Register<GPIO_HI_OUT_SET>
+    public var GPIO_HI_OUT_SET: Register<GPIO_HI_OUT_SET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OUT_SET {
+    public struct GPIO_HI_OUT_SET_Descriptor {
         /// Perform an atomic bit-set on GPIO_HI_OUT, i.e. `GPIO_HI_OUT |= wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_out_set: GPIO_HI_OUT_SET_Field
+        public var GPIO_HI_OUT_SET: GPIO_HI_OUT_SET_Field
     }
 
     /// QSPI output value clear
     @RegisterBank(offset: 0x0038)
-    public var gpio_hi_out_clr: Register<GPIO_HI_OUT_CLR>
+    public var GPIO_HI_OUT_CLR: Register<GPIO_HI_OUT_CLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OUT_CLR {
+    public struct GPIO_HI_OUT_CLR_Descriptor {
         /// Perform an atomic bit-clear on GPIO_HI_OUT, i.e. `GPIO_HI_OUT &= ~wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_out_clr: GPIO_HI_OUT_CLR_Field
+        public var GPIO_HI_OUT_CLR: GPIO_HI_OUT_CLR_Field
     }
 
     /// QSPI output value XOR
     @RegisterBank(offset: 0x003c)
-    public var gpio_hi_out_xor: Register<GPIO_HI_OUT_XOR>
+    public var GPIO_HI_OUT_XOR: Register<GPIO_HI_OUT_XOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OUT_XOR {
+    public struct GPIO_HI_OUT_XOR_Descriptor {
         /// Perform an atomic bitwise XOR on GPIO_HI_OUT, i.e. `GPIO_HI_OUT ^= wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_out_xor: GPIO_HI_OUT_XOR_Field
+        public var GPIO_HI_OUT_XOR: GPIO_HI_OUT_XOR_Field
     }
 
     /// QSPI output enable
     @RegisterBank(offset: 0x0040)
-    public var gpio_hi_oe: Register<GPIO_HI_OE>
+    public var GPIO_HI_OE: Register<GPIO_HI_OE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OE {
+    public struct GPIO_HI_OE_Descriptor {
         /// Set output enable (1/0 -> output/input) for QSPI IO0...5.
         /// Reading back gives the last value written.
         /// If core 0 and core 1 both write to GPIO_HI_OE simultaneously (or to a SET/CLR/XOR alias),
         /// the result is as though the write from core 0 took place first,
         /// and the write from core 1 was then applied to that intermediate result.
         @ReadWrite(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_oe: GPIO_HI_OE_Field
+        public var GPIO_HI_OE: GPIO_HI_OE_Field
     }
 
     /// QSPI output enable set
     @RegisterBank(offset: 0x0044)
-    public var gpio_hi_oe_set: Register<GPIO_HI_OE_SET>
+    public var GPIO_HI_OE_SET: Register<GPIO_HI_OE_SET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OE_SET {
+    public struct GPIO_HI_OE_SET_Descriptor {
         /// Perform an atomic bit-set on GPIO_HI_OE, i.e. `GPIO_HI_OE |= wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_oe_set: GPIO_HI_OE_SET_Field
+        public var GPIO_HI_OE_SET: GPIO_HI_OE_SET_Field
     }
 
     /// QSPI output enable clear
     @RegisterBank(offset: 0x0048)
-    public var gpio_hi_oe_clr: Register<GPIO_HI_OE_CLR>
+    public var GPIO_HI_OE_CLR: Register<GPIO_HI_OE_CLR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OE_CLR {
+    public struct GPIO_HI_OE_CLR_Descriptor {
         /// Perform an atomic bit-clear on GPIO_HI_OE, i.e. `GPIO_HI_OE &= ~wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_oe_clr: GPIO_HI_OE_CLR_Field
+        public var GPIO_HI_OE_CLR: GPIO_HI_OE_CLR_Field
     }
 
     /// QSPI output enable XOR
     @RegisterBank(offset: 0x004c)
-    public var gpio_hi_oe_xor: Register<GPIO_HI_OE_XOR>
+    public var GPIO_HI_OE_XOR: Register<GPIO_HI_OE_XOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct GPIO_HI_OE_XOR {
+    public struct GPIO_HI_OE_XOR_Descriptor {
         /// Perform an atomic bitwise XOR on GPIO_HI_OE, i.e. `GPIO_HI_OE ^= wdata`
         @WriteOnly(bits: 0..<6, as: BitField6.self)
-        public var gpio_hi_oe_xor: GPIO_HI_OE_XOR_Field
+        public var GPIO_HI_OE_XOR: GPIO_HI_OE_XOR_Field
     }
 
     /// Status register for inter-core FIFOs (mailboxes).
@@ -236,49 +255,53 @@ public struct SIO {
     /// Core 1 can see the read side of the 0->1 FIFO (RX), and the write side of 1->0 FIFO (TX).
     /// The SIO IRQ for each core is the logical OR of the VLD, WOF and ROE fields of its FIFO_ST register.
     @RegisterBank(offset: 0x0050)
-    public var fifo_st: Register<FIFO_ST>
+    public var FIFO_ST: Register<FIFO_ST_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FIFO_ST {
+    public struct FIFO_ST_Descriptor {
         /// Sticky flag indicating the RX FIFO was read when empty. This read was ignored by the FIFO.
         @ReadWrite(bits: 3..<4, as: Bool.self)
-        public var roe: ROE_Field
+        public var ROE: ROE_Field
 
         /// Sticky flag indicating the TX FIFO was written when full. This write was ignored by the FIFO.
         @ReadWrite(bits: 2..<3, as: Bool.self)
-        public var wof: WOF_Field
+        public var WOF: WOF_Field
 
         /// Value is 1 if this core's TX FIFO is not full (i.e. if FIFO_WR is ready for more data)
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var rdy: RDY_Field
+        public var RDY: RDY_Field
 
         /// Value is 1 if this core's RX FIFO is not empty (i.e. if FIFO_RD is valid)
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var vld: VLD_Field
+        public var VLD: VLD_Field
     }
 
     /// Write access to this core's TX FIFO
     @RegisterBank(offset: 0x0054)
-    public var fifo_wr: Register<FIFO_WR>
+    public var FIFO_WR: Register<FIFO_WR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FIFO_WR {}
+    public struct FIFO_WR_Descriptor {}
 
     /// Read access to this core's RX FIFO
     @RegisterBank(offset: 0x0058)
-    public var fifo_rd: Register<FIFO_RD>
+    public var FIFO_RD: Register<FIFO_RD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FIFO_RD {}
+    public struct FIFO_RD_Descriptor {}
 
     /// Spinlock state
     /// A bitmap containing the state of all 32 spinlocks (1=locked).
     /// Mainly intended for debugging.
     @RegisterBank(offset: 0x005c)
-    public var spinlock_st: Register<SPINLOCK_ST>
+    public var SPINLOCK_ST: Register<SPINLOCK_ST_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK_ST {}
+    public struct SPINLOCK_ST_Descriptor {}
 
     /// Divider unsigned dividend
     /// Write to the DIVIDEND operand of the divider, i.e. the p in `p / q`.
@@ -286,10 +309,11 @@ public struct SIO {
     /// UDIVIDEND/SDIVIDEND are aliases of the same internal register. The U alias starts an
     /// unsigned calculation, and the S alias starts a signed calculation.
     @RegisterBank(offset: 0x0060)
-    public var div_udividend: Register<DIV_UDIVIDEND>
+    public var DIV_UDIVIDEND: Register<DIV_UDIVIDEND_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_UDIVIDEND {}
+    public struct DIV_UDIVIDEND_Descriptor {}
 
     /// Divider unsigned divisor
     /// Write to the DIVISOR operand of the divider, i.e. the q in `p / q`.
@@ -297,26 +321,29 @@ public struct SIO {
     /// UDIVISOR/SDIVISOR are aliases of the same internal register. The U alias starts an
     /// unsigned calculation, and the S alias starts a signed calculation.
     @RegisterBank(offset: 0x0064)
-    public var div_udivisor: Register<DIV_UDIVISOR>
+    public var DIV_UDIVISOR: Register<DIV_UDIVISOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_UDIVISOR {}
+    public struct DIV_UDIVISOR_Descriptor {}
 
     /// Divider signed dividend
     /// The same as UDIVIDEND, but starts a signed calculation, rather than unsigned.
     @RegisterBank(offset: 0x0068)
-    public var div_sdividend: Register<DIV_SDIVIDEND>
+    public var DIV_SDIVIDEND: Register<DIV_SDIVIDEND_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_SDIVIDEND {}
+    public struct DIV_SDIVIDEND_Descriptor {}
 
     /// Divider signed divisor
     /// The same as UDIVISOR, but starts a signed calculation, rather than unsigned.
     @RegisterBank(offset: 0x006c)
-    public var div_sdivisor: Register<DIV_SDIVISOR>
+    public var DIV_SDIVISOR: Register<DIV_SDIVISOR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_SDIVISOR {}
+    public struct DIV_SDIVISOR_Descriptor {}
 
     /// Divider result quotient
     /// The result of `DIVIDEND / DIVISOR` (division). Contents undefined while CSR_READY is low.
@@ -326,10 +353,11 @@ public struct SIO {
     /// Reading from QUOTIENT clears the CSR_DIRTY flag, so should read results in the order
     /// REMAINDER, QUOTIENT if CSR_DIRTY is used.
     @RegisterBank(offset: 0x0070)
-    public var div_quotient: Register<DIV_QUOTIENT>
+    public var DIV_QUOTIENT: Register<DIV_QUOTIENT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_QUOTIENT {}
+    public struct DIV_QUOTIENT_Descriptor {}
 
     /// Divider result remainder
     /// The result of `DIVIDEND % DIVISOR` (modulo). Contents undefined while CSR_READY is low.
@@ -337,23 +365,25 @@ public struct SIO {
     /// This register can be written to directly, for context save/restore purposes. This halts any
     /// in-progress calculation and sets the CSR_READY and CSR_DIRTY flags.
     @RegisterBank(offset: 0x0074)
-    public var div_remainder: Register<DIV_REMAINDER>
+    public var DIV_REMAINDER: Register<DIV_REMAINDER_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_REMAINDER {}
+    public struct DIV_REMAINDER_Descriptor {}
 
     /// Control and status register for divider.
     @RegisterBank(offset: 0x0078)
-    public var div_csr: Register<DIV_CSR>
+    public var DIV_CSR: Register<DIV_CSR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct DIV_CSR {
+    public struct DIV_CSR_Descriptor {
         /// Changes to 1 when any register is written, and back to 0 when QUOTIENT is read.
         /// Software can use this flag to make save/restore more efficient (skip if not DIRTY).
         /// If the flag is used in this way, it's recommended to either read QUOTIENT only,
         /// or REMAINDER and then QUOTIENT, to prevent data loss on context switch.
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var dirty: DIRTY_Field
+        public var DIRTY: DIRTY_Field
 
         /// Reads as 0 when a calculation is in progress, 1 otherwise.
         /// Writing an operand (xDIVIDEND, xDIVISOR) will immediately start a new calculation, no
@@ -361,103 +391,115 @@ public struct SIO {
         /// Writing to a result register will immediately terminate any in-progress calculation
         /// and set the READY and DIRTY flags.
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var ready: READY_Field
+        public var READY: READY_Field
     }
 
     /// Read/write access to accumulator 0
     @RegisterBank(offset: 0x0080)
-    public var interp0_accum0: Register<INTERP0_ACCUM0>
+    public var INTERP0_ACCUM0: Register<INTERP0_ACCUM0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM0 {}
+    public struct INTERP0_ACCUM0_Descriptor {}
 
     /// Read/write access to accumulator 1
     @RegisterBank(offset: 0x0084)
-    public var interp0_accum1: Register<INTERP0_ACCUM1>
+    public var INTERP0_ACCUM1: Register<INTERP0_ACCUM1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM1 {}
+    public struct INTERP0_ACCUM1_Descriptor {}
 
     /// Read/write access to BASE0 register.
     @RegisterBank(offset: 0x0088)
-    public var interp0_base0: Register<INTERP0_BASE0>
+    public var INTERP0_BASE0: Register<INTERP0_BASE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE0 {}
+    public struct INTERP0_BASE0_Descriptor {}
 
     /// Read/write access to BASE1 register.
     @RegisterBank(offset: 0x008c)
-    public var interp0_base1: Register<INTERP0_BASE1>
+    public var INTERP0_BASE1: Register<INTERP0_BASE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE1 {}
+    public struct INTERP0_BASE1_Descriptor {}
 
     /// Read/write access to BASE2 register.
     @RegisterBank(offset: 0x0090)
-    public var interp0_base2: Register<INTERP0_BASE2>
+    public var INTERP0_BASE2: Register<INTERP0_BASE2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE2 {}
+    public struct INTERP0_BASE2_Descriptor {}
 
     /// Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x0094)
-    public var interp0_pop_lane0: Register<INTERP0_POP_LANE0>
+    public var INTERP0_POP_LANE0: Register<INTERP0_POP_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_LANE0 {}
+    public struct INTERP0_POP_LANE0_Descriptor {}
 
     /// Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x0098)
-    public var interp0_pop_lane1: Register<INTERP0_POP_LANE1>
+    public var INTERP0_POP_LANE1: Register<INTERP0_POP_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_LANE1 {}
+    public struct INTERP0_POP_LANE1_Descriptor {}
 
     /// Read FULL result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x009c)
-    public var interp0_pop_full: Register<INTERP0_POP_FULL>
+    public var INTERP0_POP_FULL: Register<INTERP0_POP_FULL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_POP_FULL {}
+    public struct INTERP0_POP_FULL_Descriptor {}
 
     /// Read LANE0 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a0)
-    public var interp0_peek_lane0: Register<INTERP0_PEEK_LANE0>
+    public var INTERP0_PEEK_LANE0: Register<INTERP0_PEEK_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_LANE0 {}
+    public struct INTERP0_PEEK_LANE0_Descriptor {}
 
     /// Read LANE1 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a4)
-    public var interp0_peek_lane1: Register<INTERP0_PEEK_LANE1>
+    public var INTERP0_PEEK_LANE1: Register<INTERP0_PEEK_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_LANE1 {}
+    public struct INTERP0_PEEK_LANE1_Descriptor {}
 
     /// Read FULL result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00a8)
-    public var interp0_peek_full: Register<INTERP0_PEEK_FULL>
+    public var INTERP0_PEEK_FULL: Register<INTERP0_PEEK_FULL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_PEEK_FULL {}
+    public struct INTERP0_PEEK_FULL_Descriptor {}
 
     /// Control register for lane 0
     @RegisterBank(offset: 0x00ac)
-    public var interp0_ctrl_lane0: Register<INTERP0_CTRL_LANE0>
+    public var INTERP0_CTRL_LANE0: Register<INTERP0_CTRL_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_CTRL_LANE0 {
+    public struct INTERP0_CTRL_LANE0_Descriptor {
         /// Set if either OVERF0 or OVERF1 is set.
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var overf: OVERF_Field
+        public var OVERF: OVERF_Field
 
         /// Indicates if any masked-off MSBs in ACCUM1 are set.
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var overf1: OVERF1_Field
+        public var OVERF1: OVERF1_Field
 
         /// Indicates if any masked-off MSBs in ACCUM0 are set.
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var overf0: OVERF0_Field
+        public var OVERF0: OVERF0_Field
 
         /// Only present on INTERP0 on each core. If BLEND mode is enabled:
         /// - LANE1 result is a linear interpolation between BASE0 and BASE1, controlled
@@ -467,333 +509,353 @@ public struct SIO {
         /// - FULL result does not have lane 1 shift+mask value added (BASE2 + lane 0 shift+mask)
         /// LANE1 SIGNED flag controls whether the interpolation is signed or unsigned.
         @ReadWrite(bits: 21..<22, as: Bool.self)
-        public var blend: BLEND_Field
+        public var BLEND: BLEND_Field
 
         /// ORed into bits 29:28 of the lane result presented to the processor on the bus.
         /// No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
         /// of pointers into flash or SRAM.
         @ReadWrite(bits: 19..<21, as: BitField2.self)
-        public var force_msb: FORCE_MSB_Field
+        public var FORCE_MSB: FORCE_MSB_Field
 
         /// If 1, mask + shift is bypassed for LANE0 result. This does not affect FULL result.
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var add_raw: ADD_RAW_Field
+        public var ADD_RAW: ADD_RAW_Field
 
         /// If 1, feed the opposite lane's result into this lane's accumulator on POP.
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var cross_result: CROSS_RESULT_Field
+        public var CROSS_RESULT: CROSS_RESULT_Field
 
         /// If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
         /// Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var cross_input: CROSS_INPUT_Field
+        public var CROSS_INPUT: CROSS_INPUT_Field
 
         /// If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
         /// before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var signed: SIGNED_Field
+        public var SIGNED: SIGNED_Field
 
         /// The most-significant bit allowed to pass by the mask (inclusive)
         /// Setting MSB < LSB may cause chip to turn inside-out
         @ReadWrite(bits: 10..<15, as: BitField5.self)
-        public var mask_msb: MASK_MSB_Field
+        public var MASK_MSB: MASK_MSB_Field
 
         /// The least-significant bit allowed to pass by the mask (inclusive)
         @ReadWrite(bits: 5..<10, as: BitField5.self)
-        public var mask_lsb: MASK_LSB_Field
+        public var MASK_LSB: MASK_LSB_Field
 
         /// Logical right-shift applied to accumulator before masking
         @ReadWrite(bits: 0..<5, as: BitField5.self)
-        public var shift: SHIFT_Field
+        public var SHIFT: SHIFT_Field
     }
 
     /// Control register for lane 1
     @RegisterBank(offset: 0x00b0)
-    public var interp0_ctrl_lane1: Register<INTERP0_CTRL_LANE1>
+    public var INTERP0_CTRL_LANE1: Register<INTERP0_CTRL_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_CTRL_LANE1 {
+    public struct INTERP0_CTRL_LANE1_Descriptor {
         /// ORed into bits 29:28 of the lane result presented to the processor on the bus.
         /// No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
         /// of pointers into flash or SRAM.
         @ReadWrite(bits: 19..<21, as: BitField2.self)
-        public var force_msb: FORCE_MSB_Field
+        public var FORCE_MSB: FORCE_MSB_Field
 
         /// If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result.
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var add_raw: ADD_RAW_Field
+        public var ADD_RAW: ADD_RAW_Field
 
         /// If 1, feed the opposite lane's result into this lane's accumulator on POP.
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var cross_result: CROSS_RESULT_Field
+        public var CROSS_RESULT: CROSS_RESULT_Field
 
         /// If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
         /// Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var cross_input: CROSS_INPUT_Field
+        public var CROSS_INPUT: CROSS_INPUT_Field
 
         /// If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
         /// before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var signed: SIGNED_Field
+        public var SIGNED: SIGNED_Field
 
         /// The most-significant bit allowed to pass by the mask (inclusive)
         /// Setting MSB < LSB may cause chip to turn inside-out
         @ReadWrite(bits: 10..<15, as: BitField5.self)
-        public var mask_msb: MASK_MSB_Field
+        public var MASK_MSB: MASK_MSB_Field
 
         /// The least-significant bit allowed to pass by the mask (inclusive)
         @ReadWrite(bits: 5..<10, as: BitField5.self)
-        public var mask_lsb: MASK_LSB_Field
+        public var MASK_LSB: MASK_LSB_Field
 
         /// Logical right-shift applied to accumulator before masking
         @ReadWrite(bits: 0..<5, as: BitField5.self)
-        public var shift: SHIFT_Field
+        public var SHIFT: SHIFT_Field
     }
 
     /// Values written here are atomically added to ACCUM0
     /// Reading yields lane 0's raw shift and mask value (BASE0 not added).
     @RegisterBank(offset: 0x00b4)
-    public var interp0_accum0_add: Register<INTERP0_ACCUM0_ADD>
+    public var INTERP0_ACCUM0_ADD: Register<INTERP0_ACCUM0_ADD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM0_ADD {
+    public struct INTERP0_ACCUM0_ADD_Descriptor {
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var interp0_accum0_add: INTERP0_ACCUM0_ADD_Field
+        public var INTERP0_ACCUM0_ADD: INTERP0_ACCUM0_ADD_Field
     }
 
     /// Values written here are atomically added to ACCUM1
     /// Reading yields lane 1's raw shift and mask value (BASE1 not added).
     @RegisterBank(offset: 0x00b8)
-    public var interp0_accum1_add: Register<INTERP0_ACCUM1_ADD>
+    public var INTERP0_ACCUM1_ADD: Register<INTERP0_ACCUM1_ADD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_ACCUM1_ADD {
+    public struct INTERP0_ACCUM1_ADD_Descriptor {
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var interp0_accum1_add: INTERP0_ACCUM1_ADD_Field
+        public var INTERP0_ACCUM1_ADD: INTERP0_ACCUM1_ADD_Field
     }
 
     /// On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
     /// Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
     @RegisterBank(offset: 0x00bc)
-    public var interp0_base_1and0: Register<INTERP0_BASE_1AND0>
+    public var INTERP0_BASE_1AND0: Register<INTERP0_BASE_1AND0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP0_BASE_1AND0 {}
+    public struct INTERP0_BASE_1AND0_Descriptor {}
 
     /// Read/write access to accumulator 0
     @RegisterBank(offset: 0x00c0)
-    public var interp1_accum0: Register<INTERP1_ACCUM0>
+    public var INTERP1_ACCUM0: Register<INTERP1_ACCUM0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM0 {}
+    public struct INTERP1_ACCUM0_Descriptor {}
 
     /// Read/write access to accumulator 1
     @RegisterBank(offset: 0x00c4)
-    public var interp1_accum1: Register<INTERP1_ACCUM1>
+    public var INTERP1_ACCUM1: Register<INTERP1_ACCUM1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM1 {}
+    public struct INTERP1_ACCUM1_Descriptor {}
 
     /// Read/write access to BASE0 register.
     @RegisterBank(offset: 0x00c8)
-    public var interp1_base0: Register<INTERP1_BASE0>
+    public var INTERP1_BASE0: Register<INTERP1_BASE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE0 {}
+    public struct INTERP1_BASE0_Descriptor {}
 
     /// Read/write access to BASE1 register.
     @RegisterBank(offset: 0x00cc)
-    public var interp1_base1: Register<INTERP1_BASE1>
+    public var INTERP1_BASE1: Register<INTERP1_BASE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE1 {}
+    public struct INTERP1_BASE1_Descriptor {}
 
     /// Read/write access to BASE2 register.
     @RegisterBank(offset: 0x00d0)
-    public var interp1_base2: Register<INTERP1_BASE2>
+    public var INTERP1_BASE2: Register<INTERP1_BASE2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE2 {}
+    public struct INTERP1_BASE2_Descriptor {}
 
     /// Read LANE0 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00d4)
-    public var interp1_pop_lane0: Register<INTERP1_POP_LANE0>
+    public var INTERP1_POP_LANE0: Register<INTERP1_POP_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_LANE0 {}
+    public struct INTERP1_POP_LANE0_Descriptor {}
 
     /// Read LANE1 result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00d8)
-    public var interp1_pop_lane1: Register<INTERP1_POP_LANE1>
+    public var INTERP1_POP_LANE1: Register<INTERP1_POP_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_LANE1 {}
+    public struct INTERP1_POP_LANE1_Descriptor {}
 
     /// Read FULL result, and simultaneously write lane results to both accumulators (POP).
     @RegisterBank(offset: 0x00dc)
-    public var interp1_pop_full: Register<INTERP1_POP_FULL>
+    public var INTERP1_POP_FULL: Register<INTERP1_POP_FULL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_POP_FULL {}
+    public struct INTERP1_POP_FULL_Descriptor {}
 
     /// Read LANE0 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e0)
-    public var interp1_peek_lane0: Register<INTERP1_PEEK_LANE0>
+    public var INTERP1_PEEK_LANE0: Register<INTERP1_PEEK_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_LANE0 {}
+    public struct INTERP1_PEEK_LANE0_Descriptor {}
 
     /// Read LANE1 result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e4)
-    public var interp1_peek_lane1: Register<INTERP1_PEEK_LANE1>
+    public var INTERP1_PEEK_LANE1: Register<INTERP1_PEEK_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_LANE1 {}
+    public struct INTERP1_PEEK_LANE1_Descriptor {}
 
     /// Read FULL result, without altering any internal state (PEEK).
     @RegisterBank(offset: 0x00e8)
-    public var interp1_peek_full: Register<INTERP1_PEEK_FULL>
+    public var INTERP1_PEEK_FULL: Register<INTERP1_PEEK_FULL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_PEEK_FULL {}
+    public struct INTERP1_PEEK_FULL_Descriptor {}
 
     /// Control register for lane 0
     @RegisterBank(offset: 0x00ec)
-    public var interp1_ctrl_lane0: Register<INTERP1_CTRL_LANE0>
+    public var INTERP1_CTRL_LANE0: Register<INTERP1_CTRL_LANE0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_CTRL_LANE0 {
+    public struct INTERP1_CTRL_LANE0_Descriptor {
         /// Set if either OVERF0 or OVERF1 is set.
         @ReadOnly(bits: 25..<26, as: Bool.self)
-        public var overf: OVERF_Field
+        public var OVERF: OVERF_Field
 
         /// Indicates if any masked-off MSBs in ACCUM1 are set.
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var overf1: OVERF1_Field
+        public var OVERF1: OVERF1_Field
 
         /// Indicates if any masked-off MSBs in ACCUM0 are set.
         @ReadOnly(bits: 23..<24, as: Bool.self)
-        public var overf0: OVERF0_Field
+        public var OVERF0: OVERF0_Field
 
         /// Only present on INTERP1 on each core. If CLAMP mode is enabled:
         /// - LANE0 result is shifted and masked ACCUM0, clamped by a lower bound of
         /// BASE0 and an upper bound of BASE1.
         /// - Signedness of these comparisons is determined by LANE0_CTRL_SIGNED
         @ReadWrite(bits: 22..<23, as: Bool.self)
-        public var clamp: CLAMP_Field
+        public var CLAMP: CLAMP_Field
 
         /// ORed into bits 29:28 of the lane result presented to the processor on the bus.
         /// No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
         /// of pointers into flash or SRAM.
         @ReadWrite(bits: 19..<21, as: BitField2.self)
-        public var force_msb: FORCE_MSB_Field
+        public var FORCE_MSB: FORCE_MSB_Field
 
         /// If 1, mask + shift is bypassed for LANE0 result. This does not affect FULL result.
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var add_raw: ADD_RAW_Field
+        public var ADD_RAW: ADD_RAW_Field
 
         /// If 1, feed the opposite lane's result into this lane's accumulator on POP.
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var cross_result: CROSS_RESULT_Field
+        public var CROSS_RESULT: CROSS_RESULT_Field
 
         /// If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
         /// Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var cross_input: CROSS_INPUT_Field
+        public var CROSS_INPUT: CROSS_INPUT_Field
 
         /// If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
         /// before adding to BASE0, and LANE0 PEEK/POP appear extended to 32 bits when read by processor.
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var signed: SIGNED_Field
+        public var SIGNED: SIGNED_Field
 
         /// The most-significant bit allowed to pass by the mask (inclusive)
         /// Setting MSB < LSB may cause chip to turn inside-out
         @ReadWrite(bits: 10..<15, as: BitField5.self)
-        public var mask_msb: MASK_MSB_Field
+        public var MASK_MSB: MASK_MSB_Field
 
         /// The least-significant bit allowed to pass by the mask (inclusive)
         @ReadWrite(bits: 5..<10, as: BitField5.self)
-        public var mask_lsb: MASK_LSB_Field
+        public var MASK_LSB: MASK_LSB_Field
 
         /// Logical right-shift applied to accumulator before masking
         @ReadWrite(bits: 0..<5, as: BitField5.self)
-        public var shift: SHIFT_Field
+        public var SHIFT: SHIFT_Field
     }
 
     /// Control register for lane 1
     @RegisterBank(offset: 0x00f0)
-    public var interp1_ctrl_lane1: Register<INTERP1_CTRL_LANE1>
+    public var INTERP1_CTRL_LANE1: Register<INTERP1_CTRL_LANE1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_CTRL_LANE1 {
+    public struct INTERP1_CTRL_LANE1_Descriptor {
         /// ORed into bits 29:28 of the lane result presented to the processor on the bus.
         /// No effect on the internal 32-bit datapath. Handy for using a lane to generate sequence
         /// of pointers into flash or SRAM.
         @ReadWrite(bits: 19..<21, as: BitField2.self)
-        public var force_msb: FORCE_MSB_Field
+        public var FORCE_MSB: FORCE_MSB_Field
 
         /// If 1, mask + shift is bypassed for LANE1 result. This does not affect FULL result.
         @ReadWrite(bits: 18..<19, as: Bool.self)
-        public var add_raw: ADD_RAW_Field
+        public var ADD_RAW: ADD_RAW_Field
 
         /// If 1, feed the opposite lane's result into this lane's accumulator on POP.
         @ReadWrite(bits: 17..<18, as: Bool.self)
-        public var cross_result: CROSS_RESULT_Field
+        public var CROSS_RESULT: CROSS_RESULT_Field
 
         /// If 1, feed the opposite lane's accumulator into this lane's shift + mask hardware.
         /// Takes effect even if ADD_RAW is set (the CROSS_INPUT mux is before the shift+mask bypass)
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var cross_input: CROSS_INPUT_Field
+        public var CROSS_INPUT: CROSS_INPUT_Field
 
         /// If SIGNED is set, the shifted and masked accumulator value is sign-extended to 32 bits
         /// before adding to BASE1, and LANE1 PEEK/POP appear extended to 32 bits when read by processor.
         @ReadWrite(bits: 15..<16, as: Bool.self)
-        public var signed: SIGNED_Field
+        public var SIGNED: SIGNED_Field
 
         /// The most-significant bit allowed to pass by the mask (inclusive)
         /// Setting MSB < LSB may cause chip to turn inside-out
         @ReadWrite(bits: 10..<15, as: BitField5.self)
-        public var mask_msb: MASK_MSB_Field
+        public var MASK_MSB: MASK_MSB_Field
 
         /// The least-significant bit allowed to pass by the mask (inclusive)
         @ReadWrite(bits: 5..<10, as: BitField5.self)
-        public var mask_lsb: MASK_LSB_Field
+        public var MASK_LSB: MASK_LSB_Field
 
         /// Logical right-shift applied to accumulator before masking
         @ReadWrite(bits: 0..<5, as: BitField5.self)
-        public var shift: SHIFT_Field
+        public var SHIFT: SHIFT_Field
     }
 
     /// Values written here are atomically added to ACCUM0
     /// Reading yields lane 0's raw shift and mask value (BASE0 not added).
     @RegisterBank(offset: 0x00f4)
-    public var interp1_accum0_add: Register<INTERP1_ACCUM0_ADD>
+    public var INTERP1_ACCUM0_ADD: Register<INTERP1_ACCUM0_ADD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM0_ADD {
+    public struct INTERP1_ACCUM0_ADD_Descriptor {
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var interp1_accum0_add: INTERP1_ACCUM0_ADD_Field
+        public var INTERP1_ACCUM0_ADD: INTERP1_ACCUM0_ADD_Field
     }
 
     /// Values written here are atomically added to ACCUM1
     /// Reading yields lane 1's raw shift and mask value (BASE1 not added).
     @RegisterBank(offset: 0x00f8)
-    public var interp1_accum1_add: Register<INTERP1_ACCUM1_ADD>
+    public var INTERP1_ACCUM1_ADD: Register<INTERP1_ACCUM1_ADD_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_ACCUM1_ADD {
+    public struct INTERP1_ACCUM1_ADD_Descriptor {
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var interp1_accum1_add: INTERP1_ACCUM1_ADD_Field
+        public var INTERP1_ACCUM1_ADD: INTERP1_ACCUM1_ADD_Field
     }
 
     /// On write, the lower 16 bits go to BASE0, upper bits to BASE1 simultaneously.
     /// Each half is sign-extended to 32 bits if that lane's SIGNED flag is set.
     @RegisterBank(offset: 0x00fc)
-    public var interp1_base_1and0: Register<INTERP1_BASE_1AND0>
+    public var INTERP1_BASE_1AND0: Register<INTERP1_BASE_1AND0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTERP1_BASE_1AND0 {}
+    public struct INTERP1_BASE_1AND0_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -802,10 +864,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0100)
-    public var spinlock0: Register<SPINLOCK0>
+    public var SPINLOCK0: Register<SPINLOCK0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK0 {}
+    public struct SPINLOCK0_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -814,10 +877,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0104)
-    public var spinlock1: Register<SPINLOCK1>
+    public var SPINLOCK1: Register<SPINLOCK1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK1 {}
+    public struct SPINLOCK1_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -826,10 +890,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0108)
-    public var spinlock2: Register<SPINLOCK2>
+    public var SPINLOCK2: Register<SPINLOCK2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK2 {}
+    public struct SPINLOCK2_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -838,10 +903,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x010c)
-    public var spinlock3: Register<SPINLOCK3>
+    public var SPINLOCK3: Register<SPINLOCK3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK3 {}
+    public struct SPINLOCK3_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -850,10 +916,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0110)
-    public var spinlock4: Register<SPINLOCK4>
+    public var SPINLOCK4: Register<SPINLOCK4_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK4 {}
+    public struct SPINLOCK4_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -862,10 +929,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0114)
-    public var spinlock5: Register<SPINLOCK5>
+    public var SPINLOCK5: Register<SPINLOCK5_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK5 {}
+    public struct SPINLOCK5_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -874,10 +942,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0118)
-    public var spinlock6: Register<SPINLOCK6>
+    public var SPINLOCK6: Register<SPINLOCK6_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK6 {}
+    public struct SPINLOCK6_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -886,10 +955,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x011c)
-    public var spinlock7: Register<SPINLOCK7>
+    public var SPINLOCK7: Register<SPINLOCK7_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK7 {}
+    public struct SPINLOCK7_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -898,10 +968,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0120)
-    public var spinlock8: Register<SPINLOCK8>
+    public var SPINLOCK8: Register<SPINLOCK8_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK8 {}
+    public struct SPINLOCK8_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -910,10 +981,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0124)
-    public var spinlock9: Register<SPINLOCK9>
+    public var SPINLOCK9: Register<SPINLOCK9_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK9 {}
+    public struct SPINLOCK9_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -922,10 +994,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0128)
-    public var spinlock10: Register<SPINLOCK10>
+    public var SPINLOCK10: Register<SPINLOCK10_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK10 {}
+    public struct SPINLOCK10_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -934,10 +1007,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x012c)
-    public var spinlock11: Register<SPINLOCK11>
+    public var SPINLOCK11: Register<SPINLOCK11_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK11 {}
+    public struct SPINLOCK11_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -946,10 +1020,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0130)
-    public var spinlock12: Register<SPINLOCK12>
+    public var SPINLOCK12: Register<SPINLOCK12_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK12 {}
+    public struct SPINLOCK12_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -958,10 +1033,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0134)
-    public var spinlock13: Register<SPINLOCK13>
+    public var SPINLOCK13: Register<SPINLOCK13_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK13 {}
+    public struct SPINLOCK13_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -970,10 +1046,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0138)
-    public var spinlock14: Register<SPINLOCK14>
+    public var SPINLOCK14: Register<SPINLOCK14_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK14 {}
+    public struct SPINLOCK14_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -982,10 +1059,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x013c)
-    public var spinlock15: Register<SPINLOCK15>
+    public var SPINLOCK15: Register<SPINLOCK15_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK15 {}
+    public struct SPINLOCK15_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -994,10 +1072,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0140)
-    public var spinlock16: Register<SPINLOCK16>
+    public var SPINLOCK16: Register<SPINLOCK16_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK16 {}
+    public struct SPINLOCK16_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1006,10 +1085,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0144)
-    public var spinlock17: Register<SPINLOCK17>
+    public var SPINLOCK17: Register<SPINLOCK17_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK17 {}
+    public struct SPINLOCK17_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1018,10 +1098,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0148)
-    public var spinlock18: Register<SPINLOCK18>
+    public var SPINLOCK18: Register<SPINLOCK18_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK18 {}
+    public struct SPINLOCK18_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1030,10 +1111,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x014c)
-    public var spinlock19: Register<SPINLOCK19>
+    public var SPINLOCK19: Register<SPINLOCK19_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK19 {}
+    public struct SPINLOCK19_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1042,10 +1124,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0150)
-    public var spinlock20: Register<SPINLOCK20>
+    public var SPINLOCK20: Register<SPINLOCK20_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK20 {}
+    public struct SPINLOCK20_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1054,10 +1137,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0154)
-    public var spinlock21: Register<SPINLOCK21>
+    public var SPINLOCK21: Register<SPINLOCK21_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK21 {}
+    public struct SPINLOCK21_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1066,10 +1150,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0158)
-    public var spinlock22: Register<SPINLOCK22>
+    public var SPINLOCK22: Register<SPINLOCK22_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK22 {}
+    public struct SPINLOCK22_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1078,10 +1163,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x015c)
-    public var spinlock23: Register<SPINLOCK23>
+    public var SPINLOCK23: Register<SPINLOCK23_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK23 {}
+    public struct SPINLOCK23_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1090,10 +1176,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0160)
-    public var spinlock24: Register<SPINLOCK24>
+    public var SPINLOCK24: Register<SPINLOCK24_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK24 {}
+    public struct SPINLOCK24_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1102,10 +1189,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0164)
-    public var spinlock25: Register<SPINLOCK25>
+    public var SPINLOCK25: Register<SPINLOCK25_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK25 {}
+    public struct SPINLOCK25_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1114,10 +1202,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0168)
-    public var spinlock26: Register<SPINLOCK26>
+    public var SPINLOCK26: Register<SPINLOCK26_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK26 {}
+    public struct SPINLOCK26_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1126,10 +1215,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x016c)
-    public var spinlock27: Register<SPINLOCK27>
+    public var SPINLOCK27: Register<SPINLOCK27_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK27 {}
+    public struct SPINLOCK27_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1138,10 +1228,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0170)
-    public var spinlock28: Register<SPINLOCK28>
+    public var SPINLOCK28: Register<SPINLOCK28_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK28 {}
+    public struct SPINLOCK28_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1150,10 +1241,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0174)
-    public var spinlock29: Register<SPINLOCK29>
+    public var SPINLOCK29: Register<SPINLOCK29_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK29 {}
+    public struct SPINLOCK29_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1162,10 +1254,11 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x0178)
-    public var spinlock30: Register<SPINLOCK30>
+    public var SPINLOCK30: Register<SPINLOCK30_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK30 {}
+    public struct SPINLOCK30_Descriptor {}
 
     /// Reading from a spinlock address will:
     /// - Return 0 if lock is already locked
@@ -1174,8 +1267,9 @@ public struct SIO {
     /// If core 0 and core 1 attempt to claim the same lock simultaneously, core 0 wins.
     /// The value returned on success is 0x1 << lock number.
     @RegisterBank(offset: 0x017c)
-    public var spinlock31: Register<SPINLOCK31>
+    public var SPINLOCK31: Register<SPINLOCK31_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SPINLOCK31 {}
+    public struct SPINLOCK31_Descriptor {}
 }

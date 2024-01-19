@@ -9,16 +9,17 @@ public struct TBMAN {
 
     /// Indicates the type of platform in use
     @RegisterBank(offset: 0x0000)
-    public var platform: Register<PLATFORM>
+    public var PLATFORM: Register<PLATFORM_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PLATFORM {
+    public struct PLATFORM_Descriptor {
         /// Indicates the platform is an FPGA
         @ReadOnly(bits: 1..<2, as: Bool.self)
-        public var fpga: FPGA_Field
+        public var FPGA: FPGA_Field
 
         /// Indicates the platform is an ASIC
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var asic: ASIC_Field
+        public var ASIC: ASIC_Field
     }
 }

@@ -8,35 +8,36 @@ public struct CLOCKS {
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0000)
-    public var clk_gpout0_ctrl: Register<CLK_GPOUT0_CTRL>
+    public var CLK_GPOUT0_CTRL: Register<CLK_GPOUT0_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT0_CTRL {
+    public struct CLK_GPOUT0_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Enables duty cycle correction for odd divisors
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var dc50: DC50_Field
+        public var DC50: DC50_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<9, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_sys = 0
@@ -57,58 +58,61 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0004)
-    public var clk_gpout0_div: Register<CLK_GPOUT0_DIV>
+    public var CLK_GPOUT0_DIV: Register<CLK_GPOUT0_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT0_DIV {
+    public struct CLK_GPOUT0_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0008)
-    public var clk_gpout0_selected: Register<CLK_GPOUT0_SELECTED>
+    public var CLK_GPOUT0_SELECTED: Register<CLK_GPOUT0_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT0_SELECTED {}
+    public struct CLK_GPOUT0_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x000c)
-    public var clk_gpout1_ctrl: Register<CLK_GPOUT1_CTRL>
+    public var CLK_GPOUT1_CTRL: Register<CLK_GPOUT1_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT1_CTRL {
+    public struct CLK_GPOUT1_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Enables duty cycle correction for odd divisors
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var dc50: DC50_Field
+        public var DC50: DC50_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<9, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_sys = 0
@@ -129,58 +133,61 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0010)
-    public var clk_gpout1_div: Register<CLK_GPOUT1_DIV>
+    public var CLK_GPOUT1_DIV: Register<CLK_GPOUT1_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT1_DIV {
+    public struct CLK_GPOUT1_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0014)
-    public var clk_gpout1_selected: Register<CLK_GPOUT1_SELECTED>
+    public var CLK_GPOUT1_SELECTED: Register<CLK_GPOUT1_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT1_SELECTED {}
+    public struct CLK_GPOUT1_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0018)
-    public var clk_gpout2_ctrl: Register<CLK_GPOUT2_CTRL>
+    public var CLK_GPOUT2_CTRL: Register<CLK_GPOUT2_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT2_CTRL {
+    public struct CLK_GPOUT2_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Enables duty cycle correction for odd divisors
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var dc50: DC50_Field
+        public var DC50: DC50_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<9, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_sys = 0
@@ -201,58 +208,61 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x001c)
-    public var clk_gpout2_div: Register<CLK_GPOUT2_DIV>
+    public var CLK_GPOUT2_DIV: Register<CLK_GPOUT2_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT2_DIV {
+    public struct CLK_GPOUT2_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0020)
-    public var clk_gpout2_selected: Register<CLK_GPOUT2_SELECTED>
+    public var CLK_GPOUT2_SELECTED: Register<CLK_GPOUT2_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT2_SELECTED {}
+    public struct CLK_GPOUT2_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0024)
-    public var clk_gpout3_ctrl: Register<CLK_GPOUT3_CTRL>
+    public var CLK_GPOUT3_CTRL: Register<CLK_GPOUT3_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT3_CTRL {
+    public struct CLK_GPOUT3_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Enables duty cycle correction for odd divisors
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var dc50: DC50_Field
+        public var DC50: DC50_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<9, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_sys = 0
@@ -273,36 +283,39 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0028)
-    public var clk_gpout3_div: Register<CLK_GPOUT3_DIV>
+    public var CLK_GPOUT3_DIV: Register<CLK_GPOUT3_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT3_DIV {
+    public struct CLK_GPOUT3_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x002c)
-    public var clk_gpout3_selected: Register<CLK_GPOUT3_SELECTED>
+    public var CLK_GPOUT3_SELECTED: Register<CLK_GPOUT3_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_GPOUT3_SELECTED {}
+    public struct CLK_GPOUT3_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0030)
-    public var clk_ref_ctrl: Register<CLK_REF_CTRL>
+    public var CLK_REF_CTRL: Register<CLK_REF_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_REF_CTRL {
+    public struct CLK_REF_CTRL_Descriptor {
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<7, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_usb = 0
@@ -314,7 +327,7 @@ public struct CLOCKS {
 
         /// Selects the clock source glitchlessly, can be changed on-the-fly
         @ReadWrite(bits: 0..<2, as: SRC_Values.self)
-        public var src: SRC_Field
+        public var SRC: SRC_Field
 
         public enum SRC_Values: UInt, BitFieldProjectable {
             case SRC_rosc_clksrc_ph = 0
@@ -327,32 +340,35 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0034)
-    public var clk_ref_div: Register<CLK_REF_DIV>
+    public var CLK_REF_DIV: Register<CLK_REF_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_REF_DIV {
+    public struct CLK_REF_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<10, as: BitField2.self)
-        public var int: INT_Field
+        public var INT: INT_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s.
     @RegisterBank(offset: 0x0038)
-    public var clk_ref_selected: Register<CLK_REF_SELECTED>
+    public var CLK_REF_SELECTED: Register<CLK_REF_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_REF_SELECTED {}
+    public struct CLK_REF_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x003c)
-    public var clk_sys_ctrl: Register<CLK_SYS_CTRL>
+    public var CLK_SYS_CTRL: Register<CLK_SYS_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_CTRL {
+    public struct CLK_SYS_CTRL_Descriptor {
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<8, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_sys = 0
@@ -367,7 +383,7 @@ public struct CLOCKS {
 
         /// Selects the clock source glitchlessly, can be changed on-the-fly
         @ReadWrite(bits: 0..<1, as: SRC_Values.self)
-        public var src: SRC_Field
+        public var SRC: SRC_Field
 
         public enum SRC_Values: UInt, BitFieldProjectable {
             case SRC_clk_ref = 0
@@ -379,44 +395,47 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0040)
-    public var clk_sys_div: Register<CLK_SYS_DIV>
+    public var CLK_SYS_DIV: Register<CLK_SYS_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_DIV {
+    public struct CLK_SYS_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// The glitchless multiplexer does not switch instantaneously (to avoid glitches), so software should poll this register to wait for the switch to complete. This register contains one decoded bit for each of the clock sources enumerated in the CTRL SRC field. At most one of these bits will be set at any time, indicating that clock is currently present at the output of the glitchless mux. Whilst switching is in progress, this register may briefly show all-0s.
     @RegisterBank(offset: 0x0044)
-    public var clk_sys_selected: Register<CLK_SYS_SELECTED>
+    public var CLK_SYS_SELECTED: Register<CLK_SYS_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_SELECTED {}
+    public struct CLK_SYS_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0048)
-    public var clk_peri_ctrl: Register<CLK_PERI_CTRL>
+    public var CLK_PERI_CTRL: Register<CLK_PERI_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_PERI_CTRL {
+    public struct CLK_PERI_CTRL_Descriptor {
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<8, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clk_sys = 0
@@ -434,38 +453,40 @@ public struct CLOCKS {
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0050)
-    public var clk_peri_selected: Register<CLK_PERI_SELECTED>
+    public var CLK_PERI_SELECTED: Register<CLK_PERI_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_PERI_SELECTED {}
+    public struct CLK_PERI_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0054)
-    public var clk_usb_ctrl: Register<CLK_USB_CTRL>
+    public var CLK_USB_CTRL: Register<CLK_USB_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_USB_CTRL {
+    public struct CLK_USB_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<8, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_usb = 0
@@ -481,50 +502,53 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0058)
-    public var clk_usb_div: Register<CLK_USB_DIV>
+    public var CLK_USB_DIV: Register<CLK_USB_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_USB_DIV {
+    public struct CLK_USB_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<10, as: BitField2.self)
-        public var int: INT_Field
+        public var INT: INT_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x005c)
-    public var clk_usb_selected: Register<CLK_USB_SELECTED>
+    public var CLK_USB_SELECTED: Register<CLK_USB_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_USB_SELECTED {}
+    public struct CLK_USB_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x0060)
-    public var clk_adc_ctrl: Register<CLK_ADC_CTRL>
+    public var CLK_ADC_CTRL: Register<CLK_ADC_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_ADC_CTRL {
+    public struct CLK_ADC_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<8, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_usb = 0
@@ -540,50 +564,53 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0064)
-    public var clk_adc_div: Register<CLK_ADC_DIV>
+    public var CLK_ADC_DIV: Register<CLK_ADC_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_ADC_DIV {
+    public struct CLK_ADC_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<10, as: BitField2.self)
-        public var int: INT_Field
+        public var INT: INT_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0068)
-    public var clk_adc_selected: Register<CLK_ADC_SELECTED>
+    public var CLK_ADC_SELECTED: Register<CLK_ADC_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_ADC_SELECTED {}
+    public struct CLK_ADC_SELECTED_Descriptor {}
 
     /// Clock control, can be changed on-the-fly (except for auxsrc)
     @RegisterBank(offset: 0x006c)
-    public var clk_rtc_ctrl: Register<CLK_RTC_CTRL>
+    public var CLK_RTC_CTRL: Register<CLK_RTC_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_RTC_CTRL {
+    public struct CLK_RTC_CTRL_Descriptor {
         /// An edge on this signal shifts the phase of the output by 1 cycle of the input clock
         /// This can be done at any time
         @ReadWrite(bits: 20..<21, as: Bool.self)
-        public var nudge: NUDGE_Field
+        public var NUDGE: NUDGE_Field
 
         /// This delays the enable signal by up to 3 cycles of the input clock
         /// This must be set before the clock is enabled to have any effect
         @ReadWrite(bits: 16..<18, as: BitField2.self)
-        public var phase: PHASE_Field
+        public var PHASE: PHASE_Field
 
         /// Starts and stops the clock generator cleanly
         @ReadWrite(bits: 11..<12, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// Asynchronously kills the clock generator
         @ReadWrite(bits: 10..<11, as: Bool.self)
-        public var kill: KILL_Field
+        public var KILL: KILL_Field
 
         /// Selects the auxiliary clock source, will glitch when switching
         @ReadWrite(bits: 5..<8, as: AUXSRC_Values.self)
-        public var auxsrc: AUXSRC_Field
+        public var AUXSRC: AUXSRC_Field
 
         public enum AUXSRC_Values: UInt, BitFieldProjectable {
             case AUXSRC_clksrc_pll_usb = 0
@@ -599,121 +626,131 @@ public struct CLOCKS {
 
     /// Clock divisor, can be changed on-the-fly
     @RegisterBank(offset: 0x0070)
-    public var clk_rtc_div: Register<CLK_RTC_DIV>
+    public var CLK_RTC_DIV: Register<CLK_RTC_DIV_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_RTC_DIV {
+    public struct CLK_RTC_DIV_Descriptor {
         /// Integer component of the divisor, 0 -> divide by 2^16
         @ReadWrite(bits: 8..<32, as: BitField24.self)
-        public var int: INT_Field
+        public var INT: INT_Field
 
         /// Fractional component of the divisor
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// Indicates which SRC is currently selected by the glitchless mux (one-hot).
     /// This slice does not have a glitchless mux (only the AUX_SRC field is present, not SRC) so this register is hardwired to 0x1.
     @RegisterBank(offset: 0x0074)
-    public var clk_rtc_selected: Register<CLK_RTC_SELECTED>
+    public var CLK_RTC_SELECTED: Register<CLK_RTC_SELECTED_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_RTC_SELECTED {}
+    public struct CLK_RTC_SELECTED_Descriptor {}
 
     @RegisterBank(offset: 0x0078)
-    public var clk_sys_resus_ctrl: Register<CLK_SYS_RESUS_CTRL>
+    public var CLK_SYS_RESUS_CTRL: Register<CLK_SYS_RESUS_CTRL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_RESUS_CTRL {
+    public struct CLK_SYS_RESUS_CTRL_Descriptor {
         /// For clearing the resus after the fault that triggered it has been corrected
         @ReadWrite(bits: 16..<17, as: Bool.self)
-        public var clear: CLEAR_Field
+        public var CLEAR: CLEAR_Field
 
         /// Force a resus, for test purposes only
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var frce: FRCE_Field
+        public var FRCE: FRCE_Field
 
         /// Enable resus
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var enable: ENABLE_Field
+        public var ENABLE: ENABLE_Field
 
         /// This is expressed as a number of clk_ref cycles
         /// and must be >= 2x clk_ref_freq/min_clk_tst_freq
         @ReadWrite(bits: 0..<8, as: BitField8.self)
-        public var timeout: TIMEOUT_Field
+        public var TIMEOUT: TIMEOUT_Field
     }
 
     @RegisterBank(offset: 0x007c)
-    public var clk_sys_resus_status: Register<CLK_SYS_RESUS_STATUS>
+    public var CLK_SYS_RESUS_STATUS: Register<CLK_SYS_RESUS_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct CLK_SYS_RESUS_STATUS {
+    public struct CLK_SYS_RESUS_STATUS_Descriptor {
         /// Clock has been resuscitated, correct the error then send ctrl_clear=1
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var resussed: RESUSSED_Field
+        public var RESUSSED: RESUSSED_Field
     }
 
     /// Reference clock frequency in kHz
     @RegisterBank(offset: 0x0080)
-    public var fc0_ref_khz: Register<FC0_REF_KHZ>
+    public var FC0_REF_KHZ: Register<FC0_REF_KHZ_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_REF_KHZ {
+    public struct FC0_REF_KHZ_Descriptor {
         @ReadWrite(bits: 0..<20, as: BitField20.self)
-        public var fc0_ref_khz: FC0_REF_KHZ_Field
+        public var FC0_REF_KHZ: FC0_REF_KHZ_Field
     }
 
     /// Minimum pass frequency in kHz. This is optional. Set to 0 if you are not using the pass/fail flags
     @RegisterBank(offset: 0x0084)
-    public var fc0_min_khz: Register<FC0_MIN_KHZ>
+    public var FC0_MIN_KHZ: Register<FC0_MIN_KHZ_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_MIN_KHZ {
+    public struct FC0_MIN_KHZ_Descriptor {
         @ReadWrite(bits: 0..<25, as: BitField25.self)
-        public var fc0_min_khz: FC0_MIN_KHZ_Field
+        public var FC0_MIN_KHZ: FC0_MIN_KHZ_Field
     }
 
     /// Maximum pass frequency in kHz. This is optional. Set to 0x1ffffff if you are not using the pass/fail flags
     @RegisterBank(offset: 0x0088)
-    public var fc0_max_khz: Register<FC0_MAX_KHZ>
+    public var FC0_MAX_KHZ: Register<FC0_MAX_KHZ_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_MAX_KHZ {
+    public struct FC0_MAX_KHZ_Descriptor {
         @ReadWrite(bits: 0..<25, as: BitField25.self)
-        public var fc0_max_khz: FC0_MAX_KHZ_Field
+        public var FC0_MAX_KHZ: FC0_MAX_KHZ_Field
     }
 
     /// Delays the start of frequency counting to allow the mux to settle
     /// Delay is measured in multiples of the reference clock period
     @RegisterBank(offset: 0x008c)
-    public var fc0_delay: Register<FC0_DELAY>
+    public var FC0_DELAY: Register<FC0_DELAY_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_DELAY {
+    public struct FC0_DELAY_Descriptor {
         @ReadWrite(bits: 0..<3, as: BitField3.self)
-        public var fc0_delay: FC0_DELAY_Field
+        public var FC0_DELAY: FC0_DELAY_Field
     }
 
     /// The test interval is 0.98us * 2**interval, but let's call it 1us * 2**interval
     /// The default gives a test interval of 250us
     @RegisterBank(offset: 0x0090)
-    public var fc0_interval: Register<FC0_INTERVAL>
+    public var FC0_INTERVAL: Register<FC0_INTERVAL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_INTERVAL {
+    public struct FC0_INTERVAL_Descriptor {
         @ReadWrite(bits: 0..<4, as: BitField4.self)
-        public var fc0_interval: FC0_INTERVAL_Field
+        public var FC0_INTERVAL: FC0_INTERVAL_Field
     }
 
     /// Clock sent to frequency counter, set to 0 when not required
     /// Writing to this register initiates the frequency count
     @RegisterBank(offset: 0x0094)
-    public var fc0_src: Register<FC0_SRC>
+    public var FC0_SRC: Register<FC0_SRC_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_SRC {
+    public struct FC0_SRC_Descriptor {
         @ReadWrite(bits: 0..<8, as: FC0_SRC_Values.self)
-        public var fc0_src: FC0_SRC_Field
+        public var FC0_SRC: FC0_SRC_Field
 
         public enum FC0_SRC_Values: UInt, BitFieldProjectable {
             case FC0_SRC_NULL = 0
@@ -737,62 +774,65 @@ public struct CLOCKS {
 
     /// Frequency counter status
     @RegisterBank(offset: 0x0098)
-    public var fc0_status: Register<FC0_STATUS>
+    public var FC0_STATUS: Register<FC0_STATUS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_STATUS {
+    public struct FC0_STATUS_Descriptor {
         /// Test clock stopped during test
         @ReadOnly(bits: 28..<29, as: Bool.self)
-        public var died: DIED_Field
+        public var DIED: DIED_Field
 
         /// Test clock faster than expected, only valid when status_done=1
         @ReadOnly(bits: 24..<25, as: Bool.self)
-        public var fast: FAST_Field
+        public var FAST: FAST_Field
 
         /// Test clock slower than expected, only valid when status_done=1
         @ReadOnly(bits: 20..<21, as: Bool.self)
-        public var slow: SLOW_Field
+        public var SLOW: SLOW_Field
 
         /// Test failed
         @ReadOnly(bits: 16..<17, as: Bool.self)
-        public var fail: FAIL_Field
+        public var FAIL: FAIL_Field
 
         /// Waiting for test clock to start
         @ReadOnly(bits: 12..<13, as: Bool.self)
-        public var waiting: WAITING_Field
+        public var WAITING: WAITING_Field
 
         /// Test running
         @ReadOnly(bits: 8..<9, as: Bool.self)
-        public var running: RUNNING_Field
+        public var RUNNING: RUNNING_Field
 
         /// Test complete
         @ReadOnly(bits: 4..<5, as: Bool.self)
-        public var done: DONE_Field
+        public var DONE: DONE_Field
 
         /// Test passed
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var pass: PASS_Field
+        public var PASS: PASS_Field
     }
 
     /// Result of frequency measurement, only valid when status_done=1
     @RegisterBank(offset: 0x009c)
-    public var fc0_result: Register<FC0_RESULT>
+    public var FC0_RESULT: Register<FC0_RESULT_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct FC0_RESULT {
+    public struct FC0_RESULT_Descriptor {
         @ReadOnly(bits: 5..<30, as: BitField25.self)
-        public var khz: KHZ_Field
+        public var KHZ: KHZ_Field
 
         @ReadOnly(bits: 0..<5, as: BitField5.self)
-        public var frac: FRAC_Field
+        public var FRAC: FRAC_Field
     }
 
     /// enable clock in wake mode
     @RegisterBank(offset: 0x00a0)
-    public var wake_en0: Register<WAKE_EN0>
+    public var WAKE_EN0: Register<WAKE_EN0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct WAKE_EN0 {
+    public struct WAKE_EN0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
         public var clk_sys_sram3: clk_sys_sram3_Field
 
@@ -892,10 +932,11 @@ public struct CLOCKS {
 
     /// enable clock in wake mode
     @RegisterBank(offset: 0x00a4)
-    public var wake_en1: Register<WAKE_EN1>
+    public var WAKE_EN1: Register<WAKE_EN1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct WAKE_EN1 {
+    public struct WAKE_EN1_Descriptor {
         @ReadWrite(bits: 14..<15, as: Bool.self)
         public var clk_sys_xosc: clk_sys_xosc_Field
 
@@ -944,10 +985,11 @@ public struct CLOCKS {
 
     /// enable clock in sleep mode
     @RegisterBank(offset: 0x00a8)
-    public var sleep_en0: Register<SLEEP_EN0>
+    public var SLEEP_EN0: Register<SLEEP_EN0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SLEEP_EN0 {
+    public struct SLEEP_EN0_Descriptor {
         @ReadWrite(bits: 31..<32, as: Bool.self)
         public var clk_sys_sram3: clk_sys_sram3_Field
 
@@ -1047,10 +1089,11 @@ public struct CLOCKS {
 
     /// enable clock in sleep mode
     @RegisterBank(offset: 0x00ac)
-    public var sleep_en1: Register<SLEEP_EN1>
+    public var SLEEP_EN1: Register<SLEEP_EN1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct SLEEP_EN1 {
+    public struct SLEEP_EN1_Descriptor {
         @ReadWrite(bits: 14..<15, as: Bool.self)
         public var clk_sys_xosc: clk_sys_xosc_Field
 
@@ -1099,10 +1142,11 @@ public struct CLOCKS {
 
     /// indicates the state of the clock enable
     @RegisterBank(offset: 0x00b0)
-    public var enabled0: Register<ENABLED0>
+    public var ENABLED0: Register<ENABLED0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ENABLED0 {
+    public struct ENABLED0_Descriptor {
         @ReadOnly(bits: 31..<32, as: Bool.self)
         public var clk_sys_sram3: clk_sys_sram3_Field
 
@@ -1202,10 +1246,11 @@ public struct CLOCKS {
 
     /// indicates the state of the clock enable
     @RegisterBank(offset: 0x00b4)
-    public var enabled1: Register<ENABLED1>
+    public var ENABLED1: Register<ENABLED1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct ENABLED1 {
+    public struct ENABLED1_Descriptor {
         @ReadOnly(bits: 14..<15, as: Bool.self)
         public var clk_sys_xosc: clk_sys_xosc_Field
 
@@ -1254,41 +1299,45 @@ public struct CLOCKS {
 
     /// Raw Interrupts
     @RegisterBank(offset: 0x00b8)
-    public var intr: Register<INTR>
+    public var INTR: Register<INTR_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTR {
+    public struct INTR_Descriptor {
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var clk_sys_resus: CLK_SYS_RESUS_Field
+        public var CLK_SYS_RESUS: CLK_SYS_RESUS_Field
     }
 
     /// Interrupt Enable
     @RegisterBank(offset: 0x00bc)
-    public var inte: Register<INTE>
+    public var INTE: Register<INTE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTE {
+    public struct INTE_Descriptor {
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var clk_sys_resus: CLK_SYS_RESUS_Field
+        public var CLK_SYS_RESUS: CLK_SYS_RESUS_Field
     }
 
     /// Interrupt Force
     @RegisterBank(offset: 0x00c0)
-    public var intf: Register<INTF>
+    public var INTF: Register<INTF_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTF {
+    public struct INTF_Descriptor {
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var clk_sys_resus: CLK_SYS_RESUS_Field
+        public var CLK_SYS_RESUS: CLK_SYS_RESUS_Field
     }
 
     /// Interrupt status after masking & forcing
     @RegisterBank(offset: 0x00c4)
-    public var ints: Register<INTS>
+    public var INTS: Register<INTS_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct INTS {
+    public struct INTS_Descriptor {
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var clk_sys_resus: CLK_SYS_RESUS_Field
+        public var CLK_SYS_RESUS: CLK_SYS_RESUS_Field
     }
 }

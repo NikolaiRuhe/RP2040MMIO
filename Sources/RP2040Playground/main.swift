@@ -4,26 +4,26 @@ import RP2040MMIO
 
 
 // Not sure how to get the size of a register bank.
-let registerCount = Int(XOSC(unsafeAddress: 0).count.unsafeAddress) / 4 + 1
+let registerCount = Int(RP2040MMIO.XOSC(unsafeAddress: 0).COUNT.unsafeAddress) / 4 + 1
 let mockRegisterBank = UnsafeMutableBufferPointer<UInt32>.allocate(capacity: registerCount)
 mockRegisterBank.initialize(repeating: 0)
 
 // Initialize to reset values.
 mockRegisterBank[0] = 0x00fabaa0
 
-let xosc = XOSC(unsafeAddress: UInt(bitPattern: mockRegisterBank.baseAddress!))
+let XOSC = RP2040MMIO.XOSC(unsafeAddress: UInt(bitPattern: mockRegisterBank.baseAddress!))
 
 // Modify some value
-xosc.count.modify { $0.count = 127 }
+XOSC.COUNT.modify { $0.COUNT = 127 }
 
 // Print various register field contents
-print("XOSC.ctrl.enable: \(xosc.ctrl.read().enable)")
-print("XOSC.ctrl.freq_range: \(xosc.ctrl.read().freq_range)")
-print("XOSC.status.badwrite: \(xosc.status.read().badwrite)")
-print("XOSC.status.enabled: \(xosc.status.read().enabled)")
-print("XOSC.status.stable: \(xosc.status.read().stable)")
-print("XOSC.status.freq_range: \(xosc.status.read().freq_range)")
-print("XOSC.count.count: \(xosc.count.read().count)")
+print("XOSC.CTRL.ENABLE: \(XOSC.CTRL.read().ENABLE)")
+print("XOSC.CTRL.FREQ_RANGE: \(XOSC.CTRL.read().FREQ_RANGE)")
+print("XOSC.STATUS.BADWRITE: \(XOSC.STATUS.read().BADWRITE)")
+print("XOSC.STATUS.ENABLED: \(XOSC.STATUS.read().ENABLED)")
+print("XOSC.STATUS.STABLE: \(XOSC.STATUS.read().STABLE)")
+print("XOSC.STATUS.FREQ_RANGE: \(XOSC.STATUS.read().FREQ_RANGE)")
+print("XOSC.COUNT.COUNT: \(XOSC.COUNT.read().COUNT)")
 
 mockRegisterBank.deinitialize()
 mockRegisterBank.deallocate()

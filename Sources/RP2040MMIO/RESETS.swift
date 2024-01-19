@@ -8,10 +8,11 @@ public struct RESETS {
 
     /// Reset control. If a bit is set it means the peripheral is in reset. 0 means the peripheral's reset is deasserted.
     @RegisterBank(offset: 0x0000)
-    public var reset: Register<RESET>
+    public var RESET: Register<RESET_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RESET {
+    public struct RESET_Descriptor {
         @ReadWrite(bits: 24..<25, as: Bool.self)
         public var usbctrl: usbctrl_Field
 
@@ -90,10 +91,11 @@ public struct RESETS {
 
     /// Watchdog select. If a bit is set then the watchdog will reset this peripheral when the watchdog fires.
     @RegisterBank(offset: 0x0004)
-    public var wdsel: Register<WDSEL>
+    public var WDSEL: Register<WDSEL_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct WDSEL {
+    public struct WDSEL_Descriptor {
         @ReadWrite(bits: 24..<25, as: Bool.self)
         public var usbctrl: usbctrl_Field
 
@@ -172,10 +174,11 @@ public struct RESETS {
 
     /// Reset done. If a bit is set then a reset done signal has been returned by the peripheral. This indicates that the peripheral's registers are ready to be accessed.
     @RegisterBank(offset: 0x0008)
-    public var reset_done: Register<RESET_DONE>
+    public var RESET_DONE: Register<RESET_DONE_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct RESET_DONE {
+    public struct RESET_DONE_Descriptor {
         @ReadOnly(bits: 24..<25, as: Bool.self)
         public var usbctrl: usbctrl_Field
 

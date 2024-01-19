@@ -9,62 +9,66 @@ public struct BUSCTRL {
 
     /// Set the priority of each master for bus arbitration.
     @RegisterBank(offset: 0x0000)
-    public var bus_priority: Register<BUS_PRIORITY>
+    public var BUS_PRIORITY: Register<BUS_PRIORITY_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct BUS_PRIORITY {
+    public struct BUS_PRIORITY_Descriptor {
         /// 0 - low priority, 1 - high priority
         @ReadWrite(bits: 12..<13, as: Bool.self)
-        public var dma_w: DMA_W_Field
+        public var DMA_W: DMA_W_Field
 
         /// 0 - low priority, 1 - high priority
         @ReadWrite(bits: 8..<9, as: Bool.self)
-        public var dma_r: DMA_R_Field
+        public var DMA_R: DMA_R_Field
 
         /// 0 - low priority, 1 - high priority
         @ReadWrite(bits: 4..<5, as: Bool.self)
-        public var proc1: PROC1_Field
+        public var PROC1: PROC1_Field
 
         /// 0 - low priority, 1 - high priority
         @ReadWrite(bits: 0..<1, as: Bool.self)
-        public var proc0: PROC0_Field
+        public var PROC0: PROC0_Field
     }
 
     /// Bus priority acknowledge
     @RegisterBank(offset: 0x0004)
-    public var bus_priority_ack: Register<BUS_PRIORITY_ACK>
+    public var BUS_PRIORITY_ACK: Register<BUS_PRIORITY_ACK_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct BUS_PRIORITY_ACK {
+    public struct BUS_PRIORITY_ACK_Descriptor {
         /// Goes to 1 once all arbiters have registered the new global priority levels.
         /// Arbiters update their local priority when servicing a new nonsequential access.
         /// In normal circumstances this will happen almost immediately.
         @ReadOnly(bits: 0..<1, as: Bool.self)
-        public var bus_priority_ack: BUS_PRIORITY_ACK_Field
+        public var BUS_PRIORITY_ACK: BUS_PRIORITY_ACK_Field
     }
 
     /// Bus fabric performance counter 0
     @RegisterBank(offset: 0x0008)
-    public var perfctr0: Register<PERFCTR0>
+    public var PERFCTR0: Register<PERFCTR0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFCTR0 {
+    public struct PERFCTR0_Descriptor {
         /// Busfabric saturating performance counter 0
         /// Count some event signal from the busfabric arbiters.
         /// Write any value to clear. Select an event to count using PERFSEL0
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var perfctr0: PERFCTR0_Field
+        public var PERFCTR0: PERFCTR0_Field
     }
 
     /// Bus fabric performance event select for PERFCTR0
     @RegisterBank(offset: 0x000c)
-    public var perfsel0: Register<PERFSEL0>
+    public var PERFSEL0: Register<PERFSEL0_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFSEL0 {
+    public struct PERFSEL0_Descriptor {
         /// Select an event for PERFCTR0. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
         @ReadWrite(bits: 0..<5, as: PERFSEL0_Values.self)
-        public var perfsel0: PERFSEL0_Field
+        public var PERFSEL0: PERFSEL0_Field
 
         public enum PERFSEL0_Values: UInt, BitFieldProjectable {
             case PERFSEL0_apb_contested = 0
@@ -94,26 +98,28 @@ public struct BUSCTRL {
 
     /// Bus fabric performance counter 1
     @RegisterBank(offset: 0x0010)
-    public var perfctr1: Register<PERFCTR1>
+    public var PERFCTR1: Register<PERFCTR1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFCTR1 {
+    public struct PERFCTR1_Descriptor {
         /// Busfabric saturating performance counter 1
         /// Count some event signal from the busfabric arbiters.
         /// Write any value to clear. Select an event to count using PERFSEL1
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var perfctr1: PERFCTR1_Field
+        public var PERFCTR1: PERFCTR1_Field
     }
 
     /// Bus fabric performance event select for PERFCTR1
     @RegisterBank(offset: 0x0014)
-    public var perfsel1: Register<PERFSEL1>
+    public var PERFSEL1: Register<PERFSEL1_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFSEL1 {
+    public struct PERFSEL1_Descriptor {
         /// Select an event for PERFCTR1. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
         @ReadWrite(bits: 0..<5, as: PERFSEL1_Values.self)
-        public var perfsel1: PERFSEL1_Field
+        public var PERFSEL1: PERFSEL1_Field
 
         public enum PERFSEL1_Values: UInt, BitFieldProjectable {
             case PERFSEL1_apb_contested = 0
@@ -143,26 +149,28 @@ public struct BUSCTRL {
 
     /// Bus fabric performance counter 2
     @RegisterBank(offset: 0x0018)
-    public var perfctr2: Register<PERFCTR2>
+    public var PERFCTR2: Register<PERFCTR2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFCTR2 {
+    public struct PERFCTR2_Descriptor {
         /// Busfabric saturating performance counter 2
         /// Count some event signal from the busfabric arbiters.
         /// Write any value to clear. Select an event to count using PERFSEL2
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var perfctr2: PERFCTR2_Field
+        public var PERFCTR2: PERFCTR2_Field
     }
 
     /// Bus fabric performance event select for PERFCTR2
     @RegisterBank(offset: 0x001c)
-    public var perfsel2: Register<PERFSEL2>
+    public var PERFSEL2: Register<PERFSEL2_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFSEL2 {
+    public struct PERFSEL2_Descriptor {
         /// Select an event for PERFCTR2. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
         @ReadWrite(bits: 0..<5, as: PERFSEL2_Values.self)
-        public var perfsel2: PERFSEL2_Field
+        public var PERFSEL2: PERFSEL2_Field
 
         public enum PERFSEL2_Values: UInt, BitFieldProjectable {
             case PERFSEL2_apb_contested = 0
@@ -192,26 +200,28 @@ public struct BUSCTRL {
 
     /// Bus fabric performance counter 3
     @RegisterBank(offset: 0x0020)
-    public var perfctr3: Register<PERFCTR3>
+    public var PERFCTR3: Register<PERFCTR3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFCTR3 {
+    public struct PERFCTR3_Descriptor {
         /// Busfabric saturating performance counter 3
         /// Count some event signal from the busfabric arbiters.
         /// Write any value to clear. Select an event to count using PERFSEL3
         @ReadWrite(bits: 0..<24, as: BitField24.self)
-        public var perfctr3: PERFCTR3_Field
+        public var PERFCTR3: PERFCTR3_Field
     }
 
     /// Bus fabric performance event select for PERFCTR3
     @RegisterBank(offset: 0x0024)
-    public var perfsel3: Register<PERFSEL3>
+    public var PERFSEL3: Register<PERFSEL3_Descriptor>
+
 
     @Register(bitWidth: 32)
-    public struct PERFSEL3 {
+    public struct PERFSEL3_Descriptor {
         /// Select an event for PERFCTR3. Count either contested accesses, or all accesses, on a downstream port of the main crossbar.
         @ReadWrite(bits: 0..<5, as: PERFSEL3_Values.self)
-        public var perfsel3: PERFSEL3_Field
+        public var PERFSEL3: PERFSEL3_Field
 
         public enum PERFSEL3_Values: UInt, BitFieldProjectable {
             case PERFSEL3_apb_contested = 0
